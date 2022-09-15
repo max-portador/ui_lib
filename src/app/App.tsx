@@ -1,12 +1,11 @@
 import {Suspense} from "react";
-import Counter from "./components/Counter";
 import {Link, Route, Routes} from "react-router-dom";
-import {AboutPageAsync} from "./pages/AboutPage/AboutPage.async";
-import {MainPageAsync} from "./pages/MainPage/MainPage.async";
+import {Theme} from "app/providers/ThemeProvider/lib/ThemeContext";
+import {useTheme} from "app/providers/ThemeProvider";
+import {classNames} from "shared/lib/classNames/classNames";
+import {AboutPage} from "pages/AboutPage";
+import {MainPage} from "pages/MainPage";
 import './styles/index.scss'
-import {Theme} from "./theme/ThemeContext";
-import {useTheme} from "./theme/useTheme";
-import {classNames} from "./helpers/classNames/classNames";
 
 
 const App = () => {
@@ -17,17 +16,20 @@ const App = () => {
             <button onClick={toggleTheme}>
                 {`${theme === Theme.DARK ? 'Светлая' : 'Тёмная'} тема`}
             </button>
+
             <div/>
+
             <Link to={'/'}>Главная страница</Link>
+
             <span> </span>
+
             <Link to={'/about'}>О сайте</Link>
             <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
-                    <Route path={'/about'} element={<AboutPageAsync/>}/>
-                    <Route path={'/'} element={<MainPageAsync/>}/>
+                    <Route path={'/about'} element={<AboutPage/>}/>
+                    <Route path={'/'} element={<MainPage/>}/>
                 </Routes>
             </Suspense>
-            <Counter/>
         </div>
     );
 };

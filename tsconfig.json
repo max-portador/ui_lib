@@ -10,6 +10,9 @@
     "moduleResolution": "node",
     /// позволяет работать с пакетами CommonJS (require) как с обычными пакетами через import
     "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
+    },
     "esModuleInterop": true,
     /// позволяют импортировать без import * as path from 'path'
     "allowSyntheticDefaultImports": true,
