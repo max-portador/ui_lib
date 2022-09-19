@@ -4,12 +4,10 @@ import {type BuildOptions} from "./types/config";
 
 export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
 
-    // Если не используем TS - нужен babel-loader
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    }
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    };
 
     const cssLoader = {
         test: /\.s[ac]ss$/i,
@@ -32,9 +30,27 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
             // Compiles Sass to CSS
             "sass-loader",
         ],
-    }
+    };
+
+    // Если не используем TS - нужен babel-loader
+    const typescriptLoader = {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+    };
+
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif|woff2)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            },
+        ],
+    };
 
     return [
+        fileLoader,
+        svgLoader,
         typescriptLoader,
         cssLoader,
     ]
