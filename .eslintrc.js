@@ -45,6 +45,9 @@ module.exports = {
             'error',
             'unix',
         ],
+        'import/no-import-module-exports': ['error', {
+            exceptions: ['**/config/storybook/*.js'],
+        }],
         quotes: [
             'error',
             'single',
