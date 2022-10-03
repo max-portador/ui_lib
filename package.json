@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "unit": "jest --config ./config/jest/jest.config.ts",
+    "test:unit": "jest --config ./config/jest/jest.config.ts",
+    "test:ui": "npx loki test",
+    "test:ui:ok": "npx loki approve",
     "start": "webpack serve --env port=3000",
     "build:prod": "lsof -t -i tcp:8888 | xargs kill && webpack --env mode=production",
     "build:dev": "lsof -t -i tcp:8888 | xargs kill && webpack --env mode=development",
@@ -12,8 +14,8 @@
     "lint:ts:fix": "eslint \"**/*.{ts, tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
-    "storybook": "start-storybook -p 6006 -c ./config/storybook",
-    "build-storybook": "build-storybook -c ./config/storybook"
+    "sb": "start-storybook -p 6006 -c ./config/storybook",
+    "sb:build": "build-storybook -c ./config/storybook"
   },
   "keywords": [],
   "author": "",
