@@ -18,7 +18,7 @@
   margin-left: 20px;
 }
 
-.collapseBtn{
+.collapseBtn {
   position: absolute;
   right: -32px;
   bottom: 40px;
@@ -43,7 +43,7 @@
 }
 
 .icon {
-  fill: var(--inverted-primary-color)
+  fill: var(--inverted-primary-color);
 }
 
 .collapsed {
@@ -64,4 +64,3 @@
     width: 0;
   }
 }
-
