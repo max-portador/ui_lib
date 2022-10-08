@@ -18,7 +18,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
-        run: npm install
+        run: npm ci
+      - name: build storybook
+        if: always()
+        run: npm run sb:build
+      - name: screenshot testing
+        run: npm run test:ui:ci
       - name: build production project
         run: npm run build:prod
       - name: linting typescript
@@ -30,9 +35,5 @@ jobs:
       - name: unit testing
         if: always()
         run: npm run test:unit
-      - name: build storybook
-        if: always()
-        run: npm run sb:build
-      - name: screenshot testing
-        run: npm run test:ui:ci
+
 
