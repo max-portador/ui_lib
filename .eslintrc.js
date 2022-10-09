@@ -50,6 +50,7 @@ module.exports = {
             'error',
             'unix',
         ],
+        'no-param-reassign': 'off',
         'import/no-import-module-exports': ['error', {
             exceptions: ['**/config/storybook/*.js'],
         }],
