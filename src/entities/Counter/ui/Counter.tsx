@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 import { counterActions } from '../model/slice/counterSLice';
 
-const Counter = () => {
+export const Counter = () => {
     const dispatch = useDispatch();
     const counterValue = useSelector(getCounterValue);
     const { t } = useTranslation();
@@ -29,5 +29,3 @@ const Counter = () => {
 
     );
 };
-
-export default Counter;

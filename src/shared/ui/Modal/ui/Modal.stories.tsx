@@ -4,7 +4,7 @@ import 'app/styles/index.scss';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import Modal from './Modal';
+import { Modal } from './Modal';
 
 export default {
     title: 'shared/Modal',

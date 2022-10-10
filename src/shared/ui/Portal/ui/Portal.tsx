@@ -14,4 +14,4 @@ const Portal: FC<PortalProps> = (props) => {
     return createPortal(children, element);
 };
 
-export default Portal;
+export { Portal };
