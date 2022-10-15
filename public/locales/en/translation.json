@@ -11,6 +11,10 @@
   "Вызвать ошибку": "Throw Error",
   "Короткий язык": "En",
   "value": "value",
-  "Введите username": "Введите username",
-  "Введите пароль": "Введите пароль"
+  "Войти": "Login",
+  "Введите username": "Enter username",
+  "Введите пароль": "Enter password",
+  "Форма авторизации": "Authorization Form",
+  "error": "Wrong username or password",
+  "Выйти": "Logout"
 }
