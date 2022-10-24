@@ -24,7 +24,7 @@ const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
 
     useEffect(() => {
         Object.entries(reducers).forEach(([name, reducer]: ReducersListEntry) => {
-            store.reducerManager.add('loginForm', reducer);
+            store.reducerManager.add('profile', reducer);
             dispatch({ type: `@INIT ${name} reducer` });
         });
 
