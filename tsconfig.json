@@ -7,6 +7,7 @@
     "target": "es5",
     "jsx": "react-jsx",
     "allowJs": true,
+    "strict": true,
     "moduleResolution": "node",
     /// позволяет работать с пакетами CommonJS (require) как с обычными пакетами через import
     "baseUrl": ".",

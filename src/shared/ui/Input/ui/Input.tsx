@@ -63,6 +63,7 @@ const InputRaw = memo((props: InputProps) => {
                     ref={ref}
                     className={cls.input}
                     type={type}
+                    defaultValue={value}
                     onChange={onChangeHandler}
                     onFocus={onFocusHandler}
                     onBlur={onBlurHandler}

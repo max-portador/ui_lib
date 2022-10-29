@@ -18,7 +18,7 @@ const Text = memo((props: TextProps) => {
         className,
         text,
         title,
-        theme,
+        theme = '',
     } = props;
     return (
         <div className={classNames('', {}, [className, cls[theme]])}>

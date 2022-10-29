@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { CounterSchema } from 'entities/Counter';
 import { counterActions, counterReducer } from './counterSLice';
 
@@ -18,7 +17,7 @@ describe('counterSlice', () => {
             .toEqual({ value: 109 });
     });
     test('increment with undefined state', () => {
-        expect(counterReducer(undefined as CounterSchema, counterActions.increment))
+        expect(counterReducer(undefined, counterActions.increment))
             .toEqual({ value: 1 });
     });
 });

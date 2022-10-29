@@ -24,7 +24,7 @@ describe('classNames', () => {
     test('with mods undefined', () => {
         const expected = 'someCLass class1 class2 hovered';
         const additional = ['class1', 'class2'];
-        const mods = { hovered: true, scrollable: undefined as boolean };
+        const mods = { hovered: true, scrollable: undefined };
         expect(classNames('someCLass', mods, additional)).toEqual(expected);
     });
 });

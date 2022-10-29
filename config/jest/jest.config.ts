@@ -16,6 +16,7 @@ export default {
     // cacheDirectory: "/private/var/folders/s_/p_6mmcy15fb5y8j044bt_t100000gn/T/jest_dx",
     globals: {
         __IS_DEV__: true,
+        __API__: '',
     },
 
     testEnvironment: 'jsdom',

@@ -50,6 +50,7 @@ module.exports = {
             'error',
             'unix',
         ],
+        'no-undef': 'off',
         'no-param-reassign': 'off',
         'import/no-import-module-exports': ['error', {
             exceptions: ['**/config/storybook/*.js'],
@@ -71,6 +72,7 @@ module.exports = {
     },
     globals: {
         __IS_DEV__: true,
+        __API__: true,
     },
     overrides: [
         {
