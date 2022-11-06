@@ -11,12 +11,11 @@
   "Вызвать ошибку": "Throw Error",
   "Короткий язык": "En",
   "value": "value",
+  "Профиль": "Profile",
   "Войти": "Login",
   "Введите username": "Enter username",
   "Введите пароль": "Enter password",
   "Форма авторизации": "Authorization Form",
   "error": "Wrong username or password",
-  "Выйти": "Logout",
-  "Ваше имя": "Ваше имя",
-  "Ваша фамилия": "Ваша фамилия"
+  "Выйти": "Logout"
 }
