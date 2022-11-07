@@ -17,5 +17,6 @@
   "Введите пароль": "Enter password",
   "Форма авторизации": "Authorization Form",
   "error": "Wrong username or password",
-  "Выйти": "Logout"
+  "Выйти": "Logout",
+  "Укажите валюту": "Укажите валюту"
 }

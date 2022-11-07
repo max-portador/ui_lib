@@ -23,9 +23,3 @@ Primary.args = {
         { value: '3', content: 'Третье значение' },
     ],
 };
-
-// export const Small = Template.bind({});
-// Small.args = {
-//     size: 50,
-//     src: SelectImg,
-// };

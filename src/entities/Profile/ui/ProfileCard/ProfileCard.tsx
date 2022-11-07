@@ -7,8 +7,9 @@ import { Profile } from 'features/EditableProfileCard';
 import { Loader } from 'shared/ui/Loader';
 import { TextAlign } from 'shared/ui/Text/ui/Text';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Select } from 'shared/ui/Select/Select';
-import { Currency } from 'shared/const/common';
+import { Currency, CurrencySelect } from 'entities/Currency';
+import { Country } from 'entities/Country/model/types/countries';
+import { CountrySelect } from 'entities/Country';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -17,12 +18,14 @@ interface ProfileCardProps {
     isLoading?: boolean;
     error?: string;
     readonly: boolean,
-    onChangeFirstName: (value: string) => void
-    onChangeLastName: (value: string) => void
-    onChangeAge: (value: string) => void
-    onChangeCity: (value: string) => void
-    onChangeUsername: (value: string) => void
+    onChangeFirstName?: (value: string) => void
+    onChangeLastName?: (value: string) => void
+    onChangeAge?: (value: string) => void
+    onChangeCity?: (value: string) => void
+    onChangeUsername?: (value: string) => void
     onChangeAvatar: (value: string) => void
+    onChangeCurrency?: (cuurency: Currency) => void
+    onChangeCountry?:(country: Country) => void
 }
 
 const ProfileCard: FC<ProfileCardProps> = (props) => {
@@ -40,6 +43,8 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
         onChangeCity,
         onChangeUsername,
         onChangeAvatar,
+        onChangeCurrency,
+        onChangeCountry,
     } = props;
 
     if (isLoading) {
@@ -117,13 +122,17 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
                     readonly={readonly}
                     onChange={onChangeAvatar}
                 />
-                <Select
-                    label="Укажите валюту"
-                    options={[
-                        { value: Currency.RUB, content: Currency.RUB },
-                        { value: Currency.EUR, content: Currency.EUR },
-                        { value: Currency.USD, content: Currency.USD },
-                    ]}
+                <CurrencySelect
+                    className={classNames(cls.input)}
+                    value={data?.currency}
+                    onChange={onChangeCurrency}
+                    readonly={readonly}
+                />
+                <CountrySelect
+                    className={classNames(cls.input)}
+                    value={data?.country}
+                    readonly={readonly}
+                    onChange={onChangeCountry}
                 />
             </div>
         </div>

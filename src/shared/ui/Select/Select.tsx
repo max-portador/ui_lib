@@ -13,6 +13,7 @@ interface SelectProps {
     options?: SelectOption[]
     value?: string
     onChange?: (value: string) => void
+    readonly: boolean
 }
 
 const Select: FC<SelectProps> = (props) => {
@@ -22,6 +23,7 @@ const Select: FC<SelectProps> = (props) => {
         options,
         value,
         onChange,
+        readonly,
     } = props;
 
     const onChaneHandler = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -43,7 +45,12 @@ const Select: FC<SelectProps> = (props) => {
                     {`${label}>`}
                 </span>
             )}
-            <select className={cls.select} onChange={onChaneHandler} value={value}>
+            <select
+                className={cls.select}
+                onChange={onChaneHandler}
+                value={value}
+                disabled={readonly}
+            >
                 {optionList}
             </select>
         </div>

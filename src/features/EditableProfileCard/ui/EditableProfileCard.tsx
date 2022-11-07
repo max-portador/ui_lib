@@ -1,10 +1,11 @@
 import React, { FC, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { ProfileCard } from 'entities/Profile';
 import { useSelector } from 'react-redux';
 import { EditableProfileCardHeader, profileActions } from 'features/EditableProfileCard';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
 import { updateProfileData } from '../model/services/updateProfileData/updateProfileData';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
@@ -16,7 +17,6 @@ interface EditableProfileCardProps {
 }
 
 const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
-    const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
     const data = useSelector(getProfileForm);
@@ -64,6 +64,14 @@ const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
         dispatch(profileActions.updateProfile({ avatar: value || '' }));
     }, [dispatch]);
 
+    const onChangeCurrency = useCallback((currency: Currency) => {
+        dispatch(profileActions.updateProfile({ currency }));
+    }, [dispatch]);
+
+    const onChangeCountry = useCallback((country: Country) => {
+        dispatch(profileActions.updateProfile({ country }));
+    }, [dispatch]);
+
     return (
         <div className={classNames('', {}, [className])}>
             <EditableProfileCardHeader
@@ -83,6 +91,8 @@ const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
                 onChangeCity={onChangeCity}
                 onChangeUsername={onChangeUsername}
                 onChangeAvatar={onChangeAvatar}
+                onChangeCurrency={onChangeCurrency}
+                onChangeCountry={onChangeCountry}
             />
         </div>
     );
