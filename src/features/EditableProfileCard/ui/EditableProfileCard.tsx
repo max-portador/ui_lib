@@ -2,15 +2,18 @@ import React, { FC, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ProfileCard } from 'entities/Profile';
 import { useSelector } from 'react-redux';
-import { EditableProfileCardHeader, profileActions } from 'features/EditableProfileCard';
+import { EditableProfileCardHeader, profileActions, ValidateProfileError } from 'features/EditableProfileCard';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { Text, TextTheme } from 'shared/ui/Text';
+import { useTranslation } from 'react-i18next';
 import { updateProfileData } from '../model/services/updateProfileData/updateProfileData';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 
 interface EditableProfileCardProps {
     className?: string;
@@ -18,11 +21,21 @@ interface EditableProfileCardProps {
 
 const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
     const dispatch = useAppDispatch();
+    const { t } = useTranslation('profile');
 
     const data = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
-    const readonly = useSelector(getProfileReadonly);
+    const readonly = useSelector(getProfileReadonly) || false;
+    const validateErrors = useSelector(getProfileValidateErrors);
+
+    const validateErrorTranslates = {
+        [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+        [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('Некоректный регион'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+        [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+    };
 
     const {
         className,
@@ -80,6 +93,9 @@ const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
                 onCancelEdit={onCancelEdit}
                 onSave={onSave}
             />
+            {validateErrors?.length && validateErrors.map((err) => (
+                <Text theme={TextTheme.ERROR} text={validateErrorTranslates[err]} key={err} />
+            ))}
             <ProfileCard
                 data={data}
                 isLoading={isLoading}
