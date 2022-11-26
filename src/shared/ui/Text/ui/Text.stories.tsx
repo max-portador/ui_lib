@@ -4,7 +4,7 @@ import 'app/styles/index.scss';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Text, TextTheme } from './Text';
+import { Text, TextSize, TextTheme } from './Text';
 
 export default {
     title: 'shared/Text',
@@ -66,3 +66,12 @@ OnlyTextDark.args = {
 };
 
 OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+    title: 'Size L',
+    text: 'Size L',
+    size: TextSize.L,
+};
+
+SizeL.decorators = [ThemeDecorator(Theme.DARK)];
