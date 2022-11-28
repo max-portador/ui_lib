@@ -35,7 +35,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
     return (
         <div className={classNames(cls.ArticlesPage, {}, [className])}>
             {articles.map((article, id) => (
-                <AppLink to={`${prefix}${article.id}`} key={article.id}>
+                <AppLink to={`${prefix}/${article.id}`} key={article.id}>
                     {id + 1}
                     {dot}
                     {article.title}

@@ -1,10 +1,9 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { EditableProfileCard, fetchProfileData, profileReducer } from 'features/EditableProfileCard';
-// import cls from './ProfilePage.module.scss';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -15,19 +14,15 @@ interface ProfilePageProps {
 }
 
 const ProfilePage: FC<ProfilePageProps> = (props) => {
-    const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
     const {
         className,
-        children,
     } = props;
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
-        }
-    }, [dispatch]);
+    useInitialEffect(() => {
+        dispatch(fetchProfileData());
+    });
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
