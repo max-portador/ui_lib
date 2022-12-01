@@ -3,12 +3,12 @@ import { Comment } from 'entities/Comment';
 import { StateSchema } from 'app/providers/StoreProvider';
 import {
     fetchCommentsByArticleId,
-} from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+} from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
 
 type Book = { bookId: string; title: string }
 
-const commentsAdapter = createEntityAdapter<Comment>({
+export const commentsAdapter = createEntityAdapter<Comment>({
     selectId: (comment) => comment.id,
 });
 
@@ -25,7 +25,7 @@ const articleDetailsCommentsSlice = createSlice({
         entities: {
         },
     }),
-    reducers: {},
+    reducers: { },
     extraReducers: (builder) => {
         builder
             .addCase(fetchCommentsByArticleId.pending, (state) => {

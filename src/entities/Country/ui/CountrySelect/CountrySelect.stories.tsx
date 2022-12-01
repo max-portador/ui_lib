@@ -12,7 +12,11 @@ export default {
     },
 } as ComponentMeta<typeof CountrySelect>;
 
-const Template: ComponentStory<typeof CountrySelect> = (args) => <CountrySelect {...args} />;
+const Template: ComponentStory<typeof CountrySelect> = (args) => (
+    <div className="story-wrapper">
+        <CountrySelect {...args} />
+    </div>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {

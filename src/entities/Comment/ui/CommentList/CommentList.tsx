@@ -20,6 +20,17 @@ const CommentList = memo((props: CommentListProps) => {
         comments,
         isLoading,
     } = props;
+
+    if (isLoading) {
+        return (
+            <div className={classNames(cls.CommentList, {}, [className])}>
+                <CommentCard className={cls.comment} isLoading />
+                <CommentCard className={cls.comment} isLoading />
+                <CommentCard className={cls.comment} isLoading />
+            </div>
+        );
+    }
+
     return (
         <div className={classNames(cls.CommentList, {}, [className])}>
             { comments?.length
@@ -30,7 +41,7 @@ const CommentList = memo((props: CommentListProps) => {
                         className={cls.comment}
                     />
                 ))
-                : <Text text={t('Коментарии отсутствуют')} />}
+                : <Text text={t('Коментарии отсутствуют')} className={cls.comment} />}
         </div>
     );
 });

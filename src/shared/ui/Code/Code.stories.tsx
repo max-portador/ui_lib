@@ -4,6 +4,7 @@ import 'app/styles/index.scss';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { codeExample } from 'shared/config/storybook/examples/code';
 import { Code } from './Code';
 
 export default {
@@ -14,15 +15,21 @@ export default {
     },
 } as ComponentMeta<typeof Code>;
 
-const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
+const Template: ComponentStory<typeof Code> = (args) => (
+    <div className="story-wrapper">
+        <Code {...args} />
+    </div>
+);
 
 export const Normal = Template.bind({});
 Normal.args = {
-    text: 'export default {\n'
-        + '    title: \'shared/Code\',\n'
-        + '    component: Code,\n'
-        + '    argTypes: {\n'
-        + '        backgroundColor: { control: \'color\' },\n'
-        + '    },\n'
-        + '} as ComponentMeta<typeof Code>;',
+    text: codeExample,
 };
+
+export const Dark = Template.bind({});
+Dark.args = { text: codeExample };
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Purple = Template.bind({});
+Purple.args = { text: codeExample };
+Purple.decorators = [ThemeDecorator(Theme.PURPLE)];

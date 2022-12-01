@@ -14,7 +14,11 @@ export default {
     },
 } as ComponentMeta<typeof Avatar>;
 
-const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
+const Template: ComponentStory<typeof Avatar> = (args) => (
+    <div className="story-wrapper">
+        <Avatar {...args} />
+    </div>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {

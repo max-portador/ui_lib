@@ -29,7 +29,9 @@
       "img": "https://yt3.ggpht.com/ytc/AKedOLTAKvBMkMOTZGwFCENxWNyJiECKbj__HSXiUZvm=s900-c-k-c0x00ffffff-no-rj",
       "views": 1077,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -94,46 +96,56 @@
   ],
   "comments": [
     {
-      "id": 1,
-      "text": "some comment",
       "articleId": "1",
-      "userId": "1"
-    },{
-      "id": 2,
-      "text": "some comment2",
+      "userId": "1",
+      "text": "first",
+      "id": "1"
+    },
+    {
       "articleId": "1",
-      "userId": "2"
-    },{
-      "id": 3,
-      "text": "some comment3",
-      "articleId": "1",
-      "userId": "2"
+      "userId": "2",
+      "text": "brrrrrrr",
+      "id": "2"
     }
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
       "avatar": "https://avatars.githubusercontent.com/u/46213974?v=4"
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "user",
       "password": "123",
       "role": "USER",
       "avatar": "https://pbs.twimg.com/media/FJ6PTN7XwAEeUX6.jpg"
     }
   ],
-  "profile": {
-    "firstName": "Максим",
-    "lastName": "Шабанов",
-    "age": 30,
-    "currency": "EUR",
-    "country": "Kazakhstan",
-    "city": "Moscow",
-    "username": "admin",
-    "avatar": "https://avatars.githubusercontent.com/u/46213974?v=4"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstName": "Максим",
+      "lastName": "Шабанов",
+      "age": 30,
+      "currency": "EUR",
+      "country": "Kazakhstan",
+      "city": "Astana",
+      "username": "admin",
+      "avatar": "https://avatars.githubusercontent.com/u/46213974?v=4"
+    },
+    {
+      "id": "2",
+      "firstName": "Garry",
+      "lastName": "Debuaex",
+      "age": 56,
+      "currency": "USD",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "disco_elisium",
+      "avatar": "https://pbs.twimg.com/media/FJ6PTN7XwAEeUX6.jpg"
+    }
+  ]
 }

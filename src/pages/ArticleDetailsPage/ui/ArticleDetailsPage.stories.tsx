@@ -4,78 +4,20 @@ import 'app/styles/index.scss';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Article } from 'entities/Article';
-import { ArcticleBlockType, ArticleType } from 'entities/Article/model/types/article';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { article } from 'shared/config/storybook/examples/article';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
-const article: Article = {
-    id: '1',
-    title: 'JavaScript news',
-    subtitle: 'Что нового в JS за 2022 год?',
-    img: 'https://yt3.ggpht.com/ytc/AKedOLTAKvBMkMOTZGwFCENxWNyJiECKbj__HSXiUZvm=s900-c-k-c0x00ffffff-no-rj',
-    views: 1077,
-    createdAt: '26.02.2022',
-    type: [ArticleType.IT],
-    blocks: [
-        {
+const commentsEntities = {
+    1: {
+        user: {
             id: '1',
-            type: ArcticleBlockType.TEXT,
-            title: 'Заголовок этого блока',
-            paragraphs: [
-                'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
-                'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.',
-                'Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:',
-            ],
+            username: 'admin',
+            avatar: 'https://avatars.githubusercontent.com/u/46213974?v=4',
         },
-        {
-            id: '4',
-            type: ArcticleBlockType.CODE,
-            code: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;',
-        },
-        {
-            id: '5',
-            type: ArcticleBlockType.TEXT,
-            title: 'Заголовок этого блока',
-            paragraphs: [
-                'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
-                'Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:',
-            ],
-        },
-        {
-            id: '2',
-            type: ArcticleBlockType.IMAGE,
-            src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
-            title: 'Рисунок 1 - скриншот сайта',
-        },
-        {
-            id: '3',
-            type: ArcticleBlockType.CODE,
-            code: 'const path = require(\'path\');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, \'db.json\'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);',
-        },
-        {
-            id: '7',
-            type: ArcticleBlockType.TEXT,
-            title: 'Заголовок этого блока',
-            paragraphs: [
-                'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.',
-                'Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:',
-            ],
-        },
-        {
-            id: '8',
-            type: ArcticleBlockType.IMAGE,
-            src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
-            title: 'Рисунок 1 - скриншот сайта',
-        },
-        {
-            id: '9',
-            type: ArcticleBlockType.TEXT,
-            title: 'Заголовок этого блока',
-            paragraphs: [
-                'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.',
-            ],
-        },
-    ],
+        text: 'first',
+        id: '1',
+    },
 };
 
 export default {
@@ -86,7 +28,46 @@ export default {
     },
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
+    <div className="story-wrapper">
+        <ArticleDetailsPage {...args} />
+    </div>
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
+
+Normal.decorators = [StoreDecorator({
+    articleDetails: { data: article, isLoading: false },
+    articleDetailsComments: {
+        isLoading: false,
+        ids: ['1'],
+        entities: commentsEntities,
+    },
+})];
+
+export const Dark = Template.bind({});
+Dark.args = {};
+
+Dark.decorators = [ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+        articleDetails: { data: article, isLoading: false },
+        articleDetailsComments: {
+            isLoading: false,
+            ids: ['1'],
+            entities: commentsEntities,
+        },
+    })];
+
+export const Purple = Template.bind({});
+Purple.args = {};
+
+Purple.decorators = [ThemeDecorator(Theme.PURPLE),
+    StoreDecorator({
+        articleDetails: { data: article, isLoading: false },
+        articleDetailsComments: {
+            isLoading: false,
+            ids: ['1'],
+            entities: commentsEntities,
+        },
+    })];

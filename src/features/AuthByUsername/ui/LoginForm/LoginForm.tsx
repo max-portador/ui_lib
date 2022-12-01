@@ -5,7 +5,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { Input } from 'shared/ui/Input';
 import { useSelector } from 'react-redux';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { getLoginUsername } from '../../model/selector/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selector/getLoginPassword/getLoginPassword';

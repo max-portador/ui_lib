@@ -13,7 +13,11 @@ export default {
     },
 } as ComponentMeta<typeof ProfileCard>;
 
-const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
+const Template: ComponentStory<typeof ProfileCard> = (args) => (
+    <div className="story-wrapper">
+        <ProfileCard {...args} />
+    </div>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {

@@ -11,7 +11,11 @@ export default {
     },
 } as ComponentMeta<typeof Loader>;
 
-const Template: ComponentStory<typeof Loader> = () => <Loader />;
+const Template: ComponentStory<typeof Loader> = () => (
+    <div className="story-wrapper">
+        <Loader />
+    </div>
+);
 
 export const Light = Template.bind({});
 Light.args = {};
@@ -19,3 +23,7 @@ Light.args = {};
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Purple = Template.bind({});
+Purple.args = {};
+Purple.decorators = [ThemeDecorator(Theme.PURPLE)];

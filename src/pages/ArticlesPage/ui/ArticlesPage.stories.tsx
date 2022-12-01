@@ -14,7 +14,19 @@ export default {
     },
 } as ComponentMeta<typeof ArticlesPage>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
+const Template: ComponentStory<typeof ArticlesPage> = (args) => (
+    <div className="story-wrapper">
+        <ArticlesPage {...args} />
+    </div>
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
+
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Purple = Template.bind({});
+Purple.args = {};
+Purple.decorators = [ThemeDecorator(Theme.PURPLE)];

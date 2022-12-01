@@ -6,6 +6,8 @@ import AvatarImg from 'shared/assets/tests/avatar.jpeg';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { StateSchema } from 'app/providers/StoreProvider';
+import { DeepPartial } from '@reduxjs/toolkit';
 import { EditableProfileCard } from './EditableProfileCard';
 
 export default {
@@ -16,7 +18,7 @@ export default {
     },
 } as ComponentMeta<typeof EditableProfileCard>;
 
-const initialState = {
+const initialState: DeepPartial<StateSchema> = {
     profile: {
         form: {
             username: 'admin',
@@ -28,10 +30,35 @@ const initialState = {
             city: 'default-1',
             avatar: AvatarImg,
         },
+        data: {
+            id: '2',
+            username: 'admin',
+            age: 22,
+            country: Country.Ukraine,
+            lastName: 'Matveev',
+            firstName: 'Ignat',
+            currency: Currency.EUR,
+            city: 'default-1',
+            avatar: AvatarImg,
+        },
+        readonly: true,
+    },
+
+    user: {
+        authData: {
+            id: '2',
+            username: 'admin',
+        },
     },
 };
 
-const Template: ComponentStory<typeof EditableProfileCard> = (args) => <EditableProfileCard {...args} />;
+const cantEditSate: DeepPartial<StateSchema> = { ...initialState, user: undefined };
+
+const Template: ComponentStory<typeof EditableProfileCard> = (args) => (
+    <div className="story-wrapper">
+        <EditableProfileCard {...args} />
+    </div>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
@@ -42,3 +69,23 @@ export const Dark = Template.bind({});
 Dark.args = {};
 
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(initialState)];
+
+export const Purple = Template.bind({});
+Purple.args = {};
+
+Purple.decorators = [ThemeDecorator(Theme.PURPLE), StoreDecorator(initialState)];
+
+export const PrimaryCantEdit = Template.bind({});
+PrimaryCantEdit.args = {};
+
+PrimaryCantEdit.decorators = [StoreDecorator(cantEditSate)];
+
+export const DarkCantEdit = Template.bind({});
+DarkCantEdit.args = {};
+
+DarkCantEdit.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(cantEditSate)];
+
+export const PurpleCantEdit = Template.bind({});
+PurpleCantEdit.args = {};
+
+PurpleCantEdit.decorators = [ThemeDecorator(Theme.PURPLE), StoreDecorator(cantEditSate)];

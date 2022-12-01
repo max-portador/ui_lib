@@ -1,10 +1,8 @@
-import React, {
-    FC, memo, useCallback, useEffect,
-} from 'react';
+import React, { FC, memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useDispatch, useSelector } from 'react-redux';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { useSelector } from 'react-redux';
 import { Text, TextAlign, TextSize } from 'shared/ui/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
@@ -12,6 +10,7 @@ import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
@@ -37,7 +36,7 @@ const reducers: ReducersList = {
 const ArticleDetails: FC<ArticleDetailsProps> = memo((props: ArticleDetailsProps) => {
     const { id, className } = props;
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const isLoading = useSelector(getArticleDetailsIsLoading);
     const article = useSelector(getArticleDetailsData);
     const error = useSelector(getArticleDetailsError);
@@ -131,7 +130,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = memo((props: ArticleDetailsProps
     }
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(cls.ArticleDetails, {}, [className])}>
                 {content}
             </div>
