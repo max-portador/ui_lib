@@ -4,28 +4,10 @@ import 'app/styles/index.scss';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { commentsExamples } from 'shared/config/storybook/examples/comments';
 import { CommentList } from './CommentList';
 
-const comments = [
-    {
-        user: {
-            id: '1',
-            username: 'admin',
-            avatar: 'https://avatars.githubusercontent.com/u/46213974?v=4',
-        },
-        text: 'first',
-        id: '1',
-    },
-    {
-        user: {
-            id: '2',
-            username: 'user',
-            avatar: 'https://pbs.twimg.com/media/FJ6PTN7XwAEeUX6.jpg',
-        },
-        text: 'brrrrrrr',
-        id: '2',
-    },
-];
+const comments = commentsExamples;
 
 export default {
     title: 'entities/Comment/CommentList',

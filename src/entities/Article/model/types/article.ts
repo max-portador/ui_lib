@@ -1,3 +1,5 @@
+import { User } from 'entities/User';
+
 export enum ArcticleBlockType {
     CODE = 'CODE',
     IMAGE = 'IMAGE',
@@ -34,10 +36,16 @@ export enum ArticleType {
     ECONIMICS = 'ECONOMICS'
 }
 
+export enum ArticleView {
+    BIG ='BIG',
+    SMALL ='SMALL'
+}
+
 export interface Article {
     id: string,
     title: string,
     subtitle: string,
+    user: User,
     img: string,
     views: number,
     createdAt: string,

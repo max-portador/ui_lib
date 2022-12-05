@@ -3,10 +3,8 @@ import React, {
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { $api } from 'shared/api/api';
-import { Article } from 'entities/Article';
-import { AppLink } from 'shared/ui/AppLink';
-import { article } from 'shared/config/storybook/examples/article';
+import { Article, ArticleList, ArticleView } from 'entities/Article';
+import { article, article2 } from 'shared/config/storybook/examples/article';
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -14,22 +12,26 @@ interface ArticlesPageProps {
 }
 
 const prefix = '/articles';
-const dot = '.';
 
 const ArticlesPage: FC<ArticlesPageProps> = (props) => {
     const { t } = useTranslation('article');
-    const [articles, setArticles] = useState<Article[]>([]);
+    const [articles, setArticles] = useState<Article[]>(new Array(18).fill(0)
+        .map((_, i) => (i % 2
+            ? { ...article, id: i.toString() }
+            : { ...article2, id: i.toString() })));
+    const [isLoading, setIsLoading] = useState(false);
 
     const {
         className,
-        children,
     } = props;
 
     useEffect(() => {
         if (__PROJECT__ !== 'storybook') {
-            $api.get(prefix).then((res) => {
-                setArticles(res.data);
-            });
+        // setIsLoading(true);
+        // $api.get(prefix).then((res) => {
+        //     setArticles(res.data);
+        //     setIsLoading(false);
+        // });
         } else {
             setArticles([article]);
         }
@@ -37,15 +39,8 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
 
     return (
         <div className={classNames(cls.ArticlesPage, {}, [className])}>
-            {articles.map((article, id) => (
-                <AppLink to={`${prefix}/${article.id}`} key={article.id}>
-                    {id + 1}
-                    {dot}
-                    {article.title}
-                </AppLink>
-            ))}
+            <ArticleList articles={articles} isLoading={isLoading} view={ArticleView.BIG} />
         </div>
     );
 };
-
 export default memo(ArticlesPage);
