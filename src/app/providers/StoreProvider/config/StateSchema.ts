@@ -8,6 +8,7 @@ import { ProfileSchema } from 'features/EditableProfileCard';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
+import { ArticlePageSchema } from 'pages/ArticlesPage';
 import { ReducerManager } from './reducerManager';
 
 export interface StateSchema {
@@ -19,7 +20,8 @@ export interface StateSchema {
     profile?: ProfileSchema
     articleDetails?: ArticleDetailsSchema;
     articleDetailsComments?: ArticleDetailsCommentsSchema;
-    addCommentForm?: AddCommentFormSchema
+    addCommentForm?: AddCommentFormSchema;
+    articlesPage?: ArticlePageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema
