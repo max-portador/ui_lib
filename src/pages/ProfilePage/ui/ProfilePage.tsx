@@ -5,6 +5,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { EditableProfileCard, fetchProfileData, profileReducer } from 'features/EditableProfileCard';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/Page';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -30,9 +31,9 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames('', {}, [className])}>
+            <Page className={classNames('', {}, [className])}>
                 <EditableProfileCard />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };
