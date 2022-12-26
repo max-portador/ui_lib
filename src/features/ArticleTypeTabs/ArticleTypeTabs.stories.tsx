@@ -4,29 +4,34 @@ import 'app/styles/index.scss';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import ArticlesPage from './ArticlesPage';
+import { ArticleTypeTabs } from './ArticleTypeTabs';
 
 export default {
-    title: 'pages/ArticlesPage',
-    component: ArticlesPage,
+    title: 'features/ArticleTypeTabs',
+    component: ArticleTypeTabs,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ArticlesPage>;
+} as ComponentMeta<typeof ArticleTypeTabs>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => (
+const Template: ComponentStory<typeof ArticleTypeTabs> = (args) => (
     <div className="story-wrapper">
-        <ArticlesPage {...args} />
+        <ArticleTypeTabs {...args} />
     </div>
 );
-
 export const Normal = Template.bind({});
 Normal.args = {};
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+Dark.decorators = [
+    ThemeDecorator(Theme.DARK),
+];
 
 export const Purple = Template.bind({});
 Purple.args = {};
-Purple.decorators = [ThemeDecorator(Theme.PURPLE)];
+
+Purple.decorators = [
+    ThemeDecorator(Theme.PURPLE),
+];

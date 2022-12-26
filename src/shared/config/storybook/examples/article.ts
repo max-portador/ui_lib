@@ -80,7 +80,7 @@ export const article2: Article = {
     img: 'https://yt3.ggpht.com/a/AATXAJztR45daqCnHdM_zaOkspytsXbdxsYUeuLyJQ=s900-c-k-c0xffffffff-no-rj-mo',
     views: 1277,
     createdAt: '26.06.2022',
-    type: [ArticleType.IT, ArticleType.ECONIMICS, ArticleType.SCIENSE],
+    type: [ArticleType.IT, ArticleType.ECONOMICS, ArticleType.SCIENCE],
     blocks: [
         {
             id: '1',

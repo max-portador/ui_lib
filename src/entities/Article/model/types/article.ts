@@ -1,5 +1,11 @@
 import { User } from 'entities/User';
 
+export enum ArticleSortFields {
+    VIEWS = 'views',
+    TITLE = 'title',
+    CREATED = 'createdAt'
+}
+
 export enum ArcticleBlockType {
     CODE = 'CODE',
     IMAGE = 'IMAGE',
@@ -11,18 +17,18 @@ export interface ArcticleBlockBase {
     type: ArcticleBlockType
 }
 
-export interface ArticleCodeBlock extends ArcticleBlockBase{
+export interface ArticleCodeBlock extends ArcticleBlockBase {
     type: ArcticleBlockType.CODE
     code: string
 }
 
-export interface ArticleImageBlock extends ArcticleBlockBase{
+export interface ArticleImageBlock extends ArcticleBlockBase {
     type: ArcticleBlockType.IMAGE
     src: string,
     title: string
 }
 
-export interface ArticleTextBlock extends ArcticleBlockBase{
+export interface ArticleTextBlock extends ArcticleBlockBase {
     type: ArcticleBlockType.TEXT,
     title?: string,
     paragraphs: string[]
@@ -31,14 +37,15 @@ export interface ArticleTextBlock extends ArcticleBlockBase{
 export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock
 
 export enum ArticleType {
+    ALL= 'ALL',
     IT = 'IT',
-    SCIENSE = 'SCIENCE',
-    ECONIMICS = 'ECONOMICS'
+    SCIENCE = 'SCIENCE',
+    ECONOMICS = 'ECONOMICS'
 }
 
 export enum ArticleView {
-    BIG ='BIG',
-    SMALL ='SMALL'
+    BIG = 'BIG',
+    SMALL = 'SMALL'
 }
 
 export interface Article {

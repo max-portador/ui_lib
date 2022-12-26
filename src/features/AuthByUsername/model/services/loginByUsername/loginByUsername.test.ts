@@ -46,7 +46,6 @@ describe('loginByUsername.test', () => {
         expect(thunk.dispatch).toHaveBeenCalledTimes(3);
         expect(thunk.api.post).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
-        expect(thunk.navigate).toHaveBeenCalledTimes(1);
         expect(result.payload).toEqual(userValue);
     });
 
@@ -58,7 +57,6 @@ describe('loginByUsername.test', () => {
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(thunk.api.post).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
-        expect(thunk.navigate).toHaveBeenCalledTimes(0);
         expect(result.payload).toEqual('error');
     });
 });

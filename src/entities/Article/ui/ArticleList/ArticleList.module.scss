@@ -1,11 +1,7 @@
 .SMALL {
   display: flex;
   flex-wrap: wrap;
-
-  .card {
-    margin-bottom: 30px;
-    margin-right: 50px;
-  }
+  gap: 30px;
 }
 
 .BIG {

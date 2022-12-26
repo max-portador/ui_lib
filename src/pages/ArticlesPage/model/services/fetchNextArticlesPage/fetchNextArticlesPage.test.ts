@@ -1,8 +1,9 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { ArticleView } from 'entities/Article';
-import { fetchArticlesList } from '../../services/fetchArticlesList/fetchArticlesList';
+import { ArticleType, ArticleView } from 'entities/Article';
+import { ArticleSortFields } from 'entities/Article/model/types/article';
+import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesPage } from './fetchNextArticlesPage';
 
 const thunkState: DeepPartial<StateSchema> = {
@@ -14,6 +15,11 @@ const thunkState: DeepPartial<StateSchema> = {
         limit: 5,
         isLoading: false,
         hasMore: true,
+        _inited: false,
+        sort: ArticleSortFields.CREATED,
+        order: 'asc',
+        search: '',
+        type: ArticleType.ALL,
     },
 };
 
@@ -25,7 +31,7 @@ describe('fetchNextArticlesPage.test', () => {
         await thunk.callThunk();
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(4);
-        expect(fetchArticlesList).toHaveBeenCalledWith({ page: 3 });
+        expect(fetchArticlesList).toHaveBeenCalledWith({});
     });
     test('fetchNextArticlesPage not called', async () => {
         const thunk = new TestAsyncThunk(
@@ -33,7 +39,8 @@ describe('fetchNextArticlesPage.test', () => {
             {
                 ...thunkState,
                 articlesPage: {
-                    ...thunkState.articlesPage, isLoading: true,
+                    ...thunkState.articlesPage,
+                    isLoading: true,
                 },
             },
         );
@@ -48,7 +55,8 @@ describe('fetchNextArticlesPage.test', () => {
             {
                 ...thunkState,
                 articlesPage: {
-                    ...thunkState.articlesPage, hasMore: false,
+                    ...thunkState.articlesPage,
+                    hasMore: false,
                 },
             },
         );

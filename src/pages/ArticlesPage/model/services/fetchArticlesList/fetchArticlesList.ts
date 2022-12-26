@@ -1,10 +1,18 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { Article } from 'entities/Article';
+import { Article, ArticleType } from 'entities/Article';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { getArticlesPageLimit } from '../../selectors/articlePageSelectors/articlePageSelectors';
+import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
+import {
+    getArticlesPageLimit,
+    getArticlesPageNum,
+    getArticlesPageOrder,
+    getArticlesPageSearch,
+    getArticlesPageSort,
+    getArticlesPageType,
+} from '../../selectors/articlePageSelectors/articlePageSelectors';
 
 interface FetchArticlesListProps {
-    page: number
+    replace?: boolean
 }
 
 export const fetchArticlesList = createAsyncThunk<
@@ -13,17 +21,29 @@ export const fetchArticlesList = createAsyncThunk<
     ThunkConfig<string>
     >(
         'articlesPage/fetchArticlesList',
-        async (props, thunkAPI) => {
+        async (_, thunkAPI) => {
             const { extra, rejectWithValue, getState } = thunkAPI;
-            const { page } = props;
+            const page = getArticlesPageNum(getState());
             const limit = getArticlesPageLimit(getState());
+            const sort = getArticlesPageSort(getState());
+            const order = getArticlesPageOrder(getState());
+            const search = getArticlesPageSearch(getState());
+            const type = getArticlesPageType(getState());
 
             try {
+                addQueryParams({
+                    sort, order, search, type,
+                });
+
                 const response = await extra.api.get<Article[]>('/articles', {
                     params: {
                         _expand: 'user',
                         _limit: limit,
                         _page: page,
+                        _sort: sort,
+                        _order: order,
+                        q: search,
+                        type: type === ArticleType.ALL ? undefined : type,
                     },
                 });
                 if (!response.data) {

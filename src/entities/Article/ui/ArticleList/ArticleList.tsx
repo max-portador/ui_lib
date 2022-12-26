@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
+import { Text, TextSize } from 'shared/ui/Text';
+import { useTranslation } from 'react-i18next';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
@@ -13,7 +15,8 @@ interface ArticleListProps {
 }
 
 const getSkeletones = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
-    .fill(0).map(() => <ArticleListItemSkeleton className={cls.card} view={view} />);
+    // eslint-disable-next-line react/no-array-index-key
+    .fill(0).map((_, ind) => <ArticleListItemSkeleton className={cls.card} view={view} key={ind} />);
 
 const ArticleList = memo((props: ArticleListProps) => {
     const {
@@ -22,6 +25,8 @@ const ArticleList = memo((props: ArticleListProps) => {
         isLoading,
         view = ArticleView.SMALL,
     } = props;
+
+    const { t } = useTranslation();
 
     const renderArticle = (article: Article) => (
         <ArticleListItem
@@ -32,11 +37,17 @@ const ArticleList = memo((props: ArticleListProps) => {
         />
     );
 
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                <Text size={TextSize.L} title={t('Статьи не найдены')} />
+            </div>
+        );
+    }
+
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-            {articles.length > 0
-                ? articles.map(renderArticle)
-                : null}
+            { articles.map(renderArticle) }
             {isLoading && getSkeletones(view)}
         </div>
     );

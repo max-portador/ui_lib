@@ -32,7 +32,6 @@ describe('addCommentForArticle.test', () => {
         expect(thunk.dispatch).toHaveBeenCalledTimes(3);
         expect(thunk.api.post).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
-        expect(thunk.navigate).toHaveBeenCalledTimes(0);
         expect(result.payload).toEqual(comment);
     });
 
@@ -44,7 +43,6 @@ describe('addCommentForArticle.test', () => {
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(thunk.api.post).not.toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
-        expect(thunk.navigate).toHaveBeenCalledTimes(0);
         expect(result.payload).toEqual('no data');
     });
 
@@ -64,7 +62,6 @@ describe('addCommentForArticle.test', () => {
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(thunk.api.post).not.toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
-        expect(thunk.navigate).toHaveBeenCalledTimes(0);
         expect(result.payload).toEqual('no data');
     });
 
@@ -85,7 +82,6 @@ describe('addCommentForArticle.test', () => {
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(thunk.api.post).not.toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
-        expect(thunk.navigate).toHaveBeenCalledTimes(0);
         expect(result.payload).toEqual('no data');
     });
 });
