@@ -39,10 +39,12 @@ Normal.args = {};
 
 Normal.decorators = [StoreDecorator({
     articleDetails: { data: article, isLoading: false },
-    articleDetailsComments: {
-        isLoading: false,
-        ids: ['1'],
-        entities: commentsEntities,
+    articlesDetailsPage: {
+        comments: {
+            isLoading: false,
+            ids: ['1'],
+            entities: commentsEntities,
+        },
     },
 })];
 
@@ -52,10 +54,12 @@ Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK),
     StoreDecorator({
         articleDetails: { data: article, isLoading: false },
-        articleDetailsComments: {
-            isLoading: false,
-            ids: ['1'],
-            entities: commentsEntities,
+        articlesDetailsPage: {
+            comments: {
+                isLoading: false,
+                ids: ['1'],
+                entities: commentsEntities,
+            },
         },
     })];
 
@@ -65,9 +69,11 @@ Purple.args = {};
 Purple.decorators = [ThemeDecorator(Theme.PURPLE),
     StoreDecorator({
         articleDetails: { data: article, isLoading: false },
-        articleDetailsComments: {
-            isLoading: false,
-            ids: ['1'],
-            entities: commentsEntities,
+        articlesDetailsPage: {
+            comments: {
+                isLoading: false,
+                ids: ['1'],
+                entities: commentsEntities,
+            },
         },
     })];

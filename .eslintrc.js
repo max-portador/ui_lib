@@ -50,6 +50,7 @@ module.exports = {
             'error',
             'unix',
         ],
+        'arrow-body-style': 'off',
         'no-undef': 'off',
         'no-param-reassign': 'off',
         'import/no-import-module-exports': ['error', {
@@ -68,7 +69,7 @@ module.exports = {
             markupOnly: true,
             ignoreAttribute: ['data-testid'],
         }],
-        'max-len': ['error', { ignoreComments: true, code: 120 }],
+        'max-len': ['error', { ignoreComments: true, code: 125 }],
     },
     globals: {
         __IS_DEV__: true,
