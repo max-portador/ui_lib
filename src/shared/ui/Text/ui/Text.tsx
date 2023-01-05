@@ -4,6 +4,7 @@ import cls from './Text.module.scss';
 
 export enum TextTheme {
     PRIMARY = 'primary',
+    INVERTED = 'inverted',
     ERROR = 'error'
 }
 
@@ -38,8 +39,8 @@ const Text = memo((props: TextProps) => {
     } = props;
     return (
         <div className={classNames('', {}, [className, cls[theme], cls[align], cls[size]])}>
-            {title && <p className={cls.title}>{title}</p> }
-            {text && <p className={cls.text}>{text}</p> }
+            {title && <p className={cls.title}>{title}</p>}
+            {text && <p className={cls.text}>{text}</p>}
         </div>
     );
 });

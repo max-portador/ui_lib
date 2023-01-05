@@ -6,6 +6,9 @@ import { LoginModal } from 'features/AuthByUsername';
 import { useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Text, TextTheme } from 'shared/ui/Text';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink';
+import { AppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -33,6 +36,17 @@ const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.navbar, {}, [className])}>
+                <Text
+                    className={cls.appName}
+                    title={t('Ulbi TV App')}
+                    theme={TextTheme.INVERTED}
+                />
+                <AppLink
+                    to={RoutePath[AppRoutes.ARTICLE_CREATE]}
+                    theme={AppLinkTheme.SECONDARY}
+                >
+                    {t('Создать статью')}
+                </AppLink>
                 <Button
                     theme={ButtonTheme.CLEAR_INVERTED}
                     className={cls.links}
@@ -53,7 +67,7 @@ const Navbar = memo(({ className }: NavbarProps) => {
             >
                 {t('Войти')}
             </Button>
-            { isAuthModal && (
+            {isAuthModal && (
                 <LoginModal
                     isOpen={isAuthModal}
                     onClose={onCloseModal}
