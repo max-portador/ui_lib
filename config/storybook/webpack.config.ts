@@ -4,11 +4,13 @@ import { BuildPaths } from '../build/types/config';
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
 import { buildSvgLoaders } from '../build/loaders/buildSvgLoaders';
 
-export default ({ config }: {config: webpack.Configuration}) => {
+export default ({ config }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {
         build: '',
         html: '',
         entry: '',
+        locales: path.resolve(__dirname, '..', '..', 'public', 'locales'),
+        buildLocales: path.resolve(__dirname, '..', '..', 'build', 'locales'),
         src: path.resolve(__dirname, '..', '..', 'src'),
     };
 
