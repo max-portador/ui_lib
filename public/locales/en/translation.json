@@ -20,6 +20,7 @@
   "error": "Wrong username or password",
   "Выйти": "Logout",
   "Укажите валюту": "Specify the currency",
+  "Укажите страну": "Specify the country",
   "Произошла ошибка при загрузке страницы": "An error occurred while loading the page",
   "Коментарии отсутствуют": "There are no comments",
   "Введите текст комментария": "Enter the comment text",
