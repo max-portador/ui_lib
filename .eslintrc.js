@@ -23,6 +23,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'eslint-plugin-react-hooks',
+        'portador',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -70,6 +71,7 @@ module.exports = {
             ignoreAttribute: ['data-testid'],
         }],
         'max-len': ['error', { ignoreComments: true, code: 125 }],
+        'portador/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: true,

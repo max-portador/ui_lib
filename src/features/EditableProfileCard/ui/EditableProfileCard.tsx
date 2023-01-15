@@ -8,6 +8,7 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
+import { VStack } from 'shared/ui/Stack';
 import { updateProfileData } from '../model/services/updateProfileData/updateProfileData';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
@@ -87,29 +88,32 @@ const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
 
     return (
         <div className={classNames('', {}, [className])}>
-            <EditableProfileCardHeader
-                readonly={readonly}
-                onEdit={onEdit}
-                onCancelEdit={onCancelEdit}
-                onSave={onSave}
-            />
-            {validateErrors?.length && validateErrors.map((err) => (
-                <Text theme={TextTheme.ERROR} text={validateErrorTranslates[err]} key={err} />
-            ))}
-            <ProfileCard
-                data={data}
-                isLoading={isLoading}
-                error={error}
-                readonly={readonly}
-                onChangeFirstName={onChangeFirstName}
-                onChangeLastName={onChangeLastName}
-                onChangeAge={onChangeAge}
-                onChangeCity={onChangeCity}
-                onChangeUsername={onChangeUsername}
-                onChangeAvatar={onChangeAvatar}
-                onChangeCurrency={onChangeCurrency}
-                onChangeCountry={onChangeCountry}
-            />
+            <VStack gap={16} max>
+                <EditableProfileCardHeader
+                    readonly={readonly}
+                    onEdit={onEdit}
+                    onCancelEdit={onCancelEdit}
+                    onSave={onSave}
+                />
+                {validateErrors?.length && validateErrors.map((err) => (
+                    <Text theme={TextTheme.ERROR} text={validateErrorTranslates[err]} key={err} />
+                ))}
+                <ProfileCard
+                    data={data}
+                    isLoading={isLoading}
+                    error={error}
+                    readonly={readonly}
+                    onChangeFirstName={onChangeFirstName}
+                    onChangeLastName={onChangeLastName}
+                    onChangeAge={onChangeAge}
+                    onChangeCity={onChangeCity}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
+                />
+            </VStack>
+
         </div>
     );
 };
