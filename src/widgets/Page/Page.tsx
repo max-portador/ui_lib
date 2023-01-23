@@ -47,7 +47,7 @@ const Page = memo((props: PageProps) => {
 
     // @ts-ignore
     return (
-        <section
+        <main
             ref={wrapperRef}
             className={classNames(cls.Page, {}, [className])}
             onScroll={onScroll}
@@ -55,7 +55,7 @@ const Page = memo((props: PageProps) => {
         >
             {children}
             {onScrollEnd && <div className={cls.trigger} ref={triggerRef} />}
-        </section>
+        </main>
     );
 });
 
