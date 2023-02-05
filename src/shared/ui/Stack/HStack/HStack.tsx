@@ -5,6 +5,7 @@ type HStackProps = Omit<FlexProps, 'direction'>
 
 const HStack = (props: HStackProps) => {
     return (
+        // @ts-ignore
         <Flex direction="row" {...props} />
     );
 };

@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { Flex, FlexProps } from 'shared/ui/Stack/Flex/Flex';
 
 type VStackProps = Omit<FlexProps, 'direction'>
 
-const VStack = (props: VStackProps) => {
-    const { align = 'start' } = props;
+const VStack = (props: PropsWithChildren<VStackProps>) => {
+    const { align = 'start', children } = props;
+
     return (
-        <Flex direction="column" {...props} align={align} />
+        // @ts-ignore
+        <Flex direction="column" {...props} align={align}>
+            {children}
+        </Flex>
     );
 };
 
