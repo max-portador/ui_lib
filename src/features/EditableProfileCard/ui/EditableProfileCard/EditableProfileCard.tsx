@@ -9,12 +9,12 @@ import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { VStack } from 'shared/ui/Stack';
-import { updateProfileData } from '../model/services/updateProfileData/updateProfileData';
-import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
-import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
-import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
-import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 
 interface EditableProfileCardProps {
     className?: string;
@@ -96,7 +96,12 @@ const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
                     onSave={onSave}
                 />
                 {validateErrors?.length && validateErrors.map((err) => (
-                    <Text theme={TextTheme.ERROR} text={validateErrorTranslates[err]} key={err} />
+                    <Text
+                        theme={TextTheme.ERROR}
+                        text={validateErrorTranslates[err]}
+                        key={err}
+                        data-testid="EditableProfileCard.Error"
+                    />
                 ))}
                 <ProfileCard
                     data={data}
@@ -111,6 +116,7 @@ const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
                     onChangeAvatar={onChangeAvatar}
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
+                    data-testid="ProfileCard"
                 />
             </VStack>
 

@@ -14,6 +14,7 @@ interface EditableProfileCardHeaderProps {
     onEdit: () => void
     onCancelEdit: () => void
     onSave: () => void
+    'data-testid'?: string
 }
 
 const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) => {
@@ -28,6 +29,7 @@ const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) =>
         onEdit,
         onCancelEdit,
         onSave,
+        'data-testid': dataTestId = 'EditableProfileCardHeader',
     } = props;
 
     return (
@@ -42,6 +44,7 @@ const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) =>
                     <Button
                         theme={ButtonTheme.OUTLINE}
                         onClick={onEdit}
+                        data-testid={`${dataTestId}.EditButton`}
                     >
                         {t('Редактировать')}
                     </Button>
@@ -51,12 +54,14 @@ const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) =>
                         <Button
                             theme={ButtonTheme.OUTLINE_RED}
                             onClick={onCancelEdit}
+                            data-testid={`${dataTestId}.CancelButton`}
                         >
                             {t('Отмена')}
                         </Button>
                         <Button
                             theme={ButtonTheme.OUTLINE}
                             onClick={onSave}
+                            data-testid={`${dataTestId}.SaveButton`}
                         >
                             {t('Сохранить')}
                         </Button>

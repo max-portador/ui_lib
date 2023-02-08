@@ -9,7 +9,7 @@ export {
     fetchProfileData,
 } from './model/services/fetchProfileData/fetchProfileData';
 
-export { EditableProfileCard } from './ui/EditableProfileCard';
+export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';
 export { EditableProfileCardHeader } from './ui/EditableProfileCardHeader/EditableProfileCardHeader';
 
 export { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getProfileIsLoading';

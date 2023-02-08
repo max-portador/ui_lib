@@ -27,6 +27,7 @@ interface ProfileCardProps {
     onChangeAvatar: (value: string) => void
     onChangeCurrency?: (cuurency: Currency) => void
     onChangeCountry?: (country: Country) => void
+    'data-testid'?: string
 }
 
 const ProfileCard: FC<ProfileCardProps> = (props) => {
@@ -46,6 +47,7 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
         onChangeAvatar,
         onChangeCurrency,
         onChangeCountry,
+        'data-testid': dataTestId = 'EditableProfileCardHeader',
     } = props;
 
     if (isLoading) {
@@ -97,12 +99,14 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
                 placeholder={t('Ваше имя')}
                 readonly={readonly}
                 onChange={onChangeFirstName}
+                data-testid={`${dataTestId}.firstname`}
             />
             <Input
                 value={data?.lastName}
                 placeholder={t('Ваша фамилия')}
                 readonly={readonly}
                 onChange={onChangeLastName}
+                data-testid={`${dataTestId}.lastname`}
             />
             <Input
                 value={data?.age}
