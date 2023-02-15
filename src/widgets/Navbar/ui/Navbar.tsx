@@ -4,7 +4,9 @@ import { memo, useCallback, useState } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useSelector } from 'react-redux';
-import { getUserAuthData, userActions } from 'entities/User';
+import {
+    getUserAuthData, isUSerAdmin, isUSerManager, userActions,
+} from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink';
@@ -21,6 +23,8 @@ const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
+    const isAdmin = useSelector(isUSerAdmin);
+    const isManager = useSelector(isUSerManager);
     const dispatch = useAppDispatch();
 
     const onShowModal = useCallback(() => {
@@ -34,6 +38,8 @@ const Navbar = memo(({ className }: NavbarProps) => {
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
     }, [dispatch]);
+
+    const isAdminPanelAvailable = isAdmin || isManager;
 
     if (authData) {
         return (
@@ -54,6 +60,11 @@ const Navbar = memo(({ className }: NavbarProps) => {
                     trigger={<Avatar size={30} src={authData.avatar} />}
                     direction="bottom left"
                     items={[
+
+                        ...(isAdminPanelAvailable ? [{
+                            content: t('Аминка'),
+                            href: RoutePath.admin_panel,
+                        }] : []),
                         {
                             content: t('Профиль'),
                             href: RoutePath.profile + authData.id,
