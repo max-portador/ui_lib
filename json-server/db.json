@@ -607,6 +607,18 @@
       "userId": "2",
       "text": "Batumi is strong!",
       "id": "PbtCghK"
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "text": "Break the lock",
+      "id": "KSaXY7U"
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "text": "Second!",
+      "id": "P990VsF"
     }
   ],
   "users": [
