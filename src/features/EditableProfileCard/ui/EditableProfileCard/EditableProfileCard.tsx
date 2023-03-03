@@ -2,19 +2,21 @@ import React, { FC, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ProfileCard } from 'entities/Profile';
 import { useSelector } from 'react-redux';
-import { EditableProfileCardHeader, profileActions, ValidateProfileError } from 'features/EditableProfileCard';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { VStack } from 'shared/ui/Stack';
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { ValidateProfileError } from '../../model/consts/consts';
+import { profileActions } from '../../model/slice/profileSlice';
 
 interface EditableProfileCardProps {
     className?: string;

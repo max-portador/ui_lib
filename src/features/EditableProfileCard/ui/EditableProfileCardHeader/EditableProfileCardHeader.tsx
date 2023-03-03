@@ -5,8 +5,8 @@ import { Text } from 'shared/ui/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
-import { getProfileData } from 'features/EditableProfileCard';
 import { HStack } from 'shared/ui/Stack';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 
 interface EditableProfileCardHeaderProps {
     className?: string;
