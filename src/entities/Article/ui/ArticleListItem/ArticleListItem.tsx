@@ -10,10 +10,9 @@ import { useHover } from 'shared/lib/hooks/useHover';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { ArcticleBlockType, ArticleView } from 'entities/Article/model/consts/consts';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import {
-    ArcticleBlockType, Article, ArticleTextBlock, ArticleView,
-} from '../../model/types/article';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
@@ -25,7 +24,7 @@ interface ArticleListItemProps {
 
 const ArticleListItem = memo((props: ArticleListItemProps) => {
     const { t } = useTranslation();
-    const [isHover, bindHover] = useHover();
+    const [bindHover] = useHover();
     const {
         className,
         article,

@@ -1,5 +1,3 @@
-import { loginReducer } from './model/slice/loginSlice';
-import { LoginSchema } from './model/types/loginSchema';
-import { LoginModal } from './ui/LoginModal/LoginModal';
-
-export { LoginModal, LoginSchema, loginReducer };
+export { loginReducer } from './model/slice/loginSlice';
+export { LoginModal } from './ui/LoginModal/LoginModal';
+export type { LoginSchema } from './model/types/loginSchema';

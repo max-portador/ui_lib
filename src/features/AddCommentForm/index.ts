@@ -1,3 +1,3 @@
 export { AddCommentFormAsync as AddCommentForm } from './ui/AddCommentForm/AddCommentForm.async';
-export { AddCommentFormSchema } from './model/types/addCommentForm';
 export { addCommentFromReducer } from './model/slice/addCommentFormSlice';
+export type { AddCommentFormSchema } from './model/types/addCommentForm';

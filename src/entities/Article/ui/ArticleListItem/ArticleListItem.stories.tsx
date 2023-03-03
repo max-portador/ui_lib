@@ -5,7 +5,7 @@ import 'app/styles/index.scss';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { article } from 'shared/config/storybook/examples/article';
-import { ArticleView } from '../../model/types/article';
+import { ArticleView } from 'entities/Article/model/consts/consts';
 import { ArticleListItem } from './ArticleListItem';
 
 export default {

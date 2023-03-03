@@ -6,7 +6,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ArticleView } from 'entities/Article';
-import { ArticleSortFields } from 'entities/Article/model/types/article';
+import { ArticleSortFields } from 'entities/Article/model/consts/consts';
 import { ArticlesPageFilter } from './ArticlesPageFilter';
 
 export default {
@@ -29,7 +29,7 @@ Normal.decorators = [
     StoreDecorator({
         articlesPage: {
             ids: [],
-            entities: { },
+            entities: {},
             isLoading: false,
             view: ArticleView.SMALL,
             page: 1,
@@ -51,7 +51,7 @@ Dark.decorators = [
     StoreDecorator({
         articlesPage: {
             ids: [],
-            entities: { },
+            entities: {},
             isLoading: false,
             view: ArticleView.SMALL,
             page: 1,
@@ -73,7 +73,7 @@ Purple.decorators = [
     StoreDecorator({
         articlesPage: {
             ids: [],
-            entities: { },
+            entities: {},
             isLoading: false,
             view: ArticleView.SMALL,
             page: 1,

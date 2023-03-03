@@ -1,6 +1,5 @@
 import React, { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
@@ -21,7 +20,6 @@ interface ArticleDetailsPageProps {
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     const { className } = props;
-    const { t } = useTranslation('article-details');
 
     let { id } = useParams<{ id: string }>();
     const dispatch = useAppDispatch();
@@ -33,14 +31,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     if (__PROJECT__ === 'storybook') {
         id = '1';
     }
-
-    // if (!id) {
-    //     return (
-    //         <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-    //             {t('Статья не найдена')}
-    //         </Page>
-    //     );
-    // }
 
     const reducers: ReducersList = {
         articlesDetailsPage: articleDetailsPageReducer,
