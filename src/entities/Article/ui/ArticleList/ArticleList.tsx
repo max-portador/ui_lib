@@ -78,6 +78,7 @@ const ArticleList = memo((props: ArticleListProps) => {
 
     // eslint-disable-next-line i18next/no-literal-string
     return (
+        // @ts-ignore
         <WindowScroller
             scrollElement={document.getElementById(PAGE_ID) as Element}
         >
@@ -87,10 +88,12 @@ const ArticleList = memo((props: ArticleListProps) => {
                 return (
                     <div
                         className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+                        // @ts-ignore
                         ref={registerChild}
                     >
                         {virtualized
                             ? (
+                                // @ts-ignore
                                 <List
                                     height={height}
                                     rowCount={rowCount}

@@ -5,6 +5,7 @@ import 'app/styles/index.scss';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { article, article2 } from 'shared/config/storybook/examples/article';
 import ArticlesPage from './ArticlesPage';
 
 export default {
@@ -24,14 +25,22 @@ const Template: ComponentStory<typeof ArticlesPage> = (args) => (
 export const Normal = Template.bind({});
 Normal.args = {};
 
+Normal.decorators = [
+    StoreDecorator({
+        articlesPage: {
+            isLoading: false,
+            ids: [1, 2],
+            entities: { 1: article, 2: article2 },
+        },
+    }),
+];
+
 export const Dark = Template.bind({});
 Dark.args = {};
 
 Dark.decorators = [ThemeDecorator(Theme.DARK),
-    StoreDecorator({
-        // @ts-ignore
-    })];
+    StoreDecorator({})];
 
 export const Purple = Template.bind({});
 Purple.args = {};
-Purple.decorators = [ThemeDecorator(Theme.PURPLE)];
+Purple.decorators = [StoreDecorator({}), ThemeDecorator(Theme.PURPLE)];

@@ -18,6 +18,7 @@ export default {
 
 const Template: ComponentStory<typeof AddCommentForm> = (args) => (
     <div className="story-wrapper">
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <AddCommentForm {...args} />
     </div>
 );

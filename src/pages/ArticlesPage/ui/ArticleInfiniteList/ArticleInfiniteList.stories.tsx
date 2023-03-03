@@ -9,7 +9,7 @@ import { rtkApi } from 'shared/api/rtkApi';
 import { ArticleInfiniteList } from './ArticleInfiniteList';
 
 export default {
-    title: 'pages/ArticleInfiniteList',
+    title: 'pages/ArticlesPage/ArticleInfiniteList',
     component: ArticleInfiniteList,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -29,6 +29,10 @@ export const Dark = Template.bind({});
 Dark.args = {};
 
 Dark.decorators = [
+    StoreDecorator(
+        {},
+        { [rtkApi.reducerPath]: rtkApi.reducer },
+    ),
     ThemeDecorator(Theme.DARK),
 ];
 
@@ -36,5 +40,9 @@ export const Purple = Template.bind({});
 Purple.args = {};
 
 Purple.decorators = [
+    StoreDecorator(
+        {},
+        { [rtkApi.reducerPath]: rtkApi.reducer },
+    ),
     ThemeDecorator(Theme.PURPLE),
 ];

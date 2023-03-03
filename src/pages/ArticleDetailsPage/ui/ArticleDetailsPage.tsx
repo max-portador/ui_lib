@@ -34,13 +34,13 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
         id = '1';
     }
 
-    if (!id) {
-        return (
-            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                {t('Статья не найдена')}
-            </Page>
-        );
-    }
+    // if (!id) {
+    //     return (
+    //         <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+    //             {t('Статья не найдена')}
+    //         </Page>
+    //     );
+    // }
 
     const reducers: ReducersList = {
         articlesDetailsPage: articleDetailsPageReducer,
@@ -53,7 +53,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
                     <ArticleRecommendationsList />
-                    <ArticleDetailsComments id={id} />
+                    <ArticleDetailsComments id={id!} />
                 </VStack>
 
             </Page>

@@ -1,8 +1,8 @@
 import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
 import { BuildPaths } from '../build/types/config';
-import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
 import { buildSvgLoaders } from '../build/loaders/buildSvgLoaders';
+import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
 
 export default ({ config }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {
@@ -29,7 +29,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
     config.plugins!.push(new DefinePlugin({
         __IS_DEV__: JSON.stringify(true),
-        __API__: JSON.stringify(''),
+        __API__: JSON.stringify('https://testapi.com'),
         __PROJECT__: JSON.stringify('storybook'),
     }));
 
