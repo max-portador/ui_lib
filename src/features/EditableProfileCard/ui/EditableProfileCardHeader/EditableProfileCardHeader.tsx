@@ -66,9 +66,7 @@ const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) =>
                             {t('Сохранить')}
                         </Button>
                     </HStack>
-
                 ))}
-
         </HStack>
     );
 };
