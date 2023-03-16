@@ -1,0 +1,20 @@
+.options {
+  background: var(--listbox-bg);
+  position: absolute;
+  z-index: 10000;
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px var(--listbox-bg);
+  padding: 6px 15px;
+}
+
+.item {
+  width: max-content;
+}
+
+.label {
+  margin-right: 5px;
+}
+
+.storyCase {
+  padding: 150px;
+}

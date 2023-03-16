@@ -1,0 +1,15 @@
+.Popover {
+
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4px;
+  background: var(--listbox-bg);
+  position: absolute;
+  z-index: 1000;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  padding: 15px;
+}

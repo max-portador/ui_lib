@@ -1,9 +1,11 @@
 import React, { Fragment, memo, ReactNode } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui/Button';
-import { DropDownDirection } from 'shared/types/ui';
-import { HStack } from 'shared/ui/Stack';
+import { Button } from '../../../Button';
+import { classNames } from '../../../../lib/classNames/classNames';
+import { DropDownDirection } from '../../../../types/ui';
+import { HStack } from '../../../Stack';
+import { mapDirectionClass } from '../../styles/consts';
+import popupCls from '../../styles/popup.module.scss';
 import cls from './ListBox.module.scss';
 
 export interface ListBoxItem {
@@ -22,13 +24,6 @@ interface ListBoxProps {
     readonly?: boolean,
     direction?: DropDownDirection
 }
-
-const mapDirectionClass: Record<DropDownDirection, string> = {
-    'bottom left': cls.optionsBottomLeft,
-    'bottom right': cls.optionsBottomRight,
-    'top left': cls.optionsTopLeft,
-    'top right': cls.optionsTopRight,
-};
 
 export const ListBox = memo((props: ListBoxProps) => {
     const {
@@ -53,13 +48,13 @@ export const ListBox = memo((props: ListBoxProps) => {
             )}
             <HListbox
                 as="div"
-                className={classNames(cls.ListBox, {}, [className])}
+                className={classNames(popupCls.popup, {}, [className])}
                 value={value}
                 onChange={onChange}
                 disabled={readonly}
             >
                 <HListbox.Button as={Fragment}>
-                    <Button disabled={readonly} className={cls.trigger}>
+                    <Button disabled={readonly} className={popupCls.trigger}>
                         {value ?? defaultValue}
                     </Button>
                 </HListbox.Button>
@@ -75,7 +70,7 @@ export const ListBox = memo((props: ListBoxProps) => {
                                 <li className={classNames(
                                     cls.item,
                                     {
-                                        [cls.active]: active,
+                                        [popupCls.active]: active,
                                         [cls.disabled]: item.disabled,
                                     },
                                 )}
