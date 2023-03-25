@@ -108,7 +108,9 @@
   "dependencies": {
     "@babel/runtime": "^7.21.0",
     "@headlessui/react": "^1.7.7",
+    "@react-spring/web": "^9.7.1",
     "@reduxjs/toolkit": "^1.8.0",
+    "@use-gesture/react": "^10.2.24",
     "axios": "^0.26.1",
     "i18next": "^21.9.0",
     "i18next-browser-languagedetector": "^6.1.3",
