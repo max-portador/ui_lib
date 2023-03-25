@@ -41,7 +41,7 @@ const AvatarDropdown = memo((props: AvatarDropdownProps) => {
             items={[
 
                 ...(isAdminPanelAvailable ? [{
-                    content: t('Аминка'),
+                    content: t('Админка'),
                     href: RoutePath.admin_panel,
                 }] : []),
                 {
