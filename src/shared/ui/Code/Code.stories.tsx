@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import 'app/styles/index.scss';
+import '@/app/styles/index.scss';
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { codeExample } from 'shared/config/storybook/examples/code';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { codeExample } from '@/shared/config/storybook/examples/code';
 import { Code } from './Code';
 
 export default {

@@ -1,7 +1,6 @@
-import React, { FC, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { Text, TextAlign, TextSize } from 'shared/ui/Text';
+import React, { memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/Text';
 import { ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleTextBlockComponent.module.scss';
 
@@ -11,8 +10,6 @@ interface ArticleTextBlockComponentProps {
 }
 
 const ArticleTextBlockComponent = memo((props: ArticleTextBlockComponentProps) => {
-    const { t } = useTranslation();
-
     const {
         className,
         block,

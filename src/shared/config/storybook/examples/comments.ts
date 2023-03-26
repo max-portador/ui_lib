@@ -1,5 +1,5 @@
-import { Comment } from 'entities/Comment';
-import { userExamples } from 'shared/config/storybook/examples/users';
+import { Comment } from '@/entities/Comment';
+import { userExamples } from '@/shared/config/storybook/examples/users';
 
 export const commentsExamples: Comment[] = [
     {

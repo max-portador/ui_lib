@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useEffect, useState } from 'react';
-import { Button } from 'shared/ui/Button/ui/Button';
 import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button } from '@/shared/ui/Button/ui/Button';
 
 interface BugButtonProps {
     className?: string
@@ -10,7 +10,9 @@ interface BugButtonProps {
 const BugButton = ({ className }: BugButtonProps) => {
     const [error, setError] = useState(false);
     const { t } = useTranslation();
-    const throwError = () => { setError((prev) => !prev); };
+    const throwError = () => {
+        setError((prev) => !prev);
+    };
 
     useEffect(() => {
         if (error) throw new Error();

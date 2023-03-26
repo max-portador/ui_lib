@@ -1,8 +1,10 @@
 import { DeepPartial } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
+
 import { getProfileData } from './getProfileData';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 
 describe('getProfileData.test', () => {
     test('should return correct username', () => {

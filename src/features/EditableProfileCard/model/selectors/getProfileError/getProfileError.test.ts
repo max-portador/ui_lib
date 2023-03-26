@@ -1,6 +1,8 @@
 import { DeepPartial } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
+
 import { getProfileError } from './getProfileError';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getProfileError.test', () => {
     test('should return correct username', () => {

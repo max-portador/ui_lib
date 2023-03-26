@@ -27,7 +27,8 @@
   --sidebar-width-collapsed: 80px;
 
   // Индексы
-  --modal-z-index: 100;
+  --modal-z-index: 1000;
+  --overlay-z-index: -1;
   --close-btn-z-index: 99;
 
   // Цвета

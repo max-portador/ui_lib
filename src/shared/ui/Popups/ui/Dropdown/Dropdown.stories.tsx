@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import 'app/styles/index.scss';
-import { Button } from 'shared/ui/Button';
+import '@/app/styles/index.scss';
+import { Button } from '@/shared/ui/Button';
 import { Dropdown } from './Dropdown';
 
 export default {

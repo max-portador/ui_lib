@@ -1,7 +1,9 @@
 import { DeepPartial } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { ValidateProfileError } from 'features/EditableProfileCard';
+
 import { getProfileValidateErrors } from './getProfileValidateErrors';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { ValidateProfileError } from '@/features/EditableProfileCard';
 
 describe('getProfileValidateErrors.test', () => {
     test('should return correct username', () => {

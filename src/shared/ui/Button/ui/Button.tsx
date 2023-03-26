@@ -1,5 +1,5 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { ButtonHTMLAttributes, memo } from 'react';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export enum ButtonTheme {
@@ -18,7 +18,7 @@ export enum ButtonSize {
     XL = 'size_xl',
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: ButtonTheme;
     isSquare?: boolean;

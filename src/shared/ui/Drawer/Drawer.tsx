@@ -1,13 +1,13 @@
 import React, {
     memo, PropsWithChildren, useCallback, useEffect,
 } from 'react';
-import type { Mods } from 'shared/lib/classNames/classNames';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useTheme } from 'app/providers/ThemeProvider';
-import { Portal } from 'shared/ui/Portal';
-import { Overlay } from 'shared/ui/Overlay/Overlay';
-import { useModal } from 'shared/lib/hooks/useModal';
-import { useAnimationLibs } from 'shared/lib/components/AnimationProvider';
+import type { Mods } from '@/shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { Portal } from '@/shared/ui/Portal';
+import { Overlay } from '@/shared/ui/Overlay/Overlay';
+import { useModal } from '@/shared/lib/hooks/useModal';
+import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 import cls from './Drawer.module.scss';
 
 interface DrawerProps extends PropsWithChildren {

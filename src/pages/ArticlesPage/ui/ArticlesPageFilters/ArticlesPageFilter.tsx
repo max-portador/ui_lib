@@ -1,21 +1,23 @@
 import React, { memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { ArticleViewSelector } from 'features/ArticleViewSelector';
-import { ArticleView, ArticleSortFields, ArticleType } from 'entities/Article';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Input } from 'shared/ui/Input';
-import { Card } from 'shared/ui/Card';
-import { ArticleSortSelector } from 'features/ArticleSortSelector';
-import { SortOrder } from 'shared/types';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
-import { useDebounce } from 'shared/lib/hooks/useDebounce';
-import { ArticleTypeTabs } from 'features/ArticleTypeTabs/ArticleTypeTabs';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { ArticleSortFields, ArticleType, ArticleView } from '@/entities/Article';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Input } from '@/shared/ui/Input';
+import { Card } from '@/shared/ui/Card';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { SortOrder } from '@/shared/types';
+import { fetchArticlesList } from '@/pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs/ArticleTypeTabs';
 import { articlePageActions } from '../../model/slice/articlePageSlice';
 import {
-    getArticlesPageOrder, getArticlesPageSearch,
-    getArticlesPageSort, getArticlesPageType,
+    getArticlesPageOrder,
+    getArticlesPageSearch,
+    getArticlesPageSort,
+    getArticlesPageType,
     getArticlesPageView,
 } from '../../model/selectors/articlePageSelectors/articlePageSelectors';
 import cls from './ArticlesPageFilter.module.scss';

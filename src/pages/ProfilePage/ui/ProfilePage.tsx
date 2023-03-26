@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { EditableProfileCard, fetchProfileData, profileReducer } from 'features/EditableProfileCard';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useParams } from 'react-router-dom';
-import { Page } from 'widgets/Page/Page';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { EditableProfileCard, fetchProfileData, profileReducer } from '@/features/EditableProfileCard';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { Page } from '@/widgets/Page/Page';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -17,7 +17,7 @@ interface ProfilePageProps {
 
 const ProfilePage: FC<ProfilePageProps> = (props) => {
     const dispatch = useAppDispatch();
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
 
     const {
         className,

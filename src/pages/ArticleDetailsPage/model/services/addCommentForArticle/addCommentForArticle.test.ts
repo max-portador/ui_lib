@@ -1,9 +1,11 @@
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { DeepPartial } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { article } from 'shared/config/storybook/examples/article';
-import { userExamples } from 'shared/config/storybook/examples/users';
+
 import { addCommentForArticle } from './addCommentForArticle';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { article } from '@/shared/config/storybook/examples/article';
+import { userExamples } from '@/shared/config/storybook/examples/users';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 const thunkState: DeepPartial<StateSchema> = {
     articleDetails: {

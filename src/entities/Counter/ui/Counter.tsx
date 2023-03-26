@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button } from 'shared/ui/Button';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Button } from '@/shared/ui/Button';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 import { counterActions } from '../model/slice/counterSLice';
 
@@ -22,7 +22,7 @@ export const Counter = () => {
     return (
         <div>
             <h1 data-testid="value-title">
-                { `${t('value')} = ${counterValue}` }
+                {`${t('value')} = ${counterValue}`}
             </h1>
             <Button data-testid="btn-dec" onClick={dec}>-</Button>
             <Button data-testid="btn-inc" onClick={inc}>+</Button>

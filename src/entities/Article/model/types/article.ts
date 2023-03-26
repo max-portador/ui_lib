@@ -1,5 +1,6 @@
-import { User } from 'entities/User';
 import { ArcticleBlockType, ArticleType } from '../consts/consts';
+
+import { User } from '@/entities/User';
 
 export interface ArcticleBlockBase {
     id: string,

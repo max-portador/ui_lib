@@ -1,16 +1,18 @@
 import React, { FC, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Page } from 'widgets/Page/Page';
-import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
-import { ArticleDetailsPageHeader } from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import { VStack } from 'shared/ui/Stack';
-import { ArticleRecommendationsList } from 'features/articleRecomendationsList';
-import { ArticleDetailsComments } from 'pages/ArticleDetailsPage/ui/ArticleDetailsComments/ArticleDetailsComments';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ArticleDetails } from '@/entities/Article';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Page } from '@/widgets/Page/Page';
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices';
+import {
+    ArticleDetailsPageHeader,
+} from '@/pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { VStack } from '@/shared/ui/Stack';
+import { ArticleRecommendationsList } from '@/features/articleRecomendationsList';
+import { ArticleDetailsComments } from '@/pages/ArticleDetailsPage/ui/ArticleDetailsComments/ArticleDetailsComments';
 import { fetchArticleRecommendations } from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import cls from './ArticleDetailsPage.module.scss';
 

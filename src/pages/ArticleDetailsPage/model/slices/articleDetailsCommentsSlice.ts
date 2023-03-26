@@ -1,8 +1,10 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Comment } from 'entities/Comment';
-import { StateSchema } from 'app/providers/StoreProvider';
+
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { Comment } from '@/entities/Comment';
 
 type Book = { bookId: string; title: string }
 

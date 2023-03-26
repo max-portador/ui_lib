@@ -1,11 +1,11 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import 'app/styles/index.scss';
+import '@/app/styles/index.scss';
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { article } from 'shared/config/storybook/examples/article';
-import { ArticleView } from 'entities/Article/model/consts/consts';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { article } from '@/shared/config/storybook/examples/article';
+import { ArticleView } from '@/entities/Article/model/consts/consts';
 import { ArticleListItem } from './ArticleListItem';
 
 export default {

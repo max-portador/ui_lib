@@ -1,16 +1,16 @@
 import React, { FC } from 'react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Text, TextTheme } from 'shared/ui/Text';
-import { Input } from 'shared/ui/Input';
-import { Profile } from 'features/EditableProfileCard';
-import { Loader } from 'shared/ui/Loader';
-import { TextAlign } from 'shared/ui/Text/ui/Text';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Currency, CurrencySelect } from 'entities/Currency';
-import { Country } from 'entities/Country/model/types/countries';
-import { CountrySelect } from 'entities/Country';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { Text, TextTheme } from '@/shared/ui/Text';
+import { Input } from '@/shared/ui/Input';
+import { Profile } from '@/features/EditableProfileCard';
+import { Loader } from '@/shared/ui/Loader';
+import { TextAlign } from '@/shared/ui/Text/ui/Text';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Currency, CurrencySelect } from '@/entities/Currency';
+import { Country } from '@/entities/Country/model/types/countries';
+import { CountrySelect } from '@/entities/Country';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {

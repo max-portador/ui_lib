@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { Flex, FlexProps } from 'shared/ui/Stack/Flex/Flex';
+import { Flex, FlexProps } from '@/shared/ui/Stack/Flex/Flex';
 
 type VStackProps = Omit<FlexProps, 'direction'>
 

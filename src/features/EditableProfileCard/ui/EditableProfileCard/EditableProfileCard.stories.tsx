@@ -1,13 +1,13 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import AvatarImg from 'shared/assets/tests/avatar.jpeg';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { StateSchema } from 'app/providers/StoreProvider';
 import { DeepPartial } from '@reduxjs/toolkit';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import AvatarImg from '@/shared/assets/tests/avatar.jpeg';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { EditableProfileCard } from './EditableProfileCard';
 
 export default {

@@ -1,8 +1,8 @@
 import React, { FC, ReactNode, useEffect } from 'react';
 import { useStore } from 'react-redux';
-import { ReduxStoreWithManager } from 'app/providers/StoreProvider';
-import { StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { ReduxStoreWithManager } from '@/app/providers/StoreProvider';
+import { StateSchemaKey } from '@/app/providers/StoreProvider/config/StateSchema';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { ReducersList } from './types';
 
 interface DynamicModuleLoaderProps {

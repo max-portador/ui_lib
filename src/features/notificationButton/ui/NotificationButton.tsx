@@ -1,13 +1,13 @@
 import React, { memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
-import { Popover } from 'shared/ui/Popups';
-import { Button, ButtonTheme } from 'shared/ui/Button';
-import { Icon } from 'shared/ui/Icon/Icon';
-import { NotificationList } from 'entities/Notifications';
-import { Drawer } from 'shared/ui/Drawer/Drawer';
-import NotificationIcon from 'shared/assets/icons/notification.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
+import { Popover } from '@/shared/ui/Popups';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import { NotificationList } from '@/entities/Notifications';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import NotificationIcon from '@/shared/assets/icons/notification.svg';
 import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
@@ -38,7 +38,7 @@ const NotificationButton = memo((props: NotificationButtonProps) => {
         <div>
             <BrowserView>
                 <Popover
-                    className={classNames(cls.NotificationButton, {}, [className])}
+                    className={classNames('', {}, [className])}
                     trigger={trigger}
                     direction="bottom left"
                 >

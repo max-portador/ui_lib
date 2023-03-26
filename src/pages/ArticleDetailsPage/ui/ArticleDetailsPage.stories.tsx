@@ -1,11 +1,11 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import 'app/styles/index.scss';
+import '@/app/styles/index.scss';
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { article } from 'shared/config/storybook/examples/article';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { article } from '@/shared/config/storybook/examples/article';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const commentsEntities = {

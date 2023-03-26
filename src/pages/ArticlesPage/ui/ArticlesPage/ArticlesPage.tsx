@@ -1,10 +1,10 @@
 import React, { FC, memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Page } from 'widgets/Page/Page';
-import { ArticlesPageFilter } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilter';
-import { ArticleInfiniteList } from 'pages/ArticlesPage/ui/ArticleInfiniteList/ArticleInfiniteList';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Page } from '@/widgets/Page/Page';
+import { ArticlesPageFilter } from '@/pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilter';
+import { ArticleInfiniteList } from '@/pages/ArticlesPage/ui/ArticleInfiniteList/ArticleInfiniteList';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { articlePageReducer } from '../../model/slice/articlePageSlice';
 import cls from './ArticlesPage.module.scss';
