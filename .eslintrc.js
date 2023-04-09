@@ -32,6 +32,7 @@ module.exports = {
             2, { extensions: ['.js', '.jsx', '.tsx'] },
         ],
         'react/jsx-props-no-spreading': 'warn',
+        'react/no-array-index-key': 'warn',
         'react/function-component-definition': 'off',
         'import/no-unresolved': 'off',
         'import/extensions': 'off',

@@ -40,7 +40,7 @@ const Dropdown = memo((props: DropdownProps) => {
                 }
             </Menu.Button>
             <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
-                {items.map((item) => {
+                {items.map((item, i) => {
                     const content = ({ active }: { active: boolean }) => (
                         <button
                             disabled={item?.disabled}
@@ -58,6 +58,7 @@ const Dropdown = memo((props: DropdownProps) => {
                                 as={AppLink}
                                 disabled={item?.disabled}
                                 to={item.href}
+                                key={`dropdownKey${i}`}
                             >
                                 {content}
                             </Menu.Item>
