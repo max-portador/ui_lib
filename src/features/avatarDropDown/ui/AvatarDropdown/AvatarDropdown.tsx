@@ -5,7 +5,7 @@ import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { Dropdown } from '@/shared/ui/Popups';
 import {
-    getUserAuthData, isUSerAdmin, isUSerManager, userActions,
+    getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 
@@ -17,8 +17,8 @@ const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     const { t } = useTranslation();
     const authData = useSelector(getUserAuthData);
     const dispatch = useAppDispatch();
-    const isAdmin = useSelector(isUSerAdmin);
-    const isManager = useSelector(isUSerManager);
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
     const {
         className,
     } = props;

@@ -5,9 +5,10 @@ import '@/app/styles/index.scss';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { NotificationItem } from './NotificationItem';
+import { notificationItems } from '@/shared/config/storybook/examples/notificationItems';
 
 export default {
-    title: 'shared/NotificationItem',
+    title: 'entities/Notification/NotificationItem',
     component: NotificationItem,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -16,7 +17,7 @@ export default {
 
 const Template: ComponentStory<typeof NotificationItem> = (args) => (
     <div className="story-wrapper">
-        <NotificationItem {...args} />
+        <NotificationItem {...args} item={notificationItems[0]} />
     </div>
 );
 export const Normal = Template.bind({});

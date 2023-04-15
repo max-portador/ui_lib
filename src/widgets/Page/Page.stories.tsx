@@ -5,9 +5,11 @@ import '@/app/styles/index.scss';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { Page } from './Page';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { userExamples } from '@/shared/config/storybook/examples/users';
 
 export default {
-    title: 'shared/Page',
+    title: 'widgets/Page',
     component: Page,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -22,21 +24,22 @@ const Template: ComponentStory<typeof Page> = (args) => (
     </div>
 );
 export const Normal = Template.bind({});
-Normal.args = {
-};
 
 export const Dark = Template.bind({});
-Dark.args = {
-};
 
 Dark.decorators = [
     ThemeDecorator(Theme.DARK),
 ];
 
 export const Purple = Template.bind({});
-Purple.args = {
-};
 
 Purple.decorators = [
     ThemeDecorator(Theme.PURPLE),
 ];
+
+[Normal, Dark, Purple].forEach((st) => {
+    st.args = {};
+    const decorators = st.decorators ?? [];
+    decorators.push(StoreDecorator({ user: { authData: userExamples['1'] } }));
+    st.decorators = decorators;
+});

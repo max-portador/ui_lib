@@ -4,25 +4,25 @@ import '@/app/styles/index.scss';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
-import { NotificationList } from './NotificationList';
+import ArticleRating from './ArticleRating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { notificationItems } from '@/shared/config/storybook/examples/notificationItems';
+import { userExamples } from '@/shared/config/storybook/examples/users';
 
 export default {
-    title: 'entities/Notification/NotificationList',
-    component: NotificationList,
+    title: 'features/ArticleRating',
+    component: ArticleRating,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof NotificationList>;
+} as ComponentMeta<typeof ArticleRating>;
 
-const Template: ComponentStory<typeof NotificationList> = (args) => (
+const Template: ComponentStory<typeof ArticleRating> = (args) => (
     <div className="story-wrapper">
-        <NotificationList {...args} />
+        <ArticleRating {...args} />
     </div>
 );
 export const Normal = Template.bind({});
-Normal.decorators = [];
+
 export const Dark = Template.bind({});
 
 Dark.decorators = [
@@ -37,14 +37,22 @@ Purple.decorators = [
 
 [Normal, Dark, Purple].forEach((st) => {
     st.args = {};
-    st.decorators?.push(StoreDecorator({}));
+    const decorators = st.decorators ?? [];
+    decorators.push(StoreDecorator({ user: { authData: userExamples['1'] } }));
+    st.decorators = decorators;
+
     st.parameters = {
         mockData: [
             {
-                url: `${__API__}/notifications`,
+                url: `${__API__}/article-ratings?userId=1&articleId=1`,
                 method: 'GET',
                 status: 200,
-                response: notificationItems,
+                response: [],
+            },
+            {
+                url: `${__API__}/article-ratings?userId=1&articleId=1`,
+                method: 'POST',
+                status: 200,
             },
         ],
     };

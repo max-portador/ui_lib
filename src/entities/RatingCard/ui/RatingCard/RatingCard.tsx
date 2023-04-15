@@ -1,14 +1,12 @@
 import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/Card';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import { StartRating } from '@/shared/ui/StarRating/StartRating';
 import { Modal } from '@/shared/ui/Modal';
 import { Input } from '@/shared/ui/Input';
-import cls from './RatingCard.module.scss';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import { ButtonSize } from '@/shared/ui/Button/ui/Button';
@@ -18,7 +16,8 @@ interface RatingCardProps {
     title?: string;
     hasFeedback?: boolean;
     feedbackTitle?: string;
-    onCancel?: (starsCount: number) => number;
+    rate?: number;
+    onCancel?: (starsCount: number) => void;
     onAccept?: (starsCount: number, feedback?: string) => void;
 }
 
@@ -30,12 +29,13 @@ const RatingCard = memo((props: RatingCardProps) => {
         feedbackTitle,
         onAccept,
         onCancel,
+        rate = 0,
     } = props;
 
     const { t } = useTranslation();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
     const onSelectStars = useCallback((selectedStarsCount: number) => {
@@ -65,10 +65,10 @@ const RatingCard = memo((props: RatingCardProps) => {
     );
 
     return (
-        <Card className={classNames(cls.RatingCard, {}, [className])}>
+        <Card className={className} max>
             <VStack align="center">
-                <Text title={title} />
-                <StartRating size={40} onSelect={onSelectStars} />
+                <Text title={starsCount ? t('Спасибо за оценку!') : title} />
+                <StartRating selectedStarts={starsCount} size={40} onSelect={onSelectStars} />
             </VStack>
             <BrowserView>
                 <Modal isOpen={isModalOpen}>

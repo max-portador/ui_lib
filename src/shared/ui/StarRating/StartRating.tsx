@@ -21,7 +21,7 @@ const StartRating = memo((props: StartRatingProps) => {
         selectedStarts = 0,
     } = props;
 
-    const [currentStarsCount, setCurrenStarsCount] = useState(0);
+    const [currentStarsCount, setCurrenStarsCount] = useState(selectedStarts);
     const [isSelected, setSelected] = useState(Boolean(selectedStarts));
     const onHover = (starsCount: number) => () => {
         if (!isSelected) {

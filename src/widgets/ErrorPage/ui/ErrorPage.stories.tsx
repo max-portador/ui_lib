@@ -6,7 +6,7 @@ import { Theme } from '@/app/providers/ThemeProvider';
 import { ErrorPage } from './ErrorPage';
 
 export default {
-    title: 'widget/ErrorPage',
+    title: 'widgets/ErrorPage',
     component: ErrorPage,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -22,3 +22,8 @@ export const Dark = Template.bind({});
 Dark.args = {};
 
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Purple = Template.bind({});
+Purple.args = {};
+
+Purple.decorators = [ThemeDecorator(Theme.PURPLE)];

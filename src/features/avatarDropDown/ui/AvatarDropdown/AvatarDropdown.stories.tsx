@@ -5,9 +5,11 @@ import '@/app/styles/index.scss';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { AvatarDropdown } from './AvatarDropdown';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { userExamples } from '@/shared/config/storybook/examples/users';
 
 export default {
-    title: 'shared/AvatarDropdown',
+    title: 'features/AvatarDropdown',
     component: AvatarDropdown,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -20,18 +22,22 @@ const Template: ComponentStory<typeof AvatarDropdown> = (args) => (
     </div>
 );
 export const Normal = Template.bind({});
-Normal.args = {};
 
 export const Dark = Template.bind({});
-Dark.args = {};
 
 Dark.decorators = [
     ThemeDecorator(Theme.DARK),
 ];
 
 export const Purple = Template.bind({});
-Purple.args = {};
 
 Purple.decorators = [
     ThemeDecorator(Theme.PURPLE),
 ];
+
+[Normal, Dark, Purple].forEach((st) => {
+    st.args = {};
+    const decorators = st.decorators ?? [];
+    decorators.push(StoreDecorator({ user: { authData: userExamples['1'] } }));
+    st.decorators = decorators;
+});
