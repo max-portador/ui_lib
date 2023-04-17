@@ -3,7 +3,7 @@ import { DeepPartial } from '@reduxjs/toolkit';
 import { getProfileValidateErrors } from './getProfileValidateErrors';
 
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { ValidateProfileError } from '@/features/EditableProfileCard';
+import { ValidateProfileError } from '../../consts/consts';
 
 describe('getProfileValidateErrors.test', () => {
     test('should return correct username', () => {
@@ -23,8 +23,7 @@ describe('getProfileValidateErrors.test', () => {
     });
 
     test('should work with empty state', () => {
-        const state: DeepPartial<StateSchema> = {
-        };
+        const state: DeepPartial<StateSchema> = {};
         expect(getProfileValidateErrors(state as StateSchema)).toEqual(undefined);
     });
 });

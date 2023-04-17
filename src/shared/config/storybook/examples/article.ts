@@ -1,6 +1,6 @@
 import type { Article } from '@/entities/Article';
 import { ArcticleBlockType, ArticleType } from '@/entities/Article';
-import { userExamples } from '@/shared/config/storybook/examples/users';
+import { userExamples } from './users';
 
 export const article: Article = {
     id: '1',
