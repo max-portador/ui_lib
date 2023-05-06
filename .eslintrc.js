@@ -73,7 +73,12 @@ module.exports = {
         }],
         'max-len': ['error', { ignoreComments: true, code: 125 }],
         'portador/path-checker': ['error', { alias: '@' }],
-        'portador/public-api-imports': ['error', { alias: '@' }],
+        'portador/public-api-imports': [
+            'error', {
+                alias: '@',
+                testFilesPatterns: ['**/.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,
