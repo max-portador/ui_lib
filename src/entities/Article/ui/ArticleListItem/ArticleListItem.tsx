@@ -9,11 +9,11 @@ import { Card } from '@/shared/ui/Card';
 import { useHover } from '@/shared/lib/hooks/useHover';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { ArcticleBlockType, ArticleView } from '@/entities/Article/model/consts/consts';
+import { ArcticleBlockType, ArticleView } from '../../model/consts/consts';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
+import { RoutePath } from '@/shared/const/router';
 
 interface ArticleListItemProps {
     className?: string;
