@@ -1,5 +1,5 @@
-import { ButtonHTMLAttributes, memo } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import {ButtonHTMLAttributes, forwardRef, memo} from 'react';
+import {classNames, Mods} from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export enum ButtonTheme {
@@ -26,38 +26,40 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     disabled?: boolean
 }
 
-const Button = memo((props: ButtonProps) => {
-    const {
-        className,
-        children,
-        theme = ButtonTheme.OUTLINE,
-        isSquare,
-        disabled,
-        size = ButtonSize.M,
-        ...otherProps
-    } = props;
+const Button = memo(
+    forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+        const {
+            className,
+            children,
+            theme = ButtonTheme.OUTLINE,
+            isSquare,
+            disabled,
+            size = ButtonSize.M,
+            ...otherProps
+        } = props;
 
-    const mods: Mods = {
-        [cls.square]: isSquare,
-        [cls.disabled]: disabled,
-    };
+        const mods: Mods = {
+            [cls.square]: isSquare,
+            [cls.disabled]: disabled,
+        };
 
-    const additionalCN: string[] = [
-        className || '',
-        cls[theme],
-        cls[size],
-    ];
+        const additionalCN: string[] = [
+            className || '',
+            cls[theme],
+            cls[size],
+        ];
 
-    return (
-        <button
-            type="button"
-            className={classNames(cls.button, mods, additionalCN)}
-            disabled={disabled}
-            {...otherProps}
-        >
-            {children}
-        </button>
-    );
-});
+        return (
+            <button
+                type="button"
+                className={classNames(cls.button, mods, additionalCN)}
+                disabled={disabled}
+                {...otherProps}
+                ref={ref}
+            >
+                {children}
+            </button>
+        );
+    }));
 
-export { Button };
+export {Button};

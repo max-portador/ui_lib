@@ -1,9 +1,9 @@
-import React, { Fragment, memo, ReactNode } from 'react';
-import { Menu } from '@headlessui/react';
-import { classNames } from '../../../../lib/classNames/classNames';
-import { DropDownDirection } from '../../../../types/ui';
-import { AppLink } from '../../../AppLink';
-import { mapDirectionClass } from '../../styles/consts';
+import React, {Fragment, memo, ReactNode} from 'react';
+import {Menu} from '@headlessui/react';
+import {classNames} from '../../../../lib/classNames/classNames';
+import {DropDownDirection} from '../../../../types/ui';
+import {AppLink} from '../../../AppLink';
+import {mapDirectionClass} from '../../styles/consts';
 import popupCls from '../../styles/popup.module.scss';
 import cls from './Dropdown.module.scss';
 
@@ -41,11 +41,11 @@ const Dropdown = memo((props: DropdownProps) => {
             </Menu.Button>
             <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
                 {items.map((item, i) => {
-                    const content = ({ active }: { active: boolean }) => (
+                    const content = ({active}: { active: boolean }) => (
                         <button
                             disabled={item?.disabled}
                             type="button"
-                            className={classNames(cls.item, { [popupCls.active]: active })}
+                            className={classNames(cls.item, {[popupCls.active]: active})}
                             onClick={item?.onClick}
                         >
                             {item.content}
@@ -69,6 +69,7 @@ const Dropdown = memo((props: DropdownProps) => {
                         <Menu.Item
                             as={Fragment}
                             disabled={item?.disabled}
+                            key={`dropdownKey${i}`}
                         >
                             {content}
                         </Menu.Item>
@@ -79,4 +80,4 @@ const Dropdown = memo((props: DropdownProps) => {
     );
 });
 
-export { Dropdown };
+export {Dropdown};

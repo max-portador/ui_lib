@@ -1,7 +1,5 @@
-import React, {
-    InputHTMLAttributes, memo, useEffect, useRef, useState,
-} from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import React, {InputHTMLAttributes, memo, useEffect, useRef, useState,} from 'react';
+import {classNames, Mods} from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLElement>, 'value' | 'onChange' | 'readonly'>
@@ -17,7 +15,7 @@ interface InputProps extends HTMLInputProps {
 const InputRaw = memo((props: InputProps) => {
     const {
         className,
-        value,
+        value = '',
         onChange,
         type = 'text',
         placeholder,
@@ -82,7 +80,7 @@ const InputRaw = memo((props: InputProps) => {
                 {isCaretVisible && (
                     <span
                         className={cls.caret}
-                        style={{ left: `${caretPosition * 8}px` }}
+                        style={{left: `${caretPosition * 8}px`}}
                     />
                 )}
             </div>
@@ -92,4 +90,4 @@ const InputRaw = memo((props: InputProps) => {
 
 const Input = memo(InputRaw);
 
-export { Input };
+export {Input};

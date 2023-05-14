@@ -1,8 +1,8 @@
-import React, { memo, useState } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Icon } from '@/shared/ui/Icon/Icon';
+import React, {memo, useState} from 'react';
+import {classNames} from '@/shared/lib/classNames/classNames';
+import {Icon} from '@/shared/ui/Icon';
 import StarIcon from '@/shared/assets/icons/star.svg';
-import cls from './StartRating.module.scss';
+import cls from './StarRating.module.scss';
 
 interface StartRatingProps {
     className?: string;
@@ -13,7 +13,7 @@ interface StartRatingProps {
 
 const stars = [1, 2, 3, 4, 5];
 
-const StartRating = memo((props: StartRatingProps) => {
+const StarRating = memo((props: StartRatingProps) => {
     const {
         className,
         onSelect,
@@ -67,4 +67,4 @@ const StartRating = memo((props: StartRatingProps) => {
     );
 });
 
-export { StartRating };
+export {StarRating};

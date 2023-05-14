@@ -1,20 +1,18 @@
-import React, { memo, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Dropdown } from '@/shared/ui/Popups';
-import {
-    getUserAuthData, isUserAdmin, isUserManager, userActions,
-} from '@/entities/User';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { RoutePath } from '@/shared/const/router';
+import React, {memo, useCallback} from 'react';
+import {useTranslation} from 'react-i18next';
+import {useSelector} from 'react-redux';
+import {Avatar} from '@/shared/ui/Avatar';
+import {Dropdown} from '@/shared/ui/Popups';
+import {getUserAuthData, isUserAdmin, isUserManager, userActions,} from '@/entities/User';
+import {useAppDispatch} from '@/shared/lib/hooks/useAppDispatch';
+import {RoutePath} from '@/shared/const/router';
 
 interface AvatarDropdownProps {
     className?: string;
 }
 
-const AvatarDropdown = memo((props: AvatarDropdownProps) => {
-    const { t } = useTranslation();
+export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
+    const {t} = useTranslation();
     const authData = useSelector(getUserAuthData);
     const dispatch = useAppDispatch();
     const isAdmin = useSelector(isUserAdmin);
@@ -36,7 +34,7 @@ const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     return (
         <Dropdown
             className={className}
-            trigger={<Avatar size={30} src={authData.avatar} />}
+            trigger={<Avatar size={30} src={authData.avatar}/>}
             direction="bottom left"
             items={[
 
@@ -56,5 +54,3 @@ const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         />
     );
 });
-
-export { AvatarDropdown };

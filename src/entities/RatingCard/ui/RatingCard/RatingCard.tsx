@@ -1,15 +1,15 @@
-import React, { memo, useCallback, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { BrowserView, MobileView } from 'react-device-detect';
-import { Card } from '@/shared/ui/Card';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text';
-import { StartRating } from '@/shared/ui/StarRating/StartRating';
-import { Modal } from '@/shared/ui/Modal';
-import { Input } from '@/shared/ui/Input';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
-import { ButtonSize } from '@/shared/ui/Button/ui/Button';
+import React, {memo, useCallback, useState} from 'react';
+import {useTranslation} from 'react-i18next';
+import {BrowserView, MobileView} from 'react-device-detect';
+import {Card} from '@/shared/ui/Card';
+import {HStack, VStack} from '@/shared/ui/Stack';
+import {Text} from '@/shared/ui/Text';
+import {StarRating} from '@/shared/ui/StarRating';
+import {Modal} from '@/shared/ui/Modal';
+import {Input} from '@/shared/ui/Input';
+import {Button, ButtonTheme} from '@/shared/ui/Button';
+import {Drawer} from '@/shared/ui/Drawer';
+import {ButtonSize} from '@/shared/ui/Button';
 
 interface RatingCardProps {
     className?: string;
@@ -32,7 +32,7 @@ const RatingCard = memo((props: RatingCardProps) => {
         rate = 0,
     } = props;
 
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [starsCount, setStarsCount] = useState(rate);
@@ -59,16 +59,16 @@ const RatingCard = memo((props: RatingCardProps) => {
 
     const modalContent = (
         <>
-            <Text title={feedbackTitle} />
-            <Input placeholder={t('Ваш отзыв')} value={feedback} onChange={setFeedback} />
+            <Text title={feedbackTitle}/>
+            <Input placeholder={t('Ваш отзыв')} value={feedback} onChange={setFeedback}/>
         </>
     );
 
     return (
         <Card className={className} max>
             <VStack align="center">
-                <Text title={starsCount ? t('Спасибо за оценку!') : title} />
-                <StartRating selectedStarts={starsCount} size={40} onSelect={onSelectStars} />
+                <Text title={starsCount ? t('Спасибо за оценку!') : title}/>
+                <StarRating selectedStarts={starsCount} size={40} onSelect={onSelectStars}/>
             </VStack>
             <BrowserView>
                 <Modal isOpen={isModalOpen}>
@@ -102,4 +102,4 @@ const RatingCard = memo((props: RatingCardProps) => {
     );
 });
 
-export { RatingCard };
+export {RatingCard};

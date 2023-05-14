@@ -2,7 +2,7 @@ import React, {memo, PropsWithChildren, useCallback, useEffect,} from 'react';
 import type {Mods} from '@/shared/lib/classNames/classNames';
 import {classNames} from '@/shared/lib/classNames/classNames';
 import {Portal} from '@/shared/ui/Portal';
-import {Overlay} from '@/shared/ui/Overlay/Overlay';
+import {Overlay} from '@/shared/ui/Overlay';
 import {useModal} from '@/shared/lib/hooks/useModal';
 import {useTheme} from '@/shared/lib/hooks/useTheme/useTheme';
 import {AnimationProvider, useAnimationLibs} from '@/shared/lib/components/AnimationProvider';

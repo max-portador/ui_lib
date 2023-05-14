@@ -1,14 +1,14 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import {ComponentMeta, ComponentStory} from '@storybook/react';
 import '@/app/styles/index.scss';
-import { Button } from '@/shared/ui/Button';
-import { Dropdown } from './Dropdown';
+import {Button} from '@/shared/ui/Button';
+import {Dropdown} from './Dropdown';
 
 export default {
     title: 'shared/Dropdown',
     component: Dropdown,
     argTypes: {
-        backgroundColor: { control: 'color' },
+        backgroundColor: {control: 'color'},
     },
 } as ComponentMeta<typeof Dropdown>;
 
@@ -23,9 +23,11 @@ Normal.args = {
     items: [
         {
             content: 'one',
+            key: 'one'
         },
         {
             content: 'two',
+            key: 'two'
         },
     ],
 };

@@ -1,16 +1,17 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import {ComponentMeta, ComponentStory} from '@storybook/react';
+import {ThemeDecorator} from '@/shared/config/storybook/ThemeDecorator';
 
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/ui/AppLink';
+import {AppLink, AppLinkTheme} from '@/shared/ui/AppLink';
+import {Theme} from "@/shared/const/theme";
 
 export default {
     title: 'shared/AppLink',
     component: AppLink,
     argTypes: {
-        backgroundColor: { control: 'color' },
+        backgroundColor: {control: 'color'},
     },
-    args: { to: '/' },
+    args: {to: '/'},
 } as ComponentMeta<typeof AppLink>;
 
 const Template: ComponentStory<typeof AppLink> = (args) => <AppLink {...args} />;

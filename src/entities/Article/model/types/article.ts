@@ -1,6 +1,6 @@
-import {ArcticleBlockType, ArticleType} from '../consts/consts';
+import { ArcticleBlockType, ArticleType } from '../consts/consts';
 // eslint-disable-next-line portador/layer-imports
-import {User} from '@/entities/User';
+import { User } from '@/entities/User';
 
 export interface ArcticleBlockBase {
     id: string,
