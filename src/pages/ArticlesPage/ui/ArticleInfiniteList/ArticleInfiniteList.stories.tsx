@@ -3,7 +3,6 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import '@/app/styles/index.scss';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { ArticleInfiniteList } from './ArticleInfiniteList';

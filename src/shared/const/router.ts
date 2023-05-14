@@ -25,3 +25,9 @@ export const RoutePath: Record<AppRoutes, string> = {
     // the last one
     [AppRoutes.NOT_FOUND]: '*',
 };
+
+export enum UserRole {
+    ADMIN = 'ADMIN',
+    USER = 'USER',
+    MANAGER = 'MANAGER'
+}

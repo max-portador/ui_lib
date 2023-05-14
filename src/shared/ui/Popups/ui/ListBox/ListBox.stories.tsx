@@ -3,10 +3,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import '@/app/styles/index.scss';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ListBox } from './ListBox';
 import cls from './ListBox.module.scss';
+import { Theme } from '@/shared/const/theme';
 
 const items = ['one', 'two', 'tree'].map((val, i) => ({
     value: val,

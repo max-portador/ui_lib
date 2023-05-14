@@ -3,8 +3,8 @@ import { DeepPartial } from '@reduxjs/toolkit';
 import { addCommentForArticle } from './addCommentForArticle';
 
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { article } from '@/shared/config/storybook/examples/article';
-import { userExamples } from '@/shared/config/storybook/examples/users';
+import { article } from '@/app/examples/article';
+import { userExamples } from '@/app/examples/users';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 const thunkState: DeepPartial<StateSchema> = {

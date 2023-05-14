@@ -3,10 +3,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import '@/app/styles/index.scss';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { NotificationButton } from './NotificationButton';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { notificationItems } from '@/shared/config/storybook/examples/notificationItems';
+import { notificationItems } from '@/app/examples/notificationItems';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'features/NotificationButton',

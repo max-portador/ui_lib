@@ -4,7 +4,6 @@ import '@/app/styles/index.scss';
 
 import { action } from '@storybook/addon-actions';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { TabItem, Tabs } from './Tabs';
 
 const tabs: TabItem<string>[] = ['1', '2', '3'].map((item) => ({ value: `tab ${item}`, content: `tab ${item}` }));

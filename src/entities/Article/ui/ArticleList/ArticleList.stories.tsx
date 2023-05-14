@@ -3,8 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import '@/app/styles/index.scss';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
-import { article, article2 } from '@/shared/config/storybook/examples/article';
+import { article, article2 } from '@/app/examples/article';
 import { ArticleView } from '@/entities/Article';
 import { ArticleList } from './ArticleList';
 
@@ -23,20 +22,17 @@ const Template: ComponentStory<typeof ArticleList> = (args) => (
     </div>
 );
 export const Normal = Template.bind({});
-Normal.args = {
-};
+Normal.args = {};
 
 export const Dark = Template.bind({});
-Dark.args = {
-};
+Dark.args = {};
 
 Dark.decorators = [
     ThemeDecorator(Theme.DARK),
 ];
 
 export const Purple = Template.bind({});
-Purple.args = {
-};
+Purple.args = {};
 
 Purple.decorators = [
     ThemeDecorator(Theme.PURPLE),

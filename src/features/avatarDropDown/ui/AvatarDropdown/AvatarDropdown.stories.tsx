@@ -3,10 +3,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import '@/app/styles/index.scss';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { AvatarDropdown } from './AvatarDropdown';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { userExamples } from '@/shared/config/storybook/examples/users';
+import { userExamples } from '@/app/examples/users';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'features/AvatarDropdown',

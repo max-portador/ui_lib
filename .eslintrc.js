@@ -79,6 +79,13 @@ module.exports = {
                 testFilesPatterns: ['**/.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
             },
         ],
+        'portador/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/styles/index.scss', '**/examples/**'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,

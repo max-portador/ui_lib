@@ -3,10 +3,9 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import '@/app/styles/index.scss';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { NotificationList } from './NotificationList';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { notificationItems } from '@/shared/config/storybook/examples/notificationItems';
+import { notificationItems } from '@/app/examples/notificationItems';
 
 export default {
     title: 'entities/Notification/NotificationList',

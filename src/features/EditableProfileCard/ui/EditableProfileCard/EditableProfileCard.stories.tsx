@@ -6,7 +6,6 @@ import { Currency } from '@/entities/Currency';
 import AvatarImg from '@/shared/assets/tests/avatar.jpeg';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { EditableProfileCard } from './EditableProfileCard';
 

@@ -3,9 +3,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import '@/app/styles/index.scss';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { article, article2 } from '@/shared/config/storybook/examples/article';
+import { article, article2 } from '@/app/examples/article';
 import ArticlesPage from './ArticlesPage';
 
 export default {

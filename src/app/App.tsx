@@ -1,15 +1,15 @@
-import { Suspense, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useTheme } from '@/app/providers/ThemeProvider';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppRouter } from '@/app/providers/router';
-import { Navbar } from '@/widgets/Navbar';
-import { Sidebar } from '@/widgets/Sidebar';
-import { getUserInited, userActions } from '@/entities/User';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import {Suspense, useEffect} from 'react';
+import {useSelector} from 'react-redux';
+import {classNames} from '@/shared/lib/classNames/classNames';
+import {AppRouter} from '@/app/providers/router';
+import {Navbar} from '@/widgets/Navbar';
+import {Sidebar} from '@/widgets/Sidebar';
+import {getUserInited, userActions} from '@/entities/User';
+import {useAppDispatch} from '@/shared/lib/hooks/useAppDispatch';
+import {useTheme} from "@/shared/lib/hooks/useTheme/useTheme";
 
 function App() {
-    const { theme } = useTheme();
+    const {theme} = useTheme();
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
     useEffect(
@@ -22,10 +22,10 @@ function App() {
     return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
-                <Navbar />
+                <Navbar/>
                 <div className="content-page">
-                    <Sidebar />
-                    {inited && <AppRouter />}
+                    <Sidebar/>
+                    {inited && <AppRouter/>}
                 </div>
             </Suspense>
         </div>
