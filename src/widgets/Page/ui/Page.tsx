@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+// eslint-disable-next-line portador/layer-imports
 import { getScrollByPath, scrollSaveSliceActions } from '@/widgets/ScrollSave';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';

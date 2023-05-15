@@ -6,6 +6,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Page } from './Page';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { userExamples } from '@/app/examples/users';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'widgets/Page',
