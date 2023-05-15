@@ -24,12 +24,14 @@ module.exports = {
         'i18next',
         'eslint-plugin-react-hooks',
         'portador',
+        'unused-imports',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
+        "unused-imports/no-unused-imports": "error",
         'react/jsx-filename-extension': [
-            2, { extensions: ['.js', '.jsx', '.tsx'] },
+            2, {extensions: ['.js', '.jsx', '.tsx']},
         ],
         'react/jsx-props-no-spreading': 'warn',
         'react/no-array-index-key': 'warn',
@@ -37,7 +39,7 @@ module.exports = {
         'import/no-unresolved': 'off',
         'import/extensions': 'off',
         'import/prefer-default-export': 'off',
-        'no-tabs': ['error', { allowIndentationTabs: true }],
+        'no-tabs': ['error', {allowIndentationTabs: true}],
         'no-shadow': 'off',
         indent: [2, 4],
         'react/react-in-jsx-scope': 'off',
@@ -71,8 +73,8 @@ module.exports = {
             markupOnly: true,
             ignoreAttribute: ['as', 'role', 'data-testid', 'to', 'target'],
         }],
-        'max-len': ['error', { ignoreComments: true, code: 125 }],
-        'portador/path-checker': ['error', { alias: '@' }],
+        'max-len': ['error', {ignoreComments: true, code: 125}],
+        'portador/path-checker': ['error', {alias: '@'}],
         'portador/public-api-imports': [
             'error', {
                 alias: '@',
