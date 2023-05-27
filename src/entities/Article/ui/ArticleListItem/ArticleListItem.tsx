@@ -12,8 +12,8 @@ import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { ArcticleBlockType, ArticleView } from '../../model/consts/consts';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { Article, ArticleTextBlock } from '../../model/types/article';
+import { getRouteArticleDetails } from '@/shared/const/router';
 import cls from './ArticleListItem.module.scss';
-import { RoutePath } from '@/shared/const/router';
 
 interface ArticleListItemProps {
     className?: string;
@@ -59,7 +59,7 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
                     <div className={cls.footer}>
                         <AppLink
                             target={target}
-                            to={RoutePath.article_details + article.id}
+                            to={getRouteArticleDetails(article.id)}
                         >
                             <Button theme={ButtonTheme.OUTLINE}>
                                 {`${t('Читать далее')}...`}
@@ -77,7 +77,7 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
         <div {...bindHover} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
             <AppLink
                 target={target}
-                to={RoutePath.article_details + article.id}
+                to={getRouteArticleDetails(article.id)}
             >
                 <Card className={cls.card}>
                     <div className={cls.imageWrapper}>
