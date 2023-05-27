@@ -1,9 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import '@/app/styles/index.scss';
-
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Flex } from './Flex';
+import '@/app/styles/index.scss';
 
 export default {
     title: 'shared/Flex',
@@ -27,103 +25,65 @@ const Template: ComponentStory<typeof Flex> = (args) => (
     </div>
 );
 
-export const RowNormal = Template.bind({});
-RowNormal.args = {
+export const Row = Template.bind({});
+Row.args = {
     children,
 };
 
-export const RowGap4Normal = Template.bind({});
-RowGap4Normal.args = {
+export const RowGap4 = Template.bind({});
+RowGap4.args = {
     children,
     gap: 4,
 };
 
-export const RowGap8Normal = Template.bind({});
-RowGap8Normal.args = {
+export const RowGap8 = Template.bind({});
+RowGap8.args = {
     children,
     gap: 8,
 };
 
-export const RowGap16Normal = Template.bind({});
-RowGap16Normal.args = {
+export const RowGap16 = Template.bind({});
+RowGap16.args = {
     children,
     gap: 16,
 };
 
-export const RowGap32Normal = Template.bind({});
-RowGap32Normal.args = {
+export const RowGap32 = Template.bind({});
+RowGap32.args = {
     children,
     gap: 32,
 };
 
-export const RowDark = Template.bind({});
-RowDark.args = {
-    children,
-};
-
-RowDark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
-
-export const RowPurple = Template.bind({});
-RowPurple.args = {
-    children,
-};
-
-RowPurple.decorators = [
-    ThemeDecorator(Theme.PURPLE),
-];
-
-export const ColumnNormal = Template.bind({});
-ColumnNormal.args = {
+export const ColumnWithoutGap = Template.bind({});
+ColumnWithoutGap.args = {
     children,
     direction: 'column',
 };
 
-export const ColumnGap4Normal = Template.bind({});
-ColumnGap4Normal.args = {
+export const ColumnGap4 = Template.bind({});
+ColumnGap4.args = {
     children,
     gap: 4,
     direction: 'column',
 };
 
-export const ColumnGap8Normal = Template.bind({});
-ColumnGap8Normal.args = {
+export const ColumnGap8 = Template.bind({});
+ColumnGap8.args = {
     children,
     gap: 8,
     direction: 'column',
 };
 
-export const ColumnGap16Normal = Template.bind({});
-ColumnGap16Normal.args = {
+export const ColumnGap16 = Template.bind({});
+ColumnGap16.args = {
     children,
     gap: 16,
     direction: 'column',
 };
 
-export const ColumnGap32Normal = Template.bind({});
-ColumnGap32Normal.args = {
+export const ColumnGap32 = Template.bind({});
+ColumnGap32.args = {
     children,
     gap: 32,
     direction: 'column',
 };
-
-export const ColumnDark = Template.bind({});
-ColumnDark.args = {
-    children,
-    direction: 'column',
-};
-
-ColumnDark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
-
-export const ColumnPurple = Template.bind({});
-ColumnPurple.args = {
-    children,
-    direction: 'column',
-};
-
-ColumnPurple.decorators = [
-    ThemeDecorator(Theme.PURPLE),
-];

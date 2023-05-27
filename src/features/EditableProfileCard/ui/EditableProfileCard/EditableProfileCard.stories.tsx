@@ -5,7 +5,6 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import AvatarImg from '@/shared/assets/tests/avatar.jpeg';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { EditableProfileCard } from './EditableProfileCard';
 
@@ -59,32 +58,12 @@ const Template: ComponentStory<typeof EditableProfileCard> = (args) => (
     </div>
 );
 
-export const Primary = Template.bind({});
-Primary.args = {};
+export const Normal = Template.bind({});
+Normal.args = {};
 
-Primary.decorators = [StoreDecorator(initialState)];
+Normal.decorators = [StoreDecorator(initialState)];
 
-export const Dark = Template.bind({});
-Dark.args = {};
+export const CantEdit = Template.bind({});
+CantEdit.args = {};
 
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(initialState)];
-
-export const Purple = Template.bind({});
-Purple.args = {};
-
-Purple.decorators = [ThemeDecorator(Theme.PURPLE), StoreDecorator(initialState)];
-
-export const PrimaryCantEdit = Template.bind({});
-PrimaryCantEdit.args = {};
-
-PrimaryCantEdit.decorators = [StoreDecorator(cantEditSate)];
-
-export const DarkCantEdit = Template.bind({});
-DarkCantEdit.args = {};
-
-DarkCantEdit.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator(cantEditSate)];
-
-export const PurpleCantEdit = Template.bind({});
-PurpleCantEdit.args = {};
-
-PurpleCantEdit.decorators = [ThemeDecorator(Theme.PURPLE), StoreDecorator(cantEditSate)];
+CantEdit.decorators = [StoreDecorator(cantEditSate)];

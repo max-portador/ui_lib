@@ -1,10 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import '@/app/styles/index.scss';
-
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Text } from '@/shared/ui/Text';
 import { Card } from './Card';
+import '@/app/styles/index.scss';
 
 export default {
     title: 'shared/Card',
@@ -19,25 +17,7 @@ const Template: ComponentStory<typeof Card> = (args) => (
         <Card {...args} />
     </div>
 );
-export const Normal = Template.bind({});
-Normal.args = {
+export const Showcase = Template.bind({});
+Showcase.args = {
     children: <Text title="Card" text="Card text" />,
 };
-
-export const Dark = Template.bind({});
-Dark.args = {
-    children: <Text title="Card" text="Card text" />,
-};
-
-Dark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
-
-export const Purple = Template.bind({});
-Purple.args = {
-    children: <Text title="Card" text="Card text" />,
-};
-
-Purple.decorators = [
-    ThemeDecorator(Theme.PURPLE),
-];

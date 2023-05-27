@@ -1,10 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import '@/app/styles/index.scss';
-
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { article, article2 } from '@/app/examples/article';
-import { ArticleView } from '@/entities/Article';
+import { ArticleView } from '../../model/consts/consts';
 import { ArticleList } from './ArticleList';
 
 const articles = [article, article2];
@@ -18,94 +16,27 @@ export default {
 
 const Template: ComponentStory<typeof ArticleList> = (args) => (
     <div className="story-wrapper">
-        <ArticleList {...args} articles={articles} />
+        <ArticleList {...args} />
     </div>
 );
 export const Normal = Template.bind({});
-Normal.args = {};
-
-export const Dark = Template.bind({});
-Dark.args = {};
-
-Dark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
-
-export const Purple = Template.bind({});
-Purple.args = {};
-
-Purple.decorators = [
-    ThemeDecorator(Theme.PURPLE),
-];
-
-export const NormalBig = Template.bind({});
-NormalBig.args = {
-    view: ArticleView.BIG,
+Normal.args = {
+    articles,
 };
 
-export const DarkBig = Template.bind({});
-DarkBig.args = {
+export const Big = Template.bind({});
+Big.args = {
     view: ArticleView.BIG,
+    articles,
 };
 
-DarkBig.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
-
-export const PurpleBig = Template.bind({});
-PurpleBig.args = {
-    view: ArticleView.BIG,
-};
-
-PurpleBig.decorators = [
-    ThemeDecorator(Theme.PURPLE),
-];
-
-export const NormalLoading = Template.bind({});
-NormalLoading.args = {
+export const Loading = Template.bind({});
+Loading.args = {
     isLoading: true,
 };
 
-export const DarkLoading = Template.bind({});
-DarkLoading.args = {
-    isLoading: true,
-};
-
-DarkLoading.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
-
-export const PurpleLoading = Template.bind({});
-PurpleLoading.args = {
-    isLoading: true,
-};
-
-PurpleLoading.decorators = [
-    ThemeDecorator(Theme.PURPLE),
-];
-
-export const NormalBigLoading = Template.bind({});
-NormalBigLoading.args = {
+export const BigLoading = Template.bind({});
+BigLoading.args = {
     view: ArticleView.BIG,
     isLoading: true,
 };
-
-export const DarkBigLoading = Template.bind({});
-DarkBigLoading.args = {
-    view: ArticleView.BIG,
-    isLoading: true,
-};
-
-DarkBigLoading.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
-
-export const PurpleBigLoading = Template.bind({});
-PurpleBigLoading.args = {
-    view: ArticleView.BIG,
-    isLoading: true,
-};
-
-PurpleBigLoading.decorators = [
-    ThemeDecorator(Theme.PURPLE),
-];

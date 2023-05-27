@@ -1,12 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import '@/app/styles/index.scss';
-
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { AvatarDropdown } from './AvatarDropdown';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { userExamples } from '@/app/examples/users';
-import { Theme } from '@/shared/const/theme';
+import '@/app/styles/index.scss';
 
 export default {
     title: 'features/AvatarDropdown',
@@ -21,23 +18,8 @@ const Template: ComponentStory<typeof AvatarDropdown> = (args) => (
         <AvatarDropdown {...args} />
     </div>
 );
-export const Normal = Template.bind({});
-
-export const Dark = Template.bind({});
-
-Dark.decorators = [
-    ThemeDecorator(Theme.DARK),
+export const Showcase = Template.bind({});
+Showcase.args = {};
+Showcase.decorators = [
+    StoreDecorator({ user: { authData: userExamples['1'] } }),
 ];
-
-export const Purple = Template.bind({});
-
-Purple.decorators = [
-    ThemeDecorator(Theme.PURPLE),
-];
-
-[Normal, Dark, Purple].forEach((st) => {
-    st.args = {};
-    const decorators = st.decorators ?? [];
-    decorators.push(StoreDecorator({ user: { authData: userExamples['1'] } }));
-    st.decorators = decorators;
-});

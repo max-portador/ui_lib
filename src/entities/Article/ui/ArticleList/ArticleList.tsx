@@ -2,7 +2,7 @@ import React, { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text, TextSize } from '@/shared/ui/Text';
-import { ArticleView } from '@/entities/Article/model/consts/consts';
+import { ArticleView } from '../../model/consts/consts';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -31,7 +31,7 @@ const ArticleList = memo((props: ArticleListProps) => {
 
     const { t } = useTranslation();
 
-    if (!isLoading && !articles.length) {
+    if (!isLoading && !articles?.length) {
         return (
             <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
                 <Text size={TextSize.L} title={t('Статьи не найдены')} />
@@ -39,13 +39,12 @@ const ArticleList = memo((props: ArticleListProps) => {
         );
     }
 
-    // eslint-disable-next-line i18next/no-literal-string
     return (
         // @ts-ignore
         <div
             className={classNames(cls.ArticleList, {}, [className, cls[view]])}
         >
-            {articles.map((item) => (
+            {articles?.map((item) => (
                 <ArticleListItem
                     article={item}
                     view={view}

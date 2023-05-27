@@ -1,10 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import '@/app/styles/index.scss';
-
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
+import '@/app/styles/index.scss';
 
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsPageHeader',
@@ -19,25 +17,9 @@ const Template: ComponentStory<typeof ArticleDetailsPageHeader> = (args) => (
         <ArticleDetailsPageHeader {...args} />
     </div>
 );
-export const Normal = Template.bind({});
-Normal.args = {};
+export const Showcase = Template.bind({});
+Showcase.args = {};
 
-Normal.decorators = [
+Showcase.decorators = [
     StoreDecorator({}),
-];
-
-export const Dark = Template.bind({});
-Dark.args = {};
-
-Dark.decorators = [
-    StoreDecorator({}),
-    ThemeDecorator(Theme.DARK),
-];
-
-export const Purple = Template.bind({});
-Purple.args = {};
-
-Purple.decorators = [
-    StoreDecorator({}),
-    ThemeDecorator(Theme.PURPLE),
 ];

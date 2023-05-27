@@ -1,9 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import '@/app/styles/index.scss';
-
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Button, ButtonSize, ButtonTheme } from './Button';
+import '@/app/styles/index.scss';
 
 export default {
     title: 'shared/Button',
@@ -55,14 +53,6 @@ OutlineSizeXL.args = {
     theme: ButtonTheme.OUTLINE,
     size: ButtonSize.XL,
 };
-
-export const OutlineDark = Template.bind({});
-OutlineDark.args = {
-    children: 'OutlineDark',
-    theme: ButtonTheme.OUTLINE,
-};
-
-OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const BackgroundTheme = Template.bind({});
 BackgroundTheme.args = {

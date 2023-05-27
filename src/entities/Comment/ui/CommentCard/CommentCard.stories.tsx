@@ -1,8 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import '@/app/styles/index.scss';
-
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { CommentCard } from './CommentCard';
 
 const comment = {
@@ -11,7 +9,7 @@ const comment = {
     user: {
         id: '1',
         username: 'Tequila Sunset',
-        avatar: 'https://pbs.twimg.com/media/FJ6PTN7XwAEeUX6.jpg',
+        avatar: 'https://papik.pro/uploads/posts/2021-09/1630689496_2-papik-pro-p-betmen-detskii-risunok-2.jpg',
     },
 };
 
@@ -34,46 +32,8 @@ Normal.args = {
     comment,
 };
 
-export const Dark = Template.bind({});
-Dark.args = {
-    comment,
-};
-
-Dark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
-
-export const Purple = Template.bind({});
-Purple.args = {
-    comment,
-};
-
-Purple.decorators = [
-    ThemeDecorator(Theme.PURPLE),
-];
-
-export const NormalIsLoading = Template.bind({});
-NormalIsLoading.args = {
+export const IsLoading = Template.bind({});
+IsLoading.args = {
     comment,
     isLoading: true,
 };
-
-export const DarkIsLoading = Template.bind({});
-DarkIsLoading.args = {
-    comment,
-    isLoading: true,
-};
-
-DarkIsLoading.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
-
-export const PurpleIsLoading = Template.bind({});
-PurpleIsLoading.args = {
-    comment,
-    isLoading: true,
-};
-
-PurpleIsLoading.decorators = [
-    ThemeDecorator(Theme.PURPLE),
-];

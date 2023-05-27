@@ -1,11 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import '@/app/styles/index.scss';
-
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { article, article2 } from '@/app/examples/article';
 import ArticlesPage from './ArticlesPage';
+import '@/app/styles/index.scss';
 
 export default {
     title: 'pages/ArticlesPage/ArticlesPage',
@@ -21,10 +19,19 @@ const Template: ComponentStory<typeof ArticlesPage> = (args) => (
     </div>
 );
 
-export const Normal = Template.bind({});
-Normal.args = {};
-
-Normal.decorators = [
+export const Showcase = Template.bind({});
+Showcase.args = {};
+Showcase.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/articles?_expand=user&_limit=9&_page=2&_sort=createdAt&_order=asc&q=`,
+            method: 'GET',
+            status: 200,
+            response: [article, article2],
+        },
+    ],
+};
+Showcase.decorators = [
     StoreDecorator({
         articlesPage: {
             isLoading: false,
@@ -33,13 +40,3 @@ Normal.decorators = [
         },
     }),
 ];
-
-export const Dark = Template.bind({});
-Dark.args = {};
-
-Dark.decorators = [ThemeDecorator(Theme.DARK),
-    StoreDecorator({})];
-
-export const Purple = Template.bind({});
-Purple.args = {};
-Purple.decorators = [StoreDecorator({}), ThemeDecorator(Theme.PURPLE)];

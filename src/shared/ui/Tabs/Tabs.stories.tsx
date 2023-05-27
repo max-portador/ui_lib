@@ -1,10 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import '@/app/styles/index.scss';
 
 import { action } from '@storybook/addon-actions';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { TabItem, Tabs } from './Tabs';
+import '@/app/styles/index.scss';
 
 const tabs: TabItem<string>[] = ['1', '2', '3'].map((item) => ({ value: `tab ${item}`, content: `tab ${item}` }));
 export default {
@@ -26,25 +25,3 @@ Normal.args = {
     value: 'tab 2',
     onTabClick: action('onTabClick'),
 };
-
-export const Dark = Template.bind({});
-Dark.args = {
-    tabs,
-    value: 'tab 2',
-    onTabClick: action('onTabClick'),
-};
-
-Dark.decorators = [
-    ThemeDecorator(Theme.DARK),
-];
-
-export const Purple = Template.bind({});
-Purple.args = {
-    tabs,
-    value: 'tab 2',
-    onTabClick: action('onTabClick'),
-};
-
-Purple.decorators = [
-    ThemeDecorator(Theme.PURPLE),
-];

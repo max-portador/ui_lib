@@ -1,13 +1,10 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import '@/app/styles/index.scss';
-
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { ArticleView } from '@/entities/Article';
-import { ArticleSortFields } from '@/entities/Article/model/consts/consts';
+import { ArticleSortFields, ArticleView } from '@/entities/Article';
 import { ArticlesPageFilter } from './ArticlesPageFilter';
-import { Theme } from '@/shared/const/theme';
+import { article, article2 } from '@/app/examples/article';
 
 export default {
     title: 'pages/ArticlesPage/ArticlesPageFilter',
@@ -43,46 +40,13 @@ Normal.decorators = [
     }),
 ];
 
-export const Dark = Template.bind({});
-Dark.args = {};
-
-Dark.decorators = [
-    ThemeDecorator(Theme.DARK),
-    StoreDecorator({
-        articlesPage: {
-            ids: [],
-            entities: {},
-            isLoading: false,
-            view: ArticleView.SMALL,
-            page: 1,
-            hasMore: true,
-            _inited: false,
-            limit: 9,
-            sort: ArticleSortFields.CREATED,
-            order: 'asc',
-            search: '',
+Normal.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/articles?_expand=user&_limit=9&_page=2&_sort=createdAt&_order=asc&q=`,
+            method: 'GET',
+            status: 200,
+            response: [article, article2],
         },
-    }),
-];
-
-export const Purple = Template.bind({});
-Purple.args = {};
-
-Purple.decorators = [
-    ThemeDecorator(Theme.PURPLE),
-    StoreDecorator({
-        articlesPage: {
-            ids: [],
-            entities: {},
-            isLoading: false,
-            view: ArticleView.SMALL,
-            page: 1,
-            hasMore: true,
-            _inited: false,
-            limit: 9,
-            sort: ArticleSortFields.CREATED,
-            order: 'asc',
-            search: '',
-        },
-    }),
-];
+    ],
+};

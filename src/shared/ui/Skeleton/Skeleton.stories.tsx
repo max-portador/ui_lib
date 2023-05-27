@@ -1,8 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import '@/app/styles/index.scss';
-
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Skeleton } from './Skeleton';
 
 export default {
@@ -19,27 +17,11 @@ const Template: ComponentStory<typeof Skeleton> = (args) => (
     </div>
 );
 
-export const Normal = Template.bind({});
-Normal.args = {
+export const Showcase = Template.bind({});
+Showcase.args = {
     width: '100%',
     height: 200,
 };
-
-export const NormalDark = Template.bind({});
-NormalDark.args = {
-    width: '100%',
-    height: 200,
-};
-
-NormalDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const NormalPurple = Template.bind({});
-NormalPurple.args = {
-    width: '100%',
-    height: 200,
-};
-
-NormalPurple.decorators = [ThemeDecorator(Theme.PURPLE)];
 
 export const Circle = Template.bind({});
 Circle.args = {
@@ -47,21 +29,3 @@ Circle.args = {
     width: 100,
     height: 100,
 };
-
-export const CircleDark = Template.bind({});
-CircleDark.args = {
-    border: '50%',
-    width: 100,
-    height: 100,
-};
-
-CircleDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const CirclePurple = Template.bind({});
-CirclePurple.args = {
-    border: '50%',
-    width: 100,
-    height: 100,
-};
-
-CirclePurple.decorators = [ThemeDecorator(Theme.PURPLE)];

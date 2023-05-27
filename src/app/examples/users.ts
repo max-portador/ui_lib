@@ -9,6 +9,6 @@ export const userExamples: Record<number, User> = {
     2: {
         id: '2',
         username: 'user',
-        avatar: 'https://pbs.twimg.com/media/FJ6PTN7XwAEeUX6.jpg',
+        avatar: 'http://cdn.onlinewebfonts.com/svg/img_23882.png',
     },
 };

@@ -4,7 +4,7 @@ import '@/app/styles/index.scss';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { article } from '@/app/examples/article';
-import { ArticleView } from '@/entities/Article/model/consts/consts';
+import { ArticleView } from '../../model/consts/consts';
 import { ArticleListItem } from './ArticleListItem';
 import { Theme } from '@/shared/const/theme';
 

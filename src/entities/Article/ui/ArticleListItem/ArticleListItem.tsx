@@ -74,7 +74,11 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
     }
 
     return (
-        <div {...bindHover} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+        <div
+            // @ts-ignore
+            {...bindHover}
+            className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+        >
             <AppLink
                 target={target}
                 to={getRouteArticleDetails(article.id)}
