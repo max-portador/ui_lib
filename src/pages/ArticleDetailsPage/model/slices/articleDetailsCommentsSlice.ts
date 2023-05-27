@@ -6,8 +6,6 @@ import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSch
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { Comment } from '@/entities/Comment';
 
-type Book = { bookId: string; title: string }
-
 export const commentsAdapter = createEntityAdapter<Comment>({
     selectId: (comment) => comment.id,
 });
