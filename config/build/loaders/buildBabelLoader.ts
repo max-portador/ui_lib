@@ -17,6 +17,13 @@ export function buildBabelLoader({ isDev, isTsx, project }: BuildBabelLoaderProp
                 presets: ['@babel/preset-env'],
                 plugins: [
                     [
+                        'i18next-extract',
+                        {
+                            locales: ['ru', 'en'],
+                            keyAsDefaultValue: true,
+                        },
+                    ],
+                    [
                         '@babel/plugin-transform-typescript',
                         {
                             isTSX: isTsx,

@@ -1,13 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/shared/ui/Button';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useCounterActions } from '../model/slice/counterSLice';
 import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 import { HStack, VStack } from '@/shared/ui/Stack';
 
 export const Counter = () => {
-    const dispatch = useAppDispatch();
     const counterValue = useCounterValue();
     const { t } = useTranslation();
 
@@ -35,7 +33,7 @@ export const Counter = () => {
                 <HStack>
                     <Button data-testid="btn-dec" onClick={dec}>-</Button>
                     <Button data-testid="btn-inc" onClick={inc}>+</Button>
-                    <Button data-testid="btn-inc" onClick={addFive}>+5</Button>
+                    <Button data-testid="btn-add" onClick={addFive}>+5</Button>
                 </HStack>
             </VStack>
         </div>
