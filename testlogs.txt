@@ -1,0 +1,158 @@
+2023-05-28 18:54:36,018 (     0.000s) INFO   (cmd_2) Info: Load data from config /place/sandbox-data/tasks/5/6/1768021265/arcadia/ya.conf
+2023-05-28 18:54:36,018 (     0.000s) INFO   (cmd_2) Info: Inject aliases
+2023-05-28 18:54:36,019 (     0.001s) INFO   (cmd_2) Info: Checking respawn necessity with major python versions: ya script require: `23`; ya set force: `False`, current ya-bin: `2`; handler: `2`;
+2023-05-28 18:54:36,019 (     0.000s) INFO   (cmd_2) Warn: Rewrite item (platforms) in debug_store
+2023-05-28 18:54:36,019 (     0.000s) INFO   (cmd_2) ------- [CC] {default-android-armv7a, ANDROID_API=23, ARCADIA_CURL_DNS_RESOLVER=MULTITHREADED, ARCADIA_FLUENTBIT_USE_S
+2023-05-28 18:54:36,019 (     0.000s) INFO   (cmd_2) command /place/sandbox-data/build_cache/ya/tools/v3/3610381029/llvm-toolchain/bin/clang++ --target=armv7a-linux-androideabi23 -isystem /place/sandbox-data/build_cache/ya/tools/v3/3610381029/sources/cxx-stl/llvm-libc++abi/include -fsigned-char -march=armv7-a -mfloat-abi=softfp -c -o /place/sandbox-data/build_cache/ya/build/build_root/32v3/0003a9/yandex_io/capabilities/stereo_pair/stereo_pair_capability.cpp.pic.o -I/place/sandbox-data/build_cache/ya/build/build_root/32v3/0003a9 -I/place/sandbox-data/tasks/5/6/1768021265/arcadia -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/libs/cxxsupp/libcxx/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/libs/zlib/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/libs/double-conversion -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/libs/libc_compat/include/ifaddrs -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/libs/protobuf/src -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/deprecated/jsoncpp/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/spdlog/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/libs/fmt/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/algorithm/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/array/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/assert/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/config/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/core/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/static_assert/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/throw_exception/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/bind/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/concept_check/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/preprocessor/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/type_traits/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/exception/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/smart_ptr/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/move/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/tuple/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/function/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/typeof/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/iterator/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/conversion/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/detail/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/function_types/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/mpl/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/predef/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/utility/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/io/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/fusion/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/container_hash/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/describe/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/mp11/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/functional/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/optional/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/range/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/regex/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/libs/icu/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/integer/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/unordered/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/container/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/boost/intrusive/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/libs/libogg/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/contrib/restricted/abseil-cpp -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/voicetech/spotter/embedded -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/voicetech/spotter/embedded/contrib/c-algorithms/include -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/voicetech/spotter/embedded/contrib/c11-threads -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/voicetech/spotter/embedded/contrib -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/yandex_io/speechkit/libs/crossguid -I/place/sandbox-data/tasks/5/6/1768021265/arcadia/yandex_io/speechkit/libs -fdebug-prefix-map=/place/sandbox-data/build_cache/ya/build/build_root/32v3/0003a9=/-B -fdebug-prefix-map=/place/sandbox-data/tasks/5/6/1768021265/arcadia=/-S -fdebug-prefix-map=/place/sandbox-data/build_cache/ya/tools/v3=/-T -Xclang -fdebug-compilation-dir -Xclang /tmp -pipe -O3 -g -fexceptions -fno-common -fcolor-diagnostics -faligned-allocation -fdebug-default-version=4 -ffunction-sections -fdata-sections -Wall -Wextra -Wno-parentheses -Wno-implicit-const-int-float-conversion -Wno-unknown-warning-option -Werror -DFAKEID=10157986 -DANDROID_FAKEID=2023-05-17 -DARCADIA_ROOT=/place/sandbox-data/tasks/5/6/1768021265/arcadia -DARCADIA_BUILD_ROOT=/place/sandbox-data/build_cache/ya/build/build_root/32v3/0003a9 -D_THREAD_SAFE -D_PTHREADS -D_REENTRANT -D_LIBCPP_ENABLE_CXX17_REMOVED_FEATURES -D_LARGEFILE_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_GNU_SOURCE -DNDEBUG -D__LONG_LONG_SUPPORTED -nostdinc++ -DFMT_EXPORT -DFMT_CONSTEVAL= -DSPDLOG_FMT_EXTERNAL -DBOOST_ALL_NO_LIB -DWEBRTC_POSIX -DPCRE_STATIC -DSREAL -fPIC -fPIC -std=c++20 -Woverloaded-virtual -Wimport-preprocessor-directive-pedantic -Wno-ambiguous-reversed-operator -Wno-defaulted-function-deleted -Wno-deprecated-anon-enum-enum-conversion -Wno-deprecated-enum-enum-conversion -Wno-deprecated-enum-float-conversion -Wno-deprecated-volatile -Wno-pessimizing-move -Wno-return-std-move -Wno-undefined-var-template -nostdinc++ -Wno-builtin-macro-redefined -D__DATE__="Sep 31 2019" -D__TIME__="00:00:00" -fmacro-prefix-map=/place/sandbox-data/build_cache/ya/build/build_root/32v3/0003a9/= -fmacro-prefix-map=/place/sandbox-data/tasks/5/6/1768021265/arcadia/= -fmacro-prefix-map=/place/sandbox-data/build_cache/ya/tools/v3/= /place/sandbox-data/tasks/5/6/1768021265/arcadia/yandex_io/capabilities/stereo_pair/stereo_pair_capability.cpp failed with exit code 1 in /place/sandbox-data/build_cache/ya/build/build_root/32v3/0003a9
+2023-05-28 18:54:36,020 (     0.000s) INFO   (cmd_2) /place/sandbox-data/tasks/5/6/1768021265/arcadia/yandex_io/capabilities/stereo_pair/stereo_pair_capability.cpp:145:123: error: use of undeclared identifier 'device_'
+2023-05-28 18:54:36,020 (     0.000s) INFO   (cmd_2)         if (volumeManagerProvider && state.has_volume() && !state.volume().source().empty() && state.volume().source() != device_->deviceId()) {
+2023-05-28 18:54:36,020 (     0.000s) INFO   (cmd_2)                                                                                                                           ^
+2023-05-28 18:54:36,021 (     0.000s) INFO   (cmd_2) 1 error generated.
+2023-05-28 18:54:36,021 (     0.000s) INFO   (cmd_2) Cache hit ratio is 97.26% (924 of 950). Local: 0 (0.00%), dist: 924 (97.26%), by dynamic uids: 0 (0.00%)
+2023-05-28 18:54:36,021 (     0.002s) INFO   (cmd_2)
+2023-05-28 18:54:36,023 (     0.000s) INFO   (cmd_2) Dist cache download: count=924, size=1.41 GiB, speed=2.78 MiB/s
+2023-05-28 18:54:36,023 (     0.000s) INFO   (cmd_2)
+2023-05-28 18:54:36,023 (     0.000s) INFO   (cmd_2) Critical path:
+2023-05-28 18:54:36,024 (     0.000s) INFO   (cmd_2) [32865 ms] [CC] [sCwEgcw3GhMXqMw8Nh9XVA default-android-armv7a ANDROID_API=23 ARCADIA_CURL_DNS_RESOLVER=MULTITHREADED ARCADIA_FLUENTBIT_USE_SYNC_DNS_RESOLVER=yes ARCADIA_LIBXML_DISABLE_EXTRA_ENCODINGS=yes ARCADIA_OPENSSL_DISABLE_ARMV7_TICK=yes EMBED_LINKER_CREF=yes EMBED_LINKER_MAP=yes FORCE_CONSISTENT_BUILD=yes FORCE_CONSISTENT_DEBUG=yes PIE=yes USE_DYNAMIC_ICONV=yes USE_DYNAMIC_OPENAL=yes USE_DYNAMIC_QUASAR_GSTREAMER=yes YANDEX_TV=yes pic]: $(SOURCE_ROOT)/yandex_io/services/aliced/sdk_endpoint.cpp [started: 0 (1685289241041), finished: 32865 (1685289273906)]
+2023-05-28 18:54:36,024 (     0.000s) INFO   (cmd_2) Time from start: 71276 ms, time elapsed by graph 32865 ms, time diff 38411 ms.
+2023-05-28 18:54:36,024 (     0.000s) INFO   (cmd_2)
+2023-05-28 18:54:36,024 (     0.000s) INFO   (cmd_2) The longest 10 tasks:
+2023-05-28 18:54:36,025 (     0.000s) INFO   (cmd_2) [520115 ms] [prepare:$(yt-store-get)] local [count: 924, cps: 1.78, ave time 562.90 msec]
+2023-05-28 18:54:36,025 (     0.000s) INFO   (cmd_2) [ 32865 ms] [CC] [sCwEgcw3GhMXqMw8Nh9XVA default-android-armv7a ANDROID_API=23 ARCADIA_CURL_DNS_RESOLVER=MULTITHREADED ARCADIA_FLUENTBIT_USE_SYNC_DNS_RESOLVER=yes ARCADIA_LIBXML_DISABLE_EXTRA_ENCODINGS=yes ARCADIA_OPENSSL_DISABLE_ARMV7_TICK=yes EMBED_LINKER_CREF=yes EMBED_LINKER_MAP=yes FORCE_CONSISTENT_BUILD=yes FORCE_CONSISTENT_DEBUG=yes PIE=yes USE_DYNAMIC_ICONV=yes USE_DYNAMIC_OPENAL=yes USE_DYNAMIC_QUASAR_GSTREAMER=yes YANDEX_TV=yes pic]: $(SOURCE_ROOT)/yandex_io/services/aliced/sdk_endpoint.cpp [started: 1685289241041, finished: 1685289273906]
+2023-05-28 18:54:36,025 (     0.000s) INFO   (cmd_2) [ 25466 ms] [prepare:$(DEFAULT_ANDROID_ARMV7A)] local [started: 1685289214342, finished: 1685289239808]
+2023-05-28 18:54:36,025 (     0.000s) INFO   (cmd_2) [ 24187 ms] [CC] [smklZI1iAD1K12wViCDiyg default-android-armv7a ANDROID_API=23 ARCADIA_CURL_DNS_RESOLVER=MULTITHREADED ARCADIA_FLUENTBIT_USE_SYNC_DNS_RESOLVER=yes ARCADIA_LIBXML_DISABLE_EXTRA_ENCODINGS=yes ARCADIA_OPENSSL_DISABLE_ARMV7_TICK=yes EMBED_LINKER_CREF=yes EMBED_LINKER_MAP=yes FORCE_CONSISTENT_BUILD=yes FORCE_CONSISTENT_DEBUG=yes PIE=yes USE_DYNAMIC_ICONV=yes USE_DYNAMIC_OPENAL=yes USE_DYNAMIC_QUASAR_GSTREAMER=yes YANDEX_TV=yes pic]: $(SOURCE_ROOT)/yandex_io/android_sdk/cpp/launcher/quasar_android_launcher.cpp [started: 1685289241078, finished: 1685289265265]
+2023-05-28 18:54:36,025 (     0.000s) INFO   (cmd_2) [ 17676 ms] [CC] [wDI9-1PmnASUfknoPWaMoA default-android-armv7a ANDROID_API=23 ARCADIA_CURL_DNS_RESOLVER=MULTITHREADED ARCADIA_FLUENTBIT_USE_SYNC_DNS_RESOLVER=yes ARCADIA_LIBXML_DISABLE_EXTRA_ENCODINGS=yes ARCADIA_OPENSSL_DISABLE_ARMV7_TICK=yes EMBED_LINKER_CREF=yes EMBED_LINKER_MAP=yes FORCE_CONSISTENT_BUILD=yes FORCE_CONSISTENT_DEBUG=yes PIE=yes USE_DYNAMIC_ICONV=yes USE_DYNAMIC_OPENAL=yes USE_DYNAMIC_QUASAR_GSTREAMER=yes YANDEX_TV=yes pic]: $(SOURCE_ROOT)/yandex_io/services/mediad/media/players/yandexmusic/yandex_music.cpp [started: 1685289241028, finished: 1685289258704]
+2023-05-28 18:54:36,026 (     0.000s) INFO   (cmd_2) [ 16369 ms] [prepare:$(new-store-put)] local [count: 943, cps: 57.61, ave time 17.36 msec]
+2023-05-28 18:54:36,026 (     0.000s) INFO   (cmd_2) [ 15684 ms] [CC] [KRlShjM_4-6OEyRmdBLp8A default-android-armv7a ANDROID_API=23 ARCADIA_CURL_DNS_RESOLVER=MULTITHREADED ARCADIA_FLUENTBIT_USE_SYNC_DNS_RESOLVER=yes ARCADIA_LIBXML_DISABLE_EXTRA_ENCODINGS=yes ARCADIA_OPENSSL_DISABLE_ARMV7_TICK=yes EMBED_LINKER_CREF=yes EMBED_LINKER_MAP=yes FORCE_CONSISTENT_BUILD=yes FORCE_CONSISTENT_DEBUG=yes PIE=yes USE_DYNAMIC_ICONV=yes USE_DYNAMIC_OPENAL=yes USE_DYNAMIC_QUASAR_GSTREAMER=yes YANDEX_TV=yes pic]: $(SOURCE_ROOT)/yandex_io/android_sdk/cpp/launcher/glagol_launcher_service.cpp [started: 1685289241070, finished: 1685289256754]
+2023-05-28 18:54:36,026 (     0.000s) INFO   (cmd_2) [ 13911 ms] [CC] [TA1W2_SUH2_2S2PMMDvYbQ default-android-armv7a ANDROID_API=23 ARCADIA_CURL_DNS_RESOLVER=MULTITHREADED ARCADIA_FLUENTBIT_USE_SYNC_DNS_RESOLVER=yes ARCADIA_LIBXML_DISABLE_EXTRA_ENCODINGS=yes ARCADIA_OPENSSL_DISABLE_ARMV7_TICK=yes EMBED_LINKER_CREF=yes EMBED_LINKER_MAP=yes FORCE_CONSISTENT_BUILD=yes FORCE_CONSISTENT_DEBUG=yes PIE=yes USE_DYNAMIC_ICONV=yes USE_DYNAMIC_OPENAL=yes USE_DYNAMIC_QUASAR_GSTREAMER=yes YANDEX_TV=yes pic]: $(SOURCE_ROOT)/yandex_io/services/mediad/media/players/yandexmusic/mp_listener.cpp [started: 1685289241009, finished: 1685289254920]
+2023-05-28 18:54:36,026 (     0.001s) INFO   (cmd_2) [ 13755 ms] [CC] [bIz3r5w6Bx0vWL9hN5UWeg default-android-armv7a ANDROID_API=23 ARCADIA_CURL_DNS_RESOLVER=MULTITHREADED ARCADIA_FLUENTBIT_USE_SYNC_DNS_RESOLVER=yes ARCADIA_LIBXML_DISABLE_EXTRA_ENCODINGS=yes ARCADIA_OPENSSL_DISABLE_ARMV7_TICK=yes EMBED_LINKER_CREF=yes EMBED_LINKER_MAP=yes FORCE_CONSISTENT_BUILD=yes FORCE_CONSISTENT_DEBUG=yes PIE=yes USE_DYNAMIC_ICONV=yes USE_DYNAMIC_OPENAL=yes USE_DYNAMIC_QUASAR_GSTREAMER=yes YANDEX_TV=yes pic]: $(SOURCE_ROOT)/yandex_io/android_sdk/cpp/launcher/generic_first_run_service.cpp [started: 1685289240931, finished: 1685289254686]
+2023-05-28 18:54:36,027 (     0.000s) INFO   (cmd_2) [ 13206 ms] [CC] [DWwM0oUqoZulDsCNTGMj7g default-android-armv7a ANDROID_API=23 ARCADIA_CURL_DNS_RESOLVER=MULTITHREADED ARCADIA_FLUENTBIT_USE_SYNC_DNS_RESOLVER=yes ARCADIA_LIBXML_DISABLE_EXTRA_ENCODINGS=yes ARCADIA_OPENSSL_DISABLE_ARMV7_TICK=yes EMBED_LINKER_CREF=yes EMBED_LINKER_MAP=yes FORCE_CONSISTENT_BUILD=yes FORCE_CONSISTENT_DEBUG=yes PIE=yes USE_DYNAMIC_ICONV=yes USE_DYNAMIC_OPENAL=yes USE_DYNAMIC_QUASAR_GSTREAMER=yes YANDEX_TV=yes pic]: $(SOURCE_ROOT)/yandex_io/capabilities/stereo_pair/stereo_pair_capability.cpp [started: 1685289240976, finished: 1685289254182]
+2023-05-28 18:54:36,027 (     0.000s) INFO   (cmd_2)
+2023-05-28 18:54:36,028 (     0.000s) INFO   (cmd_2) Total time by type:
+2023-05-28 18:54:36,028 (     0.000s) INFO   (cmd_2) [prepare:get from dist cache] - 544432 ms.
+2023-05-28 18:54:36,028 (     0.000s) INFO   (cmd_2) [prepare:yt-store] - 525861 ms.
+2023-05-28 18:54:36,028 (     0.000s) INFO   (cmd_2) [CC] - 202267 ms.
+2023-05-28 18:54:36,028 (     0.000s) INFO   (cmd_2) [prepare:tools] - 25474 ms.
+2023-05-28 18:54:36,029 (     0.000s) INFO   (cmd_2) [prepare:new-store] - 16652 ms.
+2023-05-28 18:54:36,029 (     0.000s) INFO   (cmd_2) [prepare:put into local cache, clean build dir] - 16445 ms.
+2023-05-28 18:54:36,029 (     0.000s) INFO   (cmd_2) [prepare:put to dist cache] - 4399 ms.
+2023-05-28 18:54:36,029 (     0.000s) INFO   (cmd_2) [AR] - 665 ms.
+2023-05-28 18:54:36,029 (     0.000s) INFO   (cmd_2) [UNKNOWN] - 103 ms.
+2023-05-28 18:54:36,030 (     0.000s) INFO   (cmd_2) [UN] - 50 ms.
+2023-05-28 18:54:36,030 (     0.000s) INFO   (cmd_2) [prepare:clean] - 17 ms.
+2023-05-28 18:54:36,030 (     0.000s) INFO   (cmd_2)
+2023-05-28 18:54:36,031 (     0.000s) INFO   (cmd_2) Total tasks times:
+2023-05-28 18:54:36,031 (     0.000s) INFO   (cmd_2) Total failed tasks time - 0 ms (0.00%)
+2023-05-28 18:54:36,031 (     0.000s) INFO   (cmd_2) Total tests tasks time - 0 ms (0.00%)
+2023-05-28 18:54:36,031 (     0.000s) INFO   (cmd_2) Total run tasks time - 203085 ms
+2023-05-28 18:54:36,031 (     0.000s) INFO   (cmd_2)
+2023-05-28 18:54:36,032 (     0.000s) INFO   (cmd_2) Configure time - 14.1 s
+2023-05-28 18:54:36,032 (     0.000s) INFO   (cmd_2)
+2023-05-28 18:54:36,032 (     0.000s) INFO   (cmd_2) Statistics overhead 849 ms
+2023-05-28 18:54:36,032 (     0.000s) INFO   (cmd_2) Warn: Rewrite item (stats) in debug_store
+2023-05-28 18:54:36,032 (     0.000s) INFO   (cmd_2) Failed
+2023-05-28 18:54:36,033 (     0.000s) INFO   (cmd_2) Warn: Rewrite item (exit_code) in debug_store
+
+2023-05-28 18:55:38,504 (    62.472s) ERROR  (cmd_2)
+2023-05-28 18:55:38,505 (     0.000s) ERROR  (cmd_2) FAILURE: Build failed with an exception.
+2023-05-28 18:55:38,505 (     0.000s) ERROR  (cmd_2)
+2023-05-28 18:55:38,505 (     0.000s) ERROR  (cmd_2) * What went wrong:
+2023-05-28 18:55:38,505 (     0.000s) ERROR  (cmd_2) Execution failed for task ':yandex-io:sdk:externalAarmv7Build'.
+2023-05-28 18:55:38,505 (     0.000s) ERROR  (cmd_2) > ya package finished with non-zero value: 1
+2023-05-28 18:55:38,505 (     0.000s) ERROR  (cmd_2)
+2023-05-28 18:55:38,505 (     0.000s) ERROR  (cmd_2) * Try:
+2023-05-28 18:55:38,505 (     0.000s) ERROR  (cmd_2) > Run with --stacktrace option to get the stack trace.
+2023-05-28 18:55:38,505 (     0.000s) ERROR  (cmd_2) > Run with --info or --debug option to get more log output.
+2023-05-28 18:55:38,505 (     0.000s) ERROR  (cmd_2) > Run with --scan to get full insights.
+2023-05-28 18:55:38,506 (     0.000s) ERROR  (cmd_2)
+2023-05-28 18:55:38,506 (     0.000s) ERROR  (cmd_2) * Get more help at https://help.gradle.org
+2023-05-28 18:55:38,506 (     0.000s) ERROR  (cmd_2)
+2023-05-28 18:55:38,506 (     0.000s) ERROR  (cmd_2) BUILD FAILED in 4m 17s
+2023-05-28 18:55:38,506 (     0.000s) INFO   (cmd_2)
+2023-05-28 18:55:38,506 (     0.000s) INFO   (cmd_2) 0 problems were found storing the configuration cache.
+2023-05-28 18:55:38,506 (     0.000s) INFO   (cmd_2)
+2023-05-28 18:55:38,506 (     0.000s) INFO   (cmd_2) See the complete report at file:///place/sandbox-data/tasks/5/6/1768021265/arcadia/smart_devices/android/build/reports/configuration-cache/dhx9bcrwfys3p702v6pslldpw/7jkd0qjy1mkhkmlcifbayjnii/configuration-cache-report.html
+2023-05-28 18:55:38,506 (     0.000s) INFO   (cmd_2)
+2023-05-28 18:55:38,506 (     0.000s) INFO   (cmd_2) Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+2023-05-28 18:55:38,507 (     0.000s) INFO   (cmd_2)
+2023-05-28 18:55:38,507 (     0.000s) INFO   (cmd_2) You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+2023-05-28 18:55:38,507 (     0.000s) INFO   (cmd_2)
+2023-05-28 18:55:38,507 (     0.000s) INFO   (cmd_2) See https://docs.gradle.org/7.6/userguide/command_line_interface.html#sec:command_line_warnings
+2023-05-28 18:55:38,507 (     0.000s) INFO   (cmd_2) 3982 actionable tasks: 3982 executed
+2023-05-28 18:55:38,507 (     0.000s) INFO   (cmd_2) Configuration cache entry stored.
+2023-05-28 18:55:39,141 (     0.634s) INFO   (cmd_2) executed ./gradlew -Pproduct=tv -Pyandex_signer.sign_debug=false -Pyandex_signer.sign_release=false -p tv/services/services-iosdk-app lintTvDebug testTvDebug assembleTvDebug assembleTvRelease assembleModule2Debug assembleModule2Release assembleMagritteDebug assembleMagritteRelease || (cp -r /place/sandbox-data/build_cache/ya/logs/ ya_logs && exit 1)
+
+2023-05-28 18:55:39,141 (     0.001s) INFO   (subprocess32) [97a17bbc] Running: ['ssh-add', '-d', '/tmp/1768021265/tmp4HIYxw']
+2023-05-28 18:55:39,148 (     0.006s) INFO   (subprocess32) [053566f4] Running: ['ssh-add', '-l']
+2023-05-28 18:55:39,151 (     0.004s) INFO   (sandbox.sdk2.ssh) ssh-agent keys:
+2023-05-28 18:55:39,152 (     0.000s) INFO   (sandbox.sdk2.ssh) 2048 SHA256:/3+P+KJszuTnERULD4zVojh/SEbIGR7Ay6YdSH7wF+U (stdin) (RSA)
+2023-05-28 18:55:39,152 (     0.000s) INFO   (artifacts_processor) Try to prepare teamcity resource.
+2023-05-28 18:55:39,152 (     0.000s) INFO   (artifacts_processor) Teamcity resource prepared.
+2023-05-28 18:55:39,154 (     0.002s) INFO   (artifacts_processor) Processing artifacts.
+2023-05-28 18:55:39,154 (     0.000s) INFO   (artifacts_processor) Processing file arcadia/smart_devices/android/tv/services/services-iosdk-app/build/test-results/*/binary.
+2023-05-28 18:55:39,155 (     0.001s) WARNING (artifacts_processor) File "arcadia/smart_devices/android/tv/services/services-iosdk-app/build/test-results/*/binary" not found.
+2023-05-28 18:55:39,155 (     0.000s) INFO   (artifacts_processor) []
+2023-05-28 18:55:39,155 (     0.000s) INFO   (artifacts_processor) Processing file arcadia/smart_devices/android/tv/services/sdk-iosdk/build/test-results/*/binary.
+2023-05-28 18:55:39,155 (     0.000s) WARNING (artifacts_processor) File "arcadia/smart_devices/android/tv/services/sdk-iosdk/build/test-results/*/binary" not found.
+2023-05-28 18:55:39,155 (     0.000s) INFO   (artifacts_processor) []
+2023-05-28 18:55:39,155 (     0.000s) INFO   (artifacts_processor) Artifacts processed.
+2023-05-28 18:55:39,155 (     0.000s) INFO   (artifacts_processor) Processing artifacts.
+2023-05-28 18:55:39,156 (     0.000s) INFO   (artifacts_processor) Processing file arcadia/smart_devices/android/tv/services/services-iosdk-app/build/test-results/*.
+2023-05-28 18:55:39,156 (     0.000s) WARNING (artifacts_processor) File "arcadia/smart_devices/android/tv/services/services-iosdk-app/build/test-results/*" not found.
+2023-05-28 18:55:39,156 (     0.000s) INFO   (artifacts_processor) []
+2023-05-28 18:55:39,156 (     0.000s) INFO   (artifacts_processor) Processing file arcadia/smart_devices/android/tv/services/services-iosdk-app/build/reports/*.
+2023-05-28 18:55:39,156 (     0.000s) WARNING (artifacts_processor) File "arcadia/smart_devices/android/tv/services/services-iosdk-app/build/reports/*" not found.
+2023-05-28 18:55:39,156 (     0.000s) INFO   (artifacts_processor) []
+2023-05-28 18:55:39,157 (     0.000s) INFO   (artifacts_processor) Processing file arcadia/smart_devices/android/ya_logs.
+2023-05-28 18:55:39,157 (     0.000s) INFO   (artifacts_processor) [PosixPath('arcadia/smart_devices/android/ya_logs')]
+2023-05-28 18:55:39,157 (     0.000s) INFO   (artifacts_processor) Moving arcadia/smart_devices/android/ya_logs to /place/sandbox-data/tasks/5/6/1768021265/teamcity_artifacts/arcadia/smart_devices/android/ya_logs.
+2023-05-28 18:55:39,232 (     0.076s) INFO   (artifacts_processor) Moved arcadia/smart_devices/android/ya_logs to /place/sandbox-data/tasks/5/6/1768021265/teamcity_artifacts/arcadia/smart_devices/android/ya_logs.
+2023-05-28 18:55:39,233 (     0.000s) INFO   (artifacts_processor) Processing file arcadia/smart_devices/android/tv/services/sdk-iosdk/build/reports/*.
+2023-05-28 18:55:39,233 (     0.000s) WARNING (artifacts_processor) File "arcadia/smart_devices/android/tv/services/sdk-iosdk/build/reports/*" not found.
+2023-05-28 18:55:39,233 (     0.000s) INFO   (artifacts_processor) []
+2023-05-28 18:55:39,233 (     0.000s) INFO   (artifacts_processor) Processing file arcadia/smart_devices/android/tv/services/sdk-iosdk/build/test-results/*.
+2023-05-28 18:55:39,233 (     0.000s) WARNING (artifacts_processor) File "arcadia/smart_devices/android/tv/services/sdk-iosdk/build/test-results/*" not found.
+2023-05-28 18:55:39,234 (     0.000s) INFO   (artifacts_processor) []
+2023-05-28 18:55:39,234 (     0.000s) INFO   (artifacts_processor) Artifacts processed.
+2023-05-28 18:55:39,234 (     0.000s) INFO   (artifacts_processor) Try to ready resources.
+
+2023-05-28 18:55:41,908 (     2.674s) INFO   (artifacts_processor) Resources ready.
+2023-05-28 18:55:41,908 (     0.000s) INFO   (stage) Creating dependency files.
+2023-05-28 18:55:41,983 (     0.075s) INFO   (stage) Created resource TeamcitySandboxRunnerInternalArtifacts with state NOT_READY
+
+2023-05-28 18:55:43,911 (     1.928s) INFO   (stage) Resource state after executing method ready() is READY
+2023-05-28 18:55:43,912 (     0.000s) INFO   (stage) Dependency files created.
+2023-05-28 18:55:44,325 (     0.413s) INFO   (subprocess32) [e262434b] Running: ['fusermount', '-uz', 'arcadia']
+2023-05-28 18:55:44,329 (     0.004s) INFO   (subprocess32) [09db9dc2] Running: ['/place/sandbox-data/tasks/5/6/1768021265/arc_None_res4523594652/arc', 'unmount', 'arcadia']
+2023-05-28 18:55:44,349 (     0.020s) INFO   (vcs) Remove directory /place/sandbox-data/tasks/5/6/1768021265/arcadia
+2023-05-28 18:55:44,349 (     0.000s) INFO   (subprocess32) [725befc6] Running: ['rm', '-rf', '/place/sandbox-data/tasks/5/6/1768021265/arcadia']
+2023-05-28 18:55:44,352 (     0.003s) INFO   (vcs) Remove directory /place/sandbox-data/tasks/5/6/1768021265/__FUSE/store_path_1d8ef96f-6c58-4bc6-a10a-8a5094eae2b2
+2023-05-28 18:55:44,352 (     0.000s) INFO   (subprocess32) [b4ff441f] Running: ['rm', '-rf', '/place/sandbox-data/tasks/5/6/1768021265/__FUSE/store_path_1d8ef96f-6c58-4bc6-a10a-8a5094eae2b2']
+
+2023-05-28 18:55:44,971 (     0.619s) ERROR  (executor)
+Traceback (most recent call last):
+  File "sandbox/executor/commands/task/__init__.py", line 646, in _execute
+    self.task.on_execute()
+  File "sandbox/projects/mobile_apps/teamcity_sandbox_runner/runner_stage/__init__.py", line 451, in on_execute
+    self._raise_for_status()
+  File "sandbox/projects/mobile_apps/teamcity_sandbox_runner/runner_stage/__init__.py", line 261, in _raise_for_status
+    raise TaskFailure(failed_status)
+TaskFailure: Command ./gradlew -Pproduct=tv -Pyandex_signer.sign_debug=false -Pyandex_signer.sign_release=false -p tv/services/services-iosdk-app lintTvDebug testTvDebug assembleTvDebug assembleTvRelease assembleModule2Debug assembleModule2Release assembleMagritteDebug assembleMagritteRelease || (cp -r /place/sandbox-data/build_cache/ya/logs/ ya_logs && exit 1)
+ died with exit code 1. See details in common.log
+
+2023-05-28 18:55:44,971 (     0.000s) INFO   (root) Task #1768021265 info added: Task failed: Traceback (most recent call last):
+  File "<a href="https://a.yandex-team.ru/arc/trunk/arcadia/sandbox/executor/commands/task/__init__.py?#L646">sandbox/executor/commands/task/__init__.py</a>", line 646, in _execute
+    self.task.on_execute()
+  File "<a href="https://a.yandex-team.ru/arc/trunk/arcadia/sandbox/projects/mobile_apps/teamcity_sandbox_runner/runner_stage/__init__.py?#L451">sandbox/projects/mobile_apps/teamcity_sandbox_runner/runner_stage/__init__.py</a>", line 451, in on_execute
+    self._raise_for_status()
+  File "<a href="https://a.yandex-team.ru/arc/trunk/arcadia/sandbox/projects/mobile_apps/teamcity_sandbox_runner/runner_stage/__init__.py?#L261">sandbox/projects/mobile_apps/teamcity_sandbox_runner/runner_stage/__init__.py</a>", line 261, in _raise_for_status
+    raise TaskFailure(failed_status)
+TaskFailure: Command ./gradlew -Pproduct=tv -Pyandex_signer.sign_debug=false -Pyandex_signer.sign_release=false -p tv/services/services-iosdk-app lintTvDebug testTvDebug assembleTvDebug assembleTvRelease assembleModule2Debug assembleModule2Release assembleMagritteDebug assembleMagritteRelease || (cp -r /place/sandbox-data/build_cache/ya/logs/ ya_logs &amp;&amp; exit 1)
+ died with exit code 1. See details in common.log
+
+
+2023-05-28 18:55:45,010 (     0.039s) INFO   (fsjournal) Initializing the journal.
+2023-05-28 18:55:45,010 (     0.000s) INFO   (fsjournal) [MainThread] Clearing the journal.
+2023-05-28 18:55:45,017 (     0.006s) INFO   (executor.phazotron) [PT] Thread stopped.
+2023-05-28 18:55:45,465 (     0.448s) INFO   (root) Current client ID: 'sandbox3570', platform: 'linux' (Linux-5.4.161-26.3-x86_64-with-Ubuntu-18.04-bionic), container: {u'executable': u'/home/zomb-sandbox/venv/bin/python', u'name': u'2466247729.1', u'instance': 1, u'ip': u'2a02:6b8:c0e:9a8:0:522:f0a4:6123', u'no': 35, u'platform': u'linux_ubuntu_18.04_bionic', u'template': 2466247729L, u'rootfs': u'/var/lxc/root/2466247729.1/rootfs'}
+2023-05-28 18:55:45,465 (     0.000s) INFO   (root) [882] handle command u'TERMINATE' with 15 arguments
