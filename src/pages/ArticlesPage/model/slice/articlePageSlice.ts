@@ -5,10 +5,10 @@ import { ArticlePageSchema } from '../types/articlePageSchema';
 
 import { StateSchema } from '@/app/providers/StoreProvider';
 import {
-    Article, ArticleView, ArticleSortFields, ArticleType,
+    Article, ArticleSortFields, ArticleType, ArticleView,
 } from '@/entities/Article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 
 const articlesAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,

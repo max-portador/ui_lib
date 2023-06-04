@@ -8,10 +8,10 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Input } from '@/shared/ui/Input';
 import { Card } from '@/shared/ui/Card';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
-import { SortOrder } from '@/shared/types';
-import { fetchArticlesList } from '@/pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
+import { SortOrder } from '@/shared/types/sort';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
-import { ArticleTypeTabs } from '@/features/ArticleTypeTabs/ArticleTypeTabs';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import { articlePageActions } from '../../model/slice/articlePageSlice';
 import {
     getArticlesPageOrder,

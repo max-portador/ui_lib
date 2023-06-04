@@ -140,9 +140,6 @@
     "looks-same": {
       "ignoreCaret": true
     },
-    "lint-staged": {
-      "**/*.{ts, tsx}": "eslint"
-    },
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.docker",
@@ -156,5 +153,8 @@
         "preset": "iPhone 7"
       }
     }
+  },
+  "lint-staged": {
+    "src/**/*.{ts, tsx}": "eslint"
   }
 }
