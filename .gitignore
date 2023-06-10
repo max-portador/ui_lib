@@ -6,3 +6,4 @@ storybook-static
 .loki/report.json
 report.html
 scripts/circularDeps/image.svg
+/reports/unit
