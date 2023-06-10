@@ -2,11 +2,9 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import '@/app/styles/index.scss';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Page } from './Page';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { userExamples } from '@/app/examples/users';
-import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'widgets/Page',
@@ -25,21 +23,7 @@ const Template: ComponentStory<typeof Page> = (args) => (
 );
 export const Normal = Template.bind({});
 
-export const Dark = Template.bind({});
-
-Dark.decorators = [
-    ThemeDecorator(Theme.DARK),
+Normal.args = {};
+Normal.decorators = [
+    StoreDecorator({ user: { authData: userExamples['1'] } }),
 ];
-
-export const Purple = Template.bind({});
-
-Purple.decorators = [
-    ThemeDecorator(Theme.PURPLE),
-];
-
-[Normal, Dark, Purple].forEach((st) => {
-    st.args = {};
-    const decorators = st.decorators ?? [];
-    decorators.push(StoreDecorator({ user: { authData: userExamples['1'] } }));
-    st.decorators = decorators;
-});
