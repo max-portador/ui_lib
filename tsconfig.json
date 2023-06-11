@@ -19,7 +19,7 @@
     "esModuleInterop": true,
     /// позволяют импортировать без import * as path from 'path'
     "allowSyntheticDefaultImports": true,
-    "isolatedModules": true
+    "isolatedModules": false
   },
   "ts-node": {
     "compilerOptions": {

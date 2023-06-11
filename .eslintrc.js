@@ -3,11 +3,13 @@ module.exports = {
         browser: true,
         es2021: true,
         jest: true,
+        'cypress/globals': true,
     },
     extends: [
         'plugin:react/recommended',
         'airbnb',
         'plugin:i18next/recommended',
+        'plugin:cypress/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
