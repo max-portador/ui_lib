@@ -1,5 +1,5 @@
-import {ButtonHTMLAttributes, forwardRef, memo} from 'react';
-import {classNames, Mods} from '@/shared/lib/classNames/classNames';
+import { ButtonHTMLAttributes, forwardRef, memo } from 'react';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export enum ButtonTheme {
@@ -60,6 +60,7 @@ const Button = memo(
                 {children}
             </button>
         );
-    }));
+    }),
+);
 
-export {Button};
+export { Button };

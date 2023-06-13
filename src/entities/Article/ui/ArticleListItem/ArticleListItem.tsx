@@ -9,7 +9,7 @@ import { Card } from '@/shared/ui/Card';
 import { useHover } from '@/shared/lib/hooks/useHover';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { ArcticleBlockType, ArticleView } from '../../model/consts/consts';
+import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import { getRouteArticleDetails } from '@/shared/const/router';
@@ -21,7 +21,7 @@ interface ArticleListItemProps {
     className?: string;
     article: Article;
     view: ArticleView;
-    target?: HTMLAttributeAnchorTarget
+    target?: HTMLAttributeAnchorTarget;
 }
 
 const ArticleListItem = memo((props: ArticleListItemProps) => {
@@ -37,15 +37,22 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
     const types = <Text text={article.type.join(', ')} className={cls.types} />;
     const views = (
         <>
-            <Text text={String(article.views)} className={cls.views} />
+            <Text data-testid="ArticleViewsCount" text={String(article.views)} className={cls.views} />
             <Icon SVG={EyeIcon} />
         </>
     );
 
     if (view === ArticleView.BIG) {
-        const textBlock = article.blocks.find((block) => block.type === ArcticleBlockType.TEXT) as ArticleTextBlock;
+        const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
         return (
-            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <div
+                className={classNames(
+                    cls.ArticleListItem,
+                    {},
+                    [className, cls[view]],
+                )}
+                data-testId="ArticleListItem"
+            >
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user.avatar} />
@@ -85,6 +92,7 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
             // @ts-ignore
             {...bindHover}
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+            data-testId="ArticleListItem"
         >
             <AppLink
                 target={target}

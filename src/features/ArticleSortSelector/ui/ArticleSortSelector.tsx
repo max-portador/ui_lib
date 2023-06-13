@@ -58,6 +58,7 @@ const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
                 options={sortFieldOptions}
                 value={sort}
                 onChange={onChangeSort}
+                data-testId="ArticleListSelector.sort"
             />
             <Select<SortOrder>
                 label={t('по')}
@@ -65,6 +66,7 @@ const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
                 value={order}
                 onChange={onChangeOrder}
                 className={cls.order}
+                data-testId="ArticleListSelector.order"
             />
         </div>
     );

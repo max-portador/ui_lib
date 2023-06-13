@@ -12,7 +12,7 @@ import { Icon } from '@/shared/ui/Icon';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import { ArcticleBlockType } from '../../model/consts/consts';
+import { ArticleBlockType } from '../../model/consts/consts';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
@@ -45,7 +45,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = memo((props: ArticleDetailsProps
 
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
-        case ArcticleBlockType.CODE:
+        case ArticleBlockType.CODE:
             return (
                 <ArticleCodeBlockComponent
                     className={cls.block}
@@ -54,7 +54,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = memo((props: ArticleDetailsProps
                 />
             );
 
-        case ArcticleBlockType.IMAGE:
+        case ArticleBlockType.IMAGE:
             return (
                 <ArticleImageBlockComponent
                     className={cls.block}
@@ -63,7 +63,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = memo((props: ArticleDetailsProps
                 />
             );
 
-        case ArcticleBlockType.TEXT:
+        case ArticleBlockType.TEXT:
             return (
                 <ArticleTextBlockComponent
                     className={cls.block}
@@ -110,7 +110,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = memo((props: ArticleDetailsProps
                         className={cls.avatar}
                     />
                 </HStack>
-                <VStack gap={4} max>
+                <VStack gap={4} max data-testid="ArticleDetails.Info">
                     <Text
                         title={article?.title}
                         text={article?.subtitle}

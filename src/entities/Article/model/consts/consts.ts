@@ -4,7 +4,7 @@ export enum ArticleSortFields {
     CREATED = 'createdAt'
 }
 
-export enum ArcticleBlockType {
+export enum ArticleBlockType {
     CODE = 'CODE',
     IMAGE = 'IMAGE',
     TEXT = 'TEXT'

@@ -1,7 +1,6 @@
 import React, { ReactNode, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/Card';
-import { CardTheme } from '@/shared/ui/Card';
+import { Card, CardTheme } from '@/shared/ui/Card';
 import cls from './Tabs.module.scss';
 
 export interface TabItem<T extends string> {
@@ -36,6 +35,7 @@ const Tabs = <T extends string>(props: TabsProps<T>) => {
                     className={cls.tab}
                     onClick={() => handleClick(tab)}
                     theme={value === tab.value ? CardTheme.NORMAL : CardTheme.OUTLINED}
+                    data-testId={`ArticleListTab.${tab.value}`}
                 >
                     {tab.content}
                 </Card>

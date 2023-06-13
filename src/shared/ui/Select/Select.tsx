@@ -24,6 +24,7 @@ const Select = <T extends string>(props: SelectProps<T>) => {
         value,
         onChange,
         readonly,
+        ...otherprops
     } = props;
 
     const onChaneHandler = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -50,6 +51,7 @@ const Select = <T extends string>(props: SelectProps<T>) => {
                 onChange={onChaneHandler}
                 value={value}
                 disabled={readonly}
+                {...otherprops}
             >
                 {optionList}
             </select>
