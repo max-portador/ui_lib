@@ -8,14 +8,11 @@ import cls from './NotificationItem.module.scss';
 
 interface NotificationItemProps {
     className?: string;
-    item: Notification
+    item: Notification;
 }
 
 const NotificationItem = memo((props: NotificationItemProps) => {
-    const {
-        className,
-        item,
-    } = props;
+    const { className, item } = props;
     const content = (
         <Card
             theme={CardTheme.OUTLINED}

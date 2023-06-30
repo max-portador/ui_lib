@@ -20,6 +20,4 @@ const Template: ComponentStory<typeof NotFoundPage> = (args) => (
 export const Showcase = Template.bind({});
 Showcase.args = {};
 
-Showcase.decorators = [
-    StoreDecorator({}),
-];
+Showcase.decorators = [StoreDecorator({})];

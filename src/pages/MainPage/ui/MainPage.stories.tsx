@@ -15,6 +15,4 @@ const Template: ComponentStory<typeof MainPage> = (args) => <MainPage />;
 export const Showcase = Template.bind({});
 Showcase.args = {};
 
-Showcase.decorators = [
-    StoreDecorator({}),
-];
+Showcase.decorators = [StoreDecorator({})];

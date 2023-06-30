@@ -20,4 +20,6 @@ const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => (
 );
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({}, { [rtkApi.reducerPath]: rtkApi.reducer })];
+Normal.decorators = [
+    StoreDecorator({}, { [rtkApi.reducerPath]: rtkApi.reducer }),
+];

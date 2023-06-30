@@ -49,13 +49,15 @@ Showcase.parameters = {
         },
     ],
 };
-Showcase.decorators = [StoreDecorator({
-    articleDetails: { data: article, isLoading: false },
-    articlesDetailsPage: {
-        comments: {
-            isLoading: false,
-            ids: ['1'],
-            entities: commentsEntities,
+Showcase.decorators = [
+    StoreDecorator({
+        articleDetails: { data: article, isLoading: false },
+        articlesDetailsPage: {
+            comments: {
+                isLoading: false,
+                ids: ['1'],
+                entities: commentsEntities,
+            },
         },
-    },
-})];
+    }),
+];

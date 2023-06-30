@@ -1,13 +1,9 @@
 {
     "compilerOptions": {
-    "target": "es5",
+        "target": "es5",
         "lib": ["es5", "dom"],
         "types": ["cypress", "node"]
     },
     "extends": "../tsconfig.json",
-    "include": [
-      "**/*.ts",
-      "**/*.tsx",
-      "../src/app/types/global.d.ts"
-    ]
+    "include": ["**/*.ts", "**/*.tsx", "../src/app/types/global.d.ts"]
 }

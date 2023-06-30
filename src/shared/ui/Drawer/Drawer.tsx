@@ -1,20 +1,21 @@
-import React, {
-    memo, PropsWithChildren, useCallback, useEffect,
-} from 'react';
+import React, { memo, PropsWithChildren, useCallback, useEffect } from 'react';
 import type { Mods } from '@/shared/lib/classNames/classNames';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Portal } from '../Portal';
 import { Overlay } from '@/shared/ui/Overlay';
 import { useModal } from '@/shared/lib/hooks/useModal';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import {
+    AnimationProvider,
+    useAnimationLibs,
+} from '@/shared/lib/components/AnimationProvider';
 import cls from './Drawer.module.scss';
 
 interface DrawerProps extends PropsWithChildren {
     className?: string;
     isOpen?: boolean;
     onClose?: () => void;
-    lazy?: boolean
+    lazy?: boolean;
 }
 
 const height = window.innerHeight - 100;
@@ -22,12 +23,7 @@ const height = window.innerHeight - 100;
 const DrawerContent = memo((props: DrawerProps) => {
     const { Spring, Gesture } = useAnimationLibs();
     const { a, config, useSpring } = Spring;
-    const {
-        className,
-        children,
-        isOpen,
-        onClose,
-    } = props;
+    const { className, children, isOpen, onClose } = props;
 
     const [{ y }, api] = useSpring(() => ({ y: height }));
     const { theme } = useTheme();
@@ -57,27 +53,33 @@ const DrawerContent = memo((props: DrawerProps) => {
         });
     };
 
-    const bind = Gesture.useDrag(({
-        last,
-        velocity: [, vy],
-        direction: [, dy],
-        movement: [, my],
-        cancel,
-    }) => {
-        if (my < -70) cancel();
+    const bind = Gesture.useDrag(
+        ({
+            last,
+            velocity: [, vy],
+            direction: [, dy],
+            movement: [, my],
+            cancel,
+        }) => {
+            if (my < -70) cancel();
 
-        if (last) {
-            if (my > height * 0.5 || (vy > 0.5 && dy > 0)) {
-                close();
+            if (last) {
+                if (my > height * 0.5 || (vy > 0.5 && dy > 0)) {
+                    close();
+                } else {
+                    openDrawer();
+                }
             } else {
-                openDrawer();
+                api.start({ y: my, immediate: true });
             }
-        } else {
-            api.start({ y: my, immediate: true });
-        }
-    }, {
-        from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true,
-    });
+        },
+        {
+            from: () => [0, y.get()],
+            filterTaps: true,
+            bounds: { top: 0 },
+            rubberband: true,
+        },
+    );
 
     // до открытия в первый раз не отрисовываем
     if (!isOpen) {
@@ -93,11 +95,21 @@ const DrawerContent = memo((props: DrawerProps) => {
 
     return (
         <Portal>
-            <div className={classNames(cls.Drawer, mods, [className, theme, 'app_drawer'])}>
+            <div
+                className={classNames(cls.Drawer, mods, [
+                    className,
+                    theme,
+                    'app_drawer',
+                ])}
+            >
                 <Overlay onClick={close} />
                 <a.div
                     className={cls.sheet}
-                    style={{ display, bottom: `calc(-100vh + ${height - 100}px`, y }}
+                    style={{
+                        display,
+                        bottom: `calc(-100vh + ${height - 100}px`,
+                        y,
+                    }}
                     {...bind()}
                 >
                     {children}

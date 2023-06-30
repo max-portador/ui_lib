@@ -6,17 +6,11 @@ interface SkeletonProps {
     className?: string;
     height?: string | number;
     width?: string | number;
-    border?: string ;
-
+    border?: string;
 }
 
 const Skeleton: FC<SkeletonProps> = (props: SkeletonProps) => {
-    const {
-        className,
-        height,
-        width,
-        border,
-    } = props;
+    const { className, height, width, border } = props;
 
     const styles: CSSProperties = {
         width,

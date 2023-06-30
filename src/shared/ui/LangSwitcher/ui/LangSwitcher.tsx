@@ -7,13 +7,13 @@ import cls from './LangSwitcher.module.scss';
 export enum LangSwitcherTheme {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
-    RED = 'red'
+    RED = 'red',
 }
 
 interface LangSwitcherProps {
     className?: string;
     short?: boolean;
-    theme?: LangSwitcherTheme
+    theme?: LangSwitcherTheme;
 }
 
 const LangSwitcher = memo((props: LangSwitcherProps) => {

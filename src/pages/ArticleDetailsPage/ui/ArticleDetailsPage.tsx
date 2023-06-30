@@ -2,7 +2,10 @@ import React, { FC, memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleDetails } from '@/entities/Article';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Page } from '@/widgets/Page';
@@ -39,7 +42,9 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Page
+                className={classNames(cls.ArticleDetailsPage, {}, [className])}
+            >
                 <VStack gap={16} max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />

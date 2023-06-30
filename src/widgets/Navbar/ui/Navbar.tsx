@@ -48,7 +48,6 @@ const Navbar = memo(({ className }: NavbarProps) => {
                     <NotificationButton key="notification-btn" />
                     <AvatarDropdown key="avatar-dropdown" />
                 </HStack>
-
             </header>
         );
     }
@@ -63,10 +62,7 @@ const Navbar = memo(({ className }: NavbarProps) => {
                 {t('Войти')}
             </Button>
             {isAuthModal && (
-                <LoginModal
-                    isOpen={isAuthModal}
-                    onClose={onCloseModal}
-                />
+                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
             )}
         </header>
     );

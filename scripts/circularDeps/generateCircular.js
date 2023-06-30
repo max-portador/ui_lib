@@ -10,10 +10,11 @@ madge(pathToAppJs, {
     fileExtensions: ['js', 'jsx', 'tsx', 'ts'],
     webpackConfig: pathToWebpackConfig,
     tsConfig: pathToTsConfig,
-}).then((res) => {
-    console.log(res.orphans());
-    return res;
 })
+    .then((res) => {
+        console.log(res.orphans());
+        return res;
+    })
     .then((res) => res.image(path.resolve(__dirname, 'image.svg'), false))
     .then((writtenImagePath) => {
         console.log(`Image written to ${writtenImagePath}`);

@@ -11,14 +11,22 @@ import cls from './ArticleList.module.scss';
 interface ArticleListProps {
     className?: string;
     articles: Article[];
-    isLoading: boolean,
-    view?: ArticleView,
-    target?: HTMLAttributeAnchorTarget,
+    isLoading: boolean;
+    view?: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
-const getSkeletones = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
-    // eslint-disable-next-line react/no-array-index-key
-    .fill(0).map((_, ind) => <ArticleListItemSkeleton className={cls.card} view={view} key={ind} />);
+const getSkeletones = (view: ArticleView) =>
+    new Array(view === ArticleView.SMALL ? 9 : 3)
+        // eslint-disable-next-line react/no-array-index-key
+        .fill(0)
+        .map((_, ind) => (
+            <ArticleListItemSkeleton
+                className={cls.card}
+                view={view}
+                key={ind}
+            />
+        ));
 
 const ArticleList = memo((props: ArticleListProps) => {
     const {
@@ -33,7 +41,12 @@ const ArticleList = memo((props: ArticleListProps) => {
 
     if (!isLoading && !articles?.length) {
         return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+            <div
+                className={classNames(cls.ArticleList, {}, [
+                    className,
+                    cls[view],
+                ])}
+            >
                 <Text size={TextSize.L} title={t('Статьи не найдены')} />
             </div>
         );
@@ -57,7 +70,6 @@ const ArticleList = memo((props: ArticleListProps) => {
 
             {isLoading && getSkeletones(view)}
         </div>
-
     );
 });
 

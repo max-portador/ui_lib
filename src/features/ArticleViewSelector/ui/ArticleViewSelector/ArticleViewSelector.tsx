@@ -9,8 +9,8 @@ import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
     className?: string;
-    view: ArticleView,
-    onViewClick?: (view: ArticleView) => void
+    view: ArticleView;
+    onViewClick?: (view: ArticleView) => void;
 }
 
 const viewTypes = [
@@ -25,11 +25,7 @@ const viewTypes = [
 ];
 
 const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
-    const {
-        className,
-        view,
-        onViewClick,
-    } = props;
+    const { className, view, onViewClick } = props;
 
     const onClick = (newView: ArticleView) => () => {
         onViewClick?.(newView);
@@ -45,7 +41,9 @@ const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
                 >
                     <Icon
                         SVG={viewType.icon}
-                        className={classNames('', { [cls.nonSelected]: viewType.view !== view })}
+                        className={classNames('', {
+                            [cls.nonSelected]: viewType.view !== view,
+                        })}
                     />
                 </Button>
             ))}

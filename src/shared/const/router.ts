@@ -26,5 +26,5 @@ export const getRouteNotFound = () => '*';
 export enum UserRole {
     ADMIN = 'ADMIN',
     USER = 'USER',
-    MANAGER = 'MANAGER'
+    MANAGER = 'MANAGER',
 }

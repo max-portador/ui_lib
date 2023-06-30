@@ -35,6 +35,4 @@ Normal.parameters = {
         },
     ],
 };
-Normal.decorators = [
-    StoreDecorator({ user: { authData: userExamples['1'] } }),
-];
+Normal.decorators = [StoreDecorator({ user: { authData: userExamples['1'] } })];

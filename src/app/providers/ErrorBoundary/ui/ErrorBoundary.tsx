@@ -3,15 +3,17 @@ import { ErrorPage } from '@/widgets/ErrorPage';
 import PageLoader from '@/widgets/PageLoader/ui/PageLoader';
 
 interface ErrorBoundaryProps {
-    children: React.ReactNode
+    children: React.ReactNode;
 }
 
 interface ErrorBoundaryState {
-    hasError: boolean
+    hasError: boolean;
 }
 
-class ErrorBoundary
-    extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+class ErrorBoundary extends React.Component<
+    ErrorBoundaryProps,
+    ErrorBoundaryState
+> {
     constructor(props: ErrorBoundaryProps) {
         super(props);
         this.state = { hasError: false };

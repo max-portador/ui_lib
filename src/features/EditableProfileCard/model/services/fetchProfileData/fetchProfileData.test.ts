@@ -12,7 +12,6 @@ const data = {
     firstName: 'Ignat',
     currency: Currency.EUR,
     city: 'default-1',
-
 };
 describe('fetchProfileData.test', () => {
     test('success', async () => {

@@ -19,6 +19,4 @@ const Template: ComponentStory<typeof AboutPage> = (args) => (
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [
-    StoreDecorator({}),
-];
+Light.decorators = [StoreDecorator({})];

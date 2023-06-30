@@ -1,7 +1,7 @@
 import React from 'react';
-import {Flex, FlexProps} from '../Flex/Flex';
+import { Flex, FlexProps } from '../Flex/Flex';
 
-type HStackProps = Omit<FlexProps, 'direction'>
+type HStackProps = Omit<FlexProps, 'direction'>;
 
 const HStack = (props: HStackProps) => {
     return (
@@ -10,4 +10,4 @@ const HStack = (props: HStackProps) => {
     );
 };
 
-export {HStack};
+export { HStack };

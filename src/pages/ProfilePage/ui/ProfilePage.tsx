@@ -1,9 +1,16 @@
 import React, { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { EditableProfileCard, fetchProfileData, profileReducer } from '@/features/EditableProfileCard';
+import {
+    EditableProfileCard,
+    fetchProfileData,
+    profileReducer,
+} from '@/features/EditableProfileCard';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { Page } from '@/widgets/Page';
 
@@ -19,9 +26,7 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
     const dispatch = useAppDispatch();
     const { id } = useParams<{ id: string }>();
 
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     useInitialEffect(() => {
         if (id) {
@@ -31,7 +36,10 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Page data-testid="ProfilePage" className={classNames('', {}, [className])}>
+            <Page
+                data-testid="ProfilePage"
+                className={classNames('', {}, [className])}
+            >
                 <EditableProfileCard />
             </Page>
         </DynamicModuleLoader>

@@ -7,18 +7,22 @@ describe('counterSlice', () => {
         const state: DeepPartial<CounterSchema> = {
             value: 108,
         };
-        expect(counterReducer(state as CounterSchema, counterActions.decrement).value)
-            .toEqual(107);
+        expect(
+            counterReducer(state as CounterSchema, counterActions.decrement)
+                .value,
+        ).toEqual(107);
     });
     test('increment', () => {
         const state: DeepPartial<CounterSchema> = {
             value: 108,
         };
-        expect(counterReducer(state as CounterSchema, counterActions.increment))
-            .toEqual({ value: 109 });
+        expect(
+            counterReducer(state as CounterSchema, counterActions.increment),
+        ).toEqual({ value: 109 });
     });
     test('increment with undefined state', () => {
-        expect(counterReducer(undefined, counterActions.increment))
-            .toEqual({ value: 1 });
+        expect(counterReducer(undefined, counterActions.increment)).toEqual({
+            value: 1,
+        });
     });
 });

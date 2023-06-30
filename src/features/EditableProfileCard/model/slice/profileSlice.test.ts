@@ -15,7 +15,6 @@ const data = {
     firstName: 'Ignat',
     currency: Currency.RUB,
     city: 'default-1',
-
 };
 
 describe('profileSlice.test', () => {
@@ -24,28 +23,31 @@ describe('profileSlice.test', () => {
             readonly: false,
         };
 
-        expect(profileReducer(
-            state as ProfileSchema,
-            profileActions.setReadonly(true),
-        )).toEqual({ readonly: true });
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                profileActions.setReadonly(true),
+            ),
+        ).toEqual({ readonly: true });
     });
 
     test('test cancel edit', () => {
         const state: DeepPartial<ProfileSchema> = {};
 
-        expect(profileReducer(
-            state as ProfileSchema,
-            profileActions.cancelEdit(),
-        )).toEqual({ readonly: true, validateErrors: undefined });
+        expect(
+            profileReducer(state as ProfileSchema, profileActions.cancelEdit()),
+        ).toEqual({ readonly: true, validateErrors: undefined });
     });
 
     test('test updateProfile', () => {
         const state: DeepPartial<ProfileSchema> = { form: { username: '' } };
 
-        expect(profileReducer(
-            state as ProfileSchema,
-            profileActions.updateProfile({ username: 'Timur' }),
-        )).toEqual({ form: { username: 'Timur' } });
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                profileActions.updateProfile({ username: 'Timur' }),
+            ),
+        ).toEqual({ form: { username: 'Timur' } });
     });
 
     test('test update profile service pending', () => {
@@ -55,10 +57,9 @@ describe('profileSlice.test', () => {
             validateErrors: [ValidateProfileError.NO_DATA],
         };
 
-        expect(profileReducer(
-            state as ProfileSchema,
-            updateProfileData.pending,
-        )).toEqual({
+        expect(
+            profileReducer(state as ProfileSchema, updateProfileData.pending),
+        ).toEqual({
             isLoading: true,
             error: undefined,
             validateErrors: undefined,
@@ -70,10 +71,12 @@ describe('profileSlice.test', () => {
             isLoading: true,
         };
 
-        expect(profileReducer(
-            state as ProfileSchema,
-            updateProfileData.fulfilled(data, ''),
-        )).toEqual({
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                updateProfileData.fulfilled(data, ''),
+            ),
+        ).toEqual({
             isLoading: false,
             data,
             form: data,

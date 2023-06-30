@@ -12,7 +12,6 @@ const data = {
     firstName: 'Ignat',
     currency: Currency.USD,
     city: 'default-1',
-
 };
 describe('validateProfileData.test', () => {
     test('success', async () => {

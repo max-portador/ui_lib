@@ -50,7 +50,10 @@ const initialState: DeepPartial<StateSchema> = {
     },
 };
 
-const cantEditSate: DeepPartial<StateSchema> = { ...initialState, user: undefined };
+const cantEditSate: DeepPartial<StateSchema> = {
+    ...initialState,
+    user: undefined,
+};
 
 const Template: ComponentStory<typeof EditableProfileCard> = (args) => (
     <div className="story-wrapper">

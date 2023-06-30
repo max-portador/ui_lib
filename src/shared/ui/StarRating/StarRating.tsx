@@ -14,12 +14,7 @@ interface StartRatingProps {
 const stars = [1, 2, 3, 4, 5];
 
 const StarRating = memo((props: StartRatingProps) => {
-    const {
-        className,
-        onSelect,
-        size = 30,
-        selectedStarts = 0,
-    } = props;
+    const { className, onSelect, size = 30, selectedStarts = 0 } = props;
 
     const [currentStarsCount, setCurrenStarsCount] = useState(selectedStarts);
     const [isSelected, setSelected] = useState(Boolean(selectedStarts));

@@ -11,31 +11,27 @@ import { SortOrder } from '@/shared/types/sort';
 export const initArticlesPage = createAsyncThunk<
     void,
     URLSearchParams,
-    ThunkConfig<string>>(
-        'articlesPage/fetchNextArticlesPage',
-        async (searchParams, thunkApi) => {
-            const {
-                getState, dispatch,
-            } = thunkApi;
-            const _inited = getArticlesPageInited(getState());
+    ThunkConfig<string>
+>('articlesPage/fetchNextArticlesPage', async (searchParams, thunkApi) => {
+    const { getState, dispatch } = thunkApi;
+    const _inited = getArticlesPageInited(getState());
 
-            if (!_inited) {
-                const orderFromUrl = searchParams.get('order') as SortOrder;
-                const sortFromUrl = searchParams.get('sort') as ArticleSortFields;
-                const searchFromUrl = searchParams.get('search');
+    if (!_inited) {
+        const orderFromUrl = searchParams.get('order') as SortOrder;
+        const sortFromUrl = searchParams.get('sort') as ArticleSortFields;
+        const searchFromUrl = searchParams.get('search');
 
-                if (orderFromUrl) {
-                    dispatch(articlePageActions.setOrder(orderFromUrl));
-                }
-                if (sortFromUrl) {
-                    dispatch(articlePageActions.setSort(sortFromUrl));
-                }
-                if (searchFromUrl) {
-                    dispatch(articlePageActions.setSearch(searchFromUrl));
-                }
+        if (orderFromUrl) {
+            dispatch(articlePageActions.setOrder(orderFromUrl));
+        }
+        if (sortFromUrl) {
+            dispatch(articlePageActions.setSort(sortFromUrl));
+        }
+        if (searchFromUrl) {
+            dispatch(articlePageActions.setSearch(searchFromUrl));
+        }
 
-                dispatch(articlePageActions.initState());
-                dispatch(fetchArticlesList({}));
-            }
-        },
-    );
+        dispatch(articlePageActions.initState());
+        dispatch(fetchArticlesList({}));
+    }
+});

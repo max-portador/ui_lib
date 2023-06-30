@@ -14,9 +14,7 @@ interface NotificationButtonProps {
 }
 
 const NotificationButton = memo((props: NotificationButtonProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const [isOpen, setIsOpen] = useState(false);
     const onOpenDrawer = useCallback(() => {
@@ -50,9 +48,7 @@ const NotificationButton = memo((props: NotificationButtonProps) => {
                     <NotificationList />
                 </Drawer>
             </MobileView>
-
         </div>
-
     );
 });
 

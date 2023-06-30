@@ -1,10 +1,10 @@
-import React, {PropsWithChildren} from 'react';
-import {Flex, FlexProps} from '../Flex/Flex';
+import React, { PropsWithChildren } from 'react';
+import { Flex, FlexProps } from '../Flex/Flex';
 
-type VStackProps = Omit<FlexProps, 'direction'>
+type VStackProps = Omit<FlexProps, 'direction'>;
 
 const VStack = (props: PropsWithChildren<VStackProps>) => {
-    const {align = 'start', children} = props;
+    const { align = 'start', children } = props;
 
     return (
         // @ts-ignore
@@ -14,4 +14,4 @@ const VStack = (props: PropsWithChildren<VStackProps>) => {
     );
 };
 
-export {VStack};
+export { VStack };

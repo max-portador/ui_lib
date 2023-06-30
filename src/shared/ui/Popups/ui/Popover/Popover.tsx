@@ -13,12 +13,7 @@ interface PopoverProps extends PropsWithChildren {
 }
 
 const Popover = memo((props: PopoverProps) => {
-    const {
-        className,
-        children,
-        trigger,
-        direction = 'bottom right',
-    } = props;
+    const { className, children, trigger, direction = 'bottom right' } = props;
 
     const menuClasses = [mapDirectionClass[direction]];
     return (

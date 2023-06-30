@@ -18,16 +18,16 @@ interface ProfileCardProps {
     data?: Profile;
     isLoading?: boolean;
     error?: string;
-    readonly: boolean,
-    onChangeFirstName?: (value: string) => void
-    onChangeLastName?: (value: string) => void
-    onChangeAge?: (value: string) => void
-    onChangeCity?: (value: string) => void
-    onChangeUsername?: (value: string) => void
-    onChangeAvatar: (value: string) => void
-    onChangeCurrency?: (cuurency: Currency) => void
-    onChangeCountry?: (country: Country) => void
-    'data-testid'?: string
+    readonly: boolean;
+    onChangeFirstName?: (value: string) => void;
+    onChangeLastName?: (value: string) => void;
+    onChangeAge?: (value: string) => void;
+    onChangeCity?: (value: string) => void;
+    onChangeUsername?: (value: string) => void;
+    onChangeAvatar: (value: string) => void;
+    onChangeCurrency?: (cuurency: Currency) => void;
+    onChangeCountry?: (country: Country) => void;
+    'data-testid'?: string;
 }
 
 const ProfileCard: FC<ProfileCardProps> = (props) => {
@@ -55,7 +55,10 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
             <HStack
                 max
                 justify="center"
-                className={classNames(cls.profileCard, {}, [className, cls.loading])}
+                className={classNames(cls.profileCard, {}, [
+                    className,
+                    cls.loading,
+                ])}
             >
                 <Loader />
             </HStack>
@@ -67,7 +70,10 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
             <HStack
                 max
                 justify="center"
-                className={classNames(cls.profileCard, {}, [className, cls.error])}
+                className={classNames(cls.profileCard, {}, [
+                    className,
+                    cls.error,
+                ])}
             >
                 <Text
                     theme={TextTheme.ERROR}

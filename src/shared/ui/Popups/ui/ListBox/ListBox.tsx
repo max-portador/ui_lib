@@ -9,20 +9,20 @@ import popupCls from '../../styles/popup.module.scss';
 import cls from './ListBox.module.scss';
 
 export interface ListBoxItem {
-    value: string,
-    content?: ReactNode,
-    disabled?: boolean,
+    value: string;
+    content?: ReactNode;
+    disabled?: boolean;
 }
 
 interface ListBoxProps {
-    className?: string,
-    onChange: <T extends string>(val: T) => void
-    items?: ListBoxItem[],
-    value?: string,
-    label?: string,
-    defaultValue?: string,
-    readonly?: boolean,
-    direction?: DropDownDirection
+    className?: string;
+    onChange: <T extends string>(val: T) => void;
+    items?: ListBoxItem[];
+    value?: string;
+    label?: string;
+    defaultValue?: string;
+    readonly?: boolean;
+    direction?: DropDownDirection;
 }
 
 export const ListBox = memo((props: ListBoxProps) => {
@@ -41,11 +41,7 @@ export const ListBox = memo((props: ListBoxProps) => {
 
     return (
         <HStack gap={4}>
-            {label && (
-                <span className={cls.label}>
-                    {`${label}>`}
-                </span>
-            )}
+            {label && <span className={cls.label}>{`${label}>`}</span>}
             <HListbox
                 as="div"
                 className={classNames(popupCls.popup, {}, [className])}
@@ -58,7 +54,9 @@ export const ListBox = memo((props: ListBoxProps) => {
                         {value ?? defaultValue}
                     </Button>
                 </HListbox.Button>
-                <HListbox.Options className={classNames(cls.options, {}, optionsClasses)}>
+                <HListbox.Options
+                    className={classNames(cls.options, {}, optionsClasses)}
+                >
                     {items?.map((item) => (
                         <HListbox.Option
                             key={item.value}
@@ -67,25 +65,20 @@ export const ListBox = memo((props: ListBoxProps) => {
                             as={Fragment}
                         >
                             {({ active, selected }) => (
-                                <li className={classNames(
-                                    cls.item,
-                                    {
+                                <li
+                                    className={classNames(cls.item, {
                                         [popupCls.active]: active,
                                         [cls.disabled]: item.disabled,
-                                    },
-                                )}
+                                    })}
                                 >
                                     {item.content ?? item.value}
                                     {selected && ' ✔'}
                                 </li>
                             )}
-
                         </HListbox.Option>
                     ))}
                 </HListbox.Options>
             </HListbox>
-
         </HStack>
-
     );
 });

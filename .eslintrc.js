@@ -9,6 +9,7 @@ module.exports = {
         'plugin:react/recommended',
         'airbnb',
         'plugin:i18next/recommended',
+        'prettier',
         // 'plugin:cypress/recommended',
     ],
     parser: '@typescript-eslint/parser',
@@ -18,7 +19,6 @@ module.exports = {
         },
         ecmaVersion: 'latest',
         sourceType: 'module',
-
     },
     plugins: [
         'react',
@@ -29,11 +29,10 @@ module.exports = {
         'unused-imports',
     ],
     rules: {
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
         'unused-imports/no-unused-imports': 'error',
         'react/jsx-filename-extension': [
-            2, { extensions: ['.js', '.jsx', '.tsx'] },
+            2,
+            { extensions: ['.js', '.jsx', '.tsx'] },
         ],
         'react/jsx-props-no-spreading': 'warn',
         'react/no-array-index-key': 'warn',
@@ -43,7 +42,6 @@ module.exports = {
         'import/prefer-default-export': 'off',
         'no-tabs': ['error', { allowIndentationTabs: true }],
         'no-shadow': 'off',
-        indent: [2, 4],
         'react/react-in-jsx-scope': 'off',
         'no-unused-vars': 'warn',
         'import/no-extraneous-dependencies': 'off',
@@ -52,44 +50,52 @@ module.exports = {
         'jsx-a11y/no-static-element-interactions': 'off',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
-        'linebreak-style': [
-            'error',
-            'unix',
-        ],
+        'linebreak-style': ['error', 'unix'],
         'arrow-body-style': 'off',
         'no-undef': 'off',
         'no-param-reassign': 'off',
-        'import/no-import-module-exports': ['error', {
-            exceptions: ['**/config/storybook/*.js'],
-        }],
-        quotes: [
-            'error',
-            'single',
-        ],
-        semi: [
-            'error',
-            'always',
-        ],
-        'no-underscore-dangle': 'off',
-        'i18next/no-literal-string': ['error', {
-            markupOnly: true,
-            ignoreAttribute: ['as', 'role', 'data-testid', 'to', 'target'],
-        }],
-        'max-len': ['error', { ignoreComments: true, code: 125 }],
-        'portador/path-checker': ['error', { alias: '@' }],
-        'portador/public-api-imports': [
-            'error', {
-                alias: '@',
-                testFilesPatterns: ['**/.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
-            },
-        ],
-        'portador/layer-imports': [
+        'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
+        'import/no-import-module-exports': [
             'error',
             {
-                alias: '@',
-                ignoreImportPatterns: ['**/StoreProvider', '**/styles/index.scss', '**/examples/**', '**/testing'],
+                exceptions: ['**/config/storybook/*.js'],
             },
         ],
+        quotes: ['error', 'single'],
+        semi: ['error', 'always'],
+        'no-underscore-dangle': 'off',
+        'i18next/no-literal-string': [
+            'error',
+            {
+                markupOnly: true,
+                ignoreAttribute: ['as', 'role', 'data-testid', 'to', 'target'],
+            },
+        ],
+        'max-len': ['error', { ignoreComments: true, code: 125 }],
+        // 'portador/path-checker': ['error', { alias: '@' }],
+        // 'portador/public-api-imports': [
+        //     'error',
+        //     {
+        //         alias: '@',
+        //         testFilesPatterns: [
+        //             '**/.test.*',
+        //             '**/*.story.*',
+        //             '**/StoreDecorator.tsx',
+        //         ],
+        //     },
+        // ],
+        // 'portador/layer-imports': [
+        //     'error',
+        //     {
+        //         alias: '@',
+        //         ignoreImportPatterns: [
+        //             '**/StoreProvider',
+        //             '**/styles/index.scss',
+        //             '**/examples/**',
+        //             '**/testing',
+        //         ],
+        //     },
+        // ],
     },
     globals: {
         __IS_DEV__: true,
@@ -98,7 +104,10 @@ module.exports = {
     },
     overrides: [
         {
-            files: ['**/src/**/*.{test,stories}.{ts,tsx}', '**/src/**/examples/*.{ts,tsx}'],
+            files: [
+                '**/src/**/*.{test,stories}.{ts,tsx}',
+                '**/src/**/examples/*.{ts,tsx}',
+            ],
             rules: {
                 'i18next/no-literal-string': 'off',
                 'max-len': 'off',

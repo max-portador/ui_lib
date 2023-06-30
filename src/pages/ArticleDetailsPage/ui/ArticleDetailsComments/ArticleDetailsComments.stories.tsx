@@ -20,6 +20,4 @@ const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => (
 export const Normal = Template.bind({});
 Normal.args = {};
 
-Normal.decorators = [
-    StoreDecorator({}),
-];
+Normal.decorators = [StoreDecorator({})];

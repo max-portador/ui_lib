@@ -5,7 +5,10 @@ import { action } from '@storybook/addon-actions';
 import { TabItem, Tabs } from './Tabs';
 import '@/app/styles/index.scss';
 
-const tabs: TabItem<string>[] = ['1', '2', '3'].map((item) => ({ value: `tab ${item}`, content: `tab ${item}` }));
+const tabs: TabItem<string>[] = ['1', '2', '3'].map((item) => ({
+    value: `tab ${item}`,
+    content: `tab ${item}`,
+}));
 export default {
     title: 'shared/Tabs',
     component: Tabs,

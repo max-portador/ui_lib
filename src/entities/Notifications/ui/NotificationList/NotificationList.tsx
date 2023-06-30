@@ -13,17 +13,11 @@ const NotificationList = memo((props: NotificationListProps) => {
     const { data, isLoading } = useNotifications(null, {
         pollingInterval: 10000,
     });
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     if (isLoading) {
         return (
-            <VStack
-                gap={16}
-                max
-                className={classNames('', {}, [className])}
-            >
+            <VStack gap={16} max className={classNames('', {}, [className])}>
                 <Skeleton width="100%" border="8px" height="80px" />
                 <Skeleton width="100%" border="8px" height="80px" />
                 <Skeleton width="100%" border="8px" height="80px" />
@@ -32,11 +26,7 @@ const NotificationList = memo((props: NotificationListProps) => {
     }
 
     return (
-        <VStack
-            gap={16}
-            max
-            className={classNames('', {}, [className])}
-        >
+        <VStack gap={16} max className={classNames('', {}, [className])}>
             {data?.map((item) => {
                 return <NotificationItem key={item.id} item={item} />;
             })}

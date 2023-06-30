@@ -27,36 +27,39 @@ interface ArticleListItemProps {
 const ArticleListItem = memo((props: ArticleListItemProps) => {
     const { t } = useTranslation();
     const [bindHover] = useHover();
-    const {
-        className,
-        article,
-        view,
-        target,
-    } = props;
+    const { className, article, view, target } = props;
 
     const types = <Text text={article.type.join(', ')} className={cls.types} />;
     const views = (
         <>
-            <Text data-testid="ArticleViewsCount" text={String(article.views)} className={cls.views} />
+            <Text
+                data-testid="ArticleViewsCount"
+                text={String(article.views)}
+                className={cls.views}
+            />
             <Icon SVG={EyeIcon} />
         </>
     );
 
     if (view === ArticleView.BIG) {
-        const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
+        const textBlock = article.blocks.find(
+            (block) => block.type === ArticleBlockType.TEXT,
+        ) as ArticleTextBlock;
         return (
             <div
-                className={classNames(
-                    cls.ArticleListItem,
-                    {},
-                    [className, cls[view]],
-                )}
+                className={classNames(cls.ArticleListItem, {}, [
+                    className,
+                    cls[view],
+                ])}
                 data-testId="ArticleListItem"
             >
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user.avatar} />
-                        <Text text={article.user.username} className={cls.username} />
+                        <Text
+                            text={article.user.username}
+                            className={cls.username}
+                        />
                         <Text text={article.createdAt} className={cls.date} />
                     </div>
                     <Text title={article.title} className={cls.title} />
@@ -68,7 +71,10 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
                         alt={article.title}
                     />
                     {textBlock && (
-                        <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
+                        <ArticleTextBlockComponent
+                            block={textBlock}
+                            className={cls.textBlock}
+                        />
                     )}
                     <div className={cls.footer}>
                         <AppLink
@@ -91,13 +97,13 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
         <div
             // @ts-ignore
             {...bindHover}
-            className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+            className={classNames(cls.ArticleListItem, {}, [
+                className,
+                cls[view],
+            ])}
             data-testId="ArticleListItem"
         >
-            <AppLink
-                target={target}
-                to={getRouteArticleDetails(article.id)}
-            >
+            <AppLink target={target} to={getRouteArticleDetails(article.id)}>
                 <Card className={cls.card}>
                     <div className={cls.imageWrapper}>
                         <AppImage

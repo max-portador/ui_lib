@@ -10,7 +10,6 @@ export default {
     component: Avatar,
     argTypes: {
         backgroundColor: { control: 'color' },
-
     },
 } as ComponentMeta<typeof Avatar>;
 

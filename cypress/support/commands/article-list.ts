@@ -1,4 +1,7 @@
-export const clearFilters = (defaultSortValue: string, defaultOrderValue: string) => {
+export const clearFilters = (
+    defaultSortValue: string,
+    defaultOrderValue: string,
+) => {
     cy.getByTestId('ArticleListSearch').clear();
     cy.getByTestId('ArticleListSelector.sort').select(defaultSortValue);
     cy.getByTestId('ArticleListSelector.order').select(defaultOrderValue);
@@ -8,7 +11,10 @@ export const clearFilters = (defaultSortValue: string, defaultOrderValue: string
 declare global {
     namespace Cypress {
         interface Chainable {
-            clearFilters(defaultSortValue: string, defaultOrderValue: string): Chainable<void>;
+            clearFilters(
+                defaultSortValue: string,
+                defaultOrderValue: string,
+            ): Chainable<void>;
         }
     }
 }

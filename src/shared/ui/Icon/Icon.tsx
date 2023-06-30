@@ -9,15 +9,12 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
 }
 
 const Icon = memo((props: IconProps) => {
-    const {
-        className,
-        SVG,
-        inverted,
-        ...otherProps
-    } = props;
+    const { className, SVG, inverted, ...otherProps } = props;
     return (
         <SVG
-            className={classNames(inverted ? cls.inverted : cls.Icon, {}, [className])}
+            className={classNames(inverted ? cls.inverted : cls.Icon, {}, [
+                className,
+            ])}
             {...otherProps}
         />
     );

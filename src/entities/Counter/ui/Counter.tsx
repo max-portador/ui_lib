@@ -26,17 +26,22 @@ export const Counter = () => {
         <div>
             <VStack gap={16} align="center">
                 <HStack>
-                    <h1 data-testid="value-title">
-                        {`${t('value')} = ${counterValue}`}
-                    </h1>
+                    <h1 data-testid="value-title">{`${t(
+                        'value',
+                    )} = ${counterValue}`}</h1>
                 </HStack>
                 <HStack>
-                    <Button data-testid="btn-dec" onClick={dec}>-</Button>
-                    <Button data-testid="btn-inc" onClick={inc}>+</Button>
-                    <Button data-testid="btn-add" onClick={addFive}>+5</Button>
+                    <Button data-testid="btn-dec" onClick={dec}>
+                        -
+                    </Button>
+                    <Button data-testid="btn-inc" onClick={inc}>
+                        +
+                    </Button>
+                    <Button data-testid="btn-add" onClick={addFive}>
+                        +5
+                    </Button>
                 </HStack>
             </VStack>
         </div>
-
     );
 };

@@ -7,8 +7,8 @@ import { Currency } from '../../model/types/currency';
 interface CurrencySelectProps {
     className?: string;
     value?: string;
-    onChange?: (value: Currency) => void
-    readonly: boolean
+    onChange?: (value: Currency) => void;
+    readonly: boolean;
 }
 
 const options = [
@@ -20,16 +20,14 @@ const options = [
 const CurrencySelect: FC<CurrencySelectProps> = (props) => {
     const { t } = useTranslation();
 
-    const {
-        className,
-        value,
-        onChange,
-        readonly,
-    } = props;
+    const { className, value, onChange, readonly } = props;
 
-    const onChangeHandler = useCallback((currency: string) => {
-        onChange?.(currency as Currency);
-    }, [onChange]);
+    const onChangeHandler = useCallback(
+        (currency: string) => {
+            onChange?.(currency as Currency);
+        },
+        [onChange],
+    );
 
     return (
         <ListBox

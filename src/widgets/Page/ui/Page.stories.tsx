@@ -16,14 +16,10 @@ export default {
 
 const Template: ComponentStory<typeof Page> = (args) => (
     <div className="story-wrapper">
-        <Page {...args}>
-            PAGE COMPONENT
-        </Page>
+        <Page {...args}>PAGE COMPONENT</Page>
     </div>
 );
 export const Normal = Template.bind({});
 
 Normal.args = {};
-Normal.decorators = [
-    StoreDecorator({ user: { authData: userExamples['1'] } }),
-];
+Normal.decorators = [StoreDecorator({ user: { authData: userExamples['1'] } })];

@@ -15,23 +15,27 @@ interface AvatarProps {
 }
 
 const Avatar: FC<AvatarProps> = (props) => {
-    const {
-        className,
-        src,
-        size,
-        alt,
-        fallbackInverted,
-    } = props;
+    const { className, src, size, alt, fallbackInverted } = props;
 
-    const styles = useMemo<CSSProperties>(() => ({
-        width: size || 100,
-        height: size || 100,
-    }), [size]);
+    const styles = useMemo<CSSProperties>(
+        () => ({
+            width: size || 100,
+            height: size || 100,
+        }),
+        [size],
+    );
 
     const mods: Mods = {};
 
     const fallback = <Skeleton width={size} height={size} border="50%" />;
-    const errorFallback = <Icon inverted={fallbackInverted} width={size} height={size} SVG={UserSvg} />;
+    const errorFallback = (
+        <Icon
+            inverted={fallbackInverted}
+            width={size}
+            height={size}
+            SVG={UserSvg}
+        />
+    );
 
     return (
         <AppImage

@@ -14,7 +14,6 @@ const data = {
     firstName: 'Ignat',
     currency: Currency.RUB,
     city: 'default-1',
-
 };
 describe('updateProfileData.test', () => {
     test('success', async () => {

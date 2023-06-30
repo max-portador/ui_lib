@@ -6,36 +6,35 @@ import { ArticleType } from '@/entities/Article';
 
 interface ArticleTypeTabsProps {
     className?: string;
-    value: ArticleType,
-    onChangeType: (value: ArticleType) => void
+    value: ArticleType;
+    onChangeType: (value: ArticleType) => void;
 }
 
 const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
     const { t } = useTranslation();
-    const {
-        className,
-        onChangeType,
-        value,
-    } = props;
+    const { className, onChangeType, value } = props;
 
-    const typeTabs = useMemo<TabItem<ArticleType>[]>(() => [
-        {
-            value: ArticleType.ALL,
-            content: t('Все статьи'),
-        },
-        {
-            value: ArticleType.IT,
-            content: t('IT'),
-        },
-        {
-            value: ArticleType.ECONOMICS,
-            content: t('Экономика'),
-        },
-        {
-            value: ArticleType.SCIENCE,
-            content: t('Наука'),
-        },
-    ], [t]);
+    const typeTabs = useMemo<TabItem<ArticleType>[]>(
+        () => [
+            {
+                value: ArticleType.ALL,
+                content: t('Все статьи'),
+            },
+            {
+                value: ArticleType.IT,
+                content: t('IT'),
+            },
+            {
+                value: ArticleType.ECONOMICS,
+                content: t('Экономика'),
+            },
+            {
+                value: ArticleType.SCIENCE,
+                content: t('Наука'),
+            },
+        ],
+        [t],
+    );
 
     return (
         <Tabs<ArticleType>

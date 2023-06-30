@@ -2,7 +2,11 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import 'whatwg-fetch';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
-import { EditableProfileCard, Profile, profileReducer } from '@/features/EditableProfileCard';
+import {
+    EditableProfileCard,
+    Profile,
+    profileReducer,
+} from '@/features/EditableProfileCard';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import { $api } from '@/shared/api/api';
@@ -38,11 +42,17 @@ describe('EditableProfileCard tests', () => {
     });
 
     it('should render Cancel Button in the DOM on click on Edit Button', async () => {
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
-        expect(screen.getByTestId('EditableProfileCardHeader.CancelButton')).toBeInTheDocument();
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
+        );
+        expect(
+            screen.getByTestId('EditableProfileCardHeader.CancelButton'),
+        ).toBeInTheDocument();
     });
     it('should cancel changes after Cancel Button was clicked', async () => {
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
+        );
 
         const inputFirstName = screen.getByTestId('ProfileCard.firstname');
         const inputLastName = screen.getByTestId('ProfileCard.lastname');
@@ -56,25 +66,35 @@ describe('EditableProfileCard tests', () => {
         expect(inputFirstName).toHaveValue('user');
         expect(inputLastName).toHaveValue('user');
 
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.CancelButton'));
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.CancelButton'),
+        );
 
         expect(inputFirstName).toHaveValue('admin');
         expect(inputLastName).toHaveValue('admin');
     });
 
     it('should render Error on invalid input values', async () => {
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
+        );
 
         await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.SaveButton'),
+        );
 
-        expect(screen.getByTestId('EditableProfileCard.Error.Paragraph')).toBeInTheDocument();
+        expect(
+            screen.getByTestId('EditableProfileCard.Error.Paragraph'),
+        ).toBeInTheDocument();
     });
 
     it('should send data on server after SaveButton was clicked', async () => {
         const mockPutReq = jest.spyOn($api, 'put');
 
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
+        );
 
         const inputFirstName = screen.getByTestId('ProfileCard.firstname');
         await userEvent.clear(inputFirstName);
@@ -83,7 +103,9 @@ describe('EditableProfileCard tests', () => {
 
         expect(inputFirstName).toHaveValue('user');
 
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.SaveButton'),
+        );
 
         expect(mockPutReq).toHaveBeenCalled();
     });

@@ -20,6 +20,4 @@ const Template: ComponentStory<typeof ArticleEditPage> = (args) => (
 export const Showcase = Template.bind({});
 Showcase.args = {};
 
-Showcase.decorators = [
-    StoreDecorator({}),
-];
+Showcase.decorators = [StoreDecorator({})];

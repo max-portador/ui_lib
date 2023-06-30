@@ -11,10 +11,7 @@ interface CodeProps {
 }
 
 const Code = memo((props: CodeProps) => {
-    const {
-        className,
-        text,
-    } = props;
+    const { className, text } = props;
 
     const onCopy = useCallback(() => {
         navigator.clipboard.writeText(text);
@@ -31,9 +28,7 @@ const Code = memo((props: CodeProps) => {
                 <Icon SVG={CopyIcon} className={cls.copyIcon} />
             </Button>
 
-            <code>
-                {text}
-            </code>
+            <code>{text}</code>
         </pre>
     );
 });

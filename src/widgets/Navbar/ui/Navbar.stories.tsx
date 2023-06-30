@@ -27,9 +27,7 @@ const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
 
 export const WithoutUser = Template.bind({});
 WithoutUser.args = {};
-WithoutUser.decorators = [
-    StoreDecorator(stateWithoutUser),
-];
+WithoutUser.decorators = [StoreDecorator(stateWithoutUser)];
 
 export const WithUser = Template.bind({});
 WithUser.args = {};

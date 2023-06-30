@@ -12,7 +12,10 @@ interface SidebarItemProps {
     collapsed: boolean;
 }
 
-const SidebarItem: FC<SidebarItemProps> = ({ item, collapsed }: SidebarItemProps) => {
+const SidebarItem: FC<SidebarItemProps> = ({
+    item,
+    collapsed,
+}: SidebarItemProps) => {
     const { t } = useTranslation();
     const isAuth = useSelector(getUserAuthData);
 
@@ -27,9 +30,7 @@ const SidebarItem: FC<SidebarItemProps> = ({ item, collapsed }: SidebarItemProps
             to={item.path}
         >
             <item.Icon className={cls.icon} />
-            <span className={cls.link}>
-                {t(item.text)}
-            </span>
+            <span className={cls.link}>{t(item.text)}</span>
         </AppLink>
     );
 };

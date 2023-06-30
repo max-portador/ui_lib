@@ -1,5 +1,9 @@
 import React, {
-    memo, MutableRefObject, ReactNode, UIEvent, useRef,
+    memo,
+    MutableRefObject,
+    ReactNode,
+    UIEvent,
+    useRef,
 } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -28,7 +32,9 @@ const Page = memo((props: PageProps) => {
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
-    const scrollPosition = useSelector((state: StateSchema) => getScrollByPath(state, pathname));
+    const scrollPosition = useSelector((state: StateSchema) =>
+        getScrollByPath(state, pathname),
+    );
 
     useInfiniteScroll({
         triggerRef,
@@ -41,10 +47,12 @@ const Page = memo((props: PageProps) => {
     });
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-        dispatch(scrollSaveSliceActions.setScrollPosition({
-            position: e.currentTarget.scrollTop,
-            path: pathname,
-        }));
+        dispatch(
+            scrollSaveSliceActions.setScrollPosition({
+                position: e.currentTarget.scrollTop,
+                path: pathname,
+            }),
+        );
     }, 500);
 
     // @ts-ignore

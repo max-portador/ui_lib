@@ -8,8 +8,8 @@ type LogEntry = {
 };
 
 interface Result {
-    data: LogEntry[],
-    uniqueLevels: Set<string>
+    data: LogEntry[];
+    uniqueLevels: Set<string>;
 }
 
 function parseLogs(logs: string): Result {
@@ -38,4 +38,6 @@ function parseLogs(logs: string): Result {
 }
 
 const content = readFileSync('./testlogs.txt');
-console.log(parseLogs(content.toString()).data.filter((item) => item.level === 'ERROR'));
+console.log(
+    parseLogs(content.toString()).data.filter((item) => item.level === 'ERROR'),
+);

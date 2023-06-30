@@ -19,9 +19,7 @@ interface ArticleInfiniteListProps {
 }
 
 const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
@@ -46,7 +44,6 @@ const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
             isLoading={isLoading}
             view={view}
         />
-
     );
 });
 

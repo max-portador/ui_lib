@@ -1,15 +1,24 @@
-import React, {InputHTMLAttributes, memo, useEffect, useRef, useState,} from 'react';
-import {classNames, Mods} from '@/shared/lib/classNames/classNames';
+import React, {
+    InputHTMLAttributes,
+    memo,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLElement>, 'value' | 'onChange' | 'readonly'>
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLElement>,
+    'value' | 'onChange' | 'readonly'
+>;
 
 interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string | number;
-    onChange?: (value: string) => void
-    autofocus?: boolean
-    readonly?: boolean
+    onChange?: (value: string) => void;
+    autofocus?: boolean;
+    readonly?: boolean;
 }
 
 const InputRaw = memo((props: InputProps) => {
@@ -60,9 +69,7 @@ const InputRaw = memo((props: InputProps) => {
     return (
         <div className={classNames(cls.inputWrapper, mods, [className])}>
             {placeholder && (
-                <div className={cls.placeholder}>
-                    {`${placeholder}>`}
-                </div>
+                <div className={cls.placeholder}>{`${placeholder}>`}</div>
             )}
             <div className={cls.caretWrapper}>
                 <input
@@ -80,7 +87,7 @@ const InputRaw = memo((props: InputProps) => {
                 {isCaretVisible && (
                     <span
                         className={cls.caret}
-                        style={{left: `${caretPosition * 8}px`}}
+                        style={{ left: `${caretPosition * 8}px` }}
                     />
                 )}
             </div>
@@ -90,4 +97,4 @@ const InputRaw = memo((props: InputProps) => {
 
 const Input = memo(InputRaw);
 
-export {Input};
+export { Input };

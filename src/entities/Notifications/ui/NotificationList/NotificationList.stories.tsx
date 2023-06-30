@@ -20,9 +20,7 @@ const Template: ComponentStory<typeof NotificationList> = (args) => (
 );
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [
-    StoreDecorator({}),
-];
+Normal.decorators = [StoreDecorator({})];
 Normal.parameters = {
     mockData: [
         {

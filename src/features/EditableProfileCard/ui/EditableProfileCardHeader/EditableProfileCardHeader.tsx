@@ -11,13 +11,15 @@ import { getProfileData } from '../../model/selectors/getProfileData/getProfileD
 interface EditableProfileCardHeaderProps {
     className?: string;
     readonly: boolean;
-    onEdit: () => void
-    onCancelEdit: () => void
-    onSave: () => void
-    'data-testid'?: string
+    onEdit: () => void;
+    onCancelEdit: () => void;
+    onSave: () => void;
+    'data-testid'?: string;
 }
 
-const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) => {
+const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (
+    props,
+) => {
     const { t } = useTranslation('profile');
     const authData = useSelector(getUserAuthData);
     const profileData = useSelector(getProfileData);
@@ -39,8 +41,8 @@ const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) =>
             className={classNames('', {}, [className])}
         >
             <Text title={t('Профиль')} />
-            {canEdit && (readonly
-                ? (
+            {canEdit &&
+                (readonly ? (
                     <Button
                         theme={ButtonTheme.OUTLINE}
                         onClick={onEdit}
@@ -48,8 +50,7 @@ const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) =>
                     >
                         {t('Редактировать')}
                     </Button>
-                )
-                : (
+                ) : (
                     <HStack gap={8}>
                         <Button
                             theme={ButtonTheme.OUTLINE_RED}

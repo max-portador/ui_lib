@@ -16,7 +16,6 @@ const thunkState: DeepPartial<StateSchema> = {
     user: {
         authData: userExamples[1],
     },
-
 };
 
 describe('addCommentForArticle.test', () => {

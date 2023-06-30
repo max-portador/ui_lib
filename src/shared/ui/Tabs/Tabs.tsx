@@ -4,28 +4,26 @@ import { Card, CardTheme } from '@/shared/ui/Card';
 import cls from './Tabs.module.scss';
 
 export interface TabItem<T extends string> {
-    value: T,
-    content: ReactNode
+    value: T;
+    content: ReactNode;
 }
 
 interface TabsProps<T extends string> {
-    className?: string,
-    tabs: TabItem<T>[],
-    value: string,
-    onTabClick: (val: T) => void
+    className?: string;
+    tabs: TabItem<T>[];
+    value: string;
+    onTabClick: (val: T) => void;
 }
 
 const Tabs = <T extends string>(props: TabsProps<T>) => {
-    const {
-        className,
-        tabs,
-        onTabClick,
-        value,
-    } = props;
+    const { className, tabs, onTabClick, value } = props;
 
-    const handleClick = useCallback((tab: TabItem<T>) => {
-        onTabClick(tab.value as T);
-    }, [onTabClick]);
+    const handleClick = useCallback(
+        (tab: TabItem<T>) => {
+            onTabClick(tab.value as T);
+        },
+        [onTabClick],
+    );
 
     return (
         <div className={classNames(cls.Tabs, {}, [className])}>
@@ -34,7 +32,11 @@ const Tabs = <T extends string>(props: TabsProps<T>) => {
                     key={tab.value}
                     className={cls.tab}
                     onClick={() => handleClick(tab)}
-                    theme={value === tab.value ? CardTheme.NORMAL : CardTheme.OUTLINED}
+                    theme={
+                        value === tab.value
+                            ? CardTheme.NORMAL
+                            : CardTheme.OUTLINED
+                    }
                     data-testId={`ArticleListTab.${tab.value}`}
                 >
                     {tab.content}
