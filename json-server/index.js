@@ -78,6 +78,7 @@ server.use(router);
 const htttpsServer = https.createServer(options, server);
 
 // запуск сервера
-htttpsServer.listen(443, () => {
-    console.log('server is running on 8001 port');
+const PORT = 8443
+htttpsServer.listen(PORT, () => {
+    console.log(`server is running on ${PORT} port`);
 });
