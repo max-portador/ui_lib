@@ -14,6 +14,7 @@ const MainPage = () => {
                 hasFeedback
                 feedbackTitle="Оставьте отзыв о статье"
             />
+            <div>123</div>
             <Counter />
         </Page>
     );
