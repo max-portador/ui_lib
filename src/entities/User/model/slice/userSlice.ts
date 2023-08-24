@@ -1,7 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
-import { setFeatureFlags } from '@/shared/lib/fetures';
+import { setFeatureFlags } from '@/shared/lib/features';
 
 import { saveJsonSettings } from '../services/saveJsonSettings';
 import { initAuthData } from '../services/initAuthData';

@@ -3,7 +3,7 @@ import { Page } from '@/widgets/Page';
 import { RatingCard } from '@/entities/RatingCard';
 import { Counter } from '@/entities/Counter';
 import { useUserAuthData } from '@/entities/User';
-import { getFeatureFlag } from '@/shared/lib/fetures';
+import { getFeatureFlag } from '@/shared/lib/features';
 
 const MainPage = () => {
     const { t } = useTranslation();

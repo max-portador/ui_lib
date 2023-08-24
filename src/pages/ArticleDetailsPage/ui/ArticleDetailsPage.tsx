@@ -11,15 +11,15 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Page } from '@/widgets/Page';
 import { ArticleRating } from '@/features/articleRating';
 import { VStack } from '@/shared/ui/Stack';
-import { Card } from '@/shared/ui/Card';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { ArticleRecommendationsList } from '@/features/articleRecomendationsList';
 import { articleDetailsPageReducer } from '../model/slices';
 import { fetchArticleRecommendations } from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleDetailsComments } from './ArticleDetailsComments/ArticleDetailsComments';
-import { toggleFeatures } from '@/shared/lib/fetures';
 import cls from './ArticleDetailsPage.module.scss';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/Card';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -43,13 +43,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
         articlesDetailsPage: articleDetailsPageReducer,
     };
 
-    // eslint-disable-next-line i18next/no-literal-string
-    const rating = toggleFeatures({
-        name: 'isArticleRatingEnabled',
-        on: () => <ArticleRating articleId={id} />,
-        off: () => <Card>{t('Оценка скоро появится!')}</Card>,
-    });
-
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page
@@ -58,7 +51,12 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
                 <VStack gap={16} max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    {rating}
+                    <ToggleFeatures
+                        feature="isArticleRatingEnabled"
+                        on={<ArticleRating articleId={id} />}
+                        off={<Card>{t('Оценка скоро появится!')}</Card>}
+                    />
+
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id!} />
                 </VStack>
