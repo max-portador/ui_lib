@@ -28,7 +28,7 @@
     "sb:build": "build-storybook -c ./config/storybook",
     "prepare": "husky install",
     "generate:slice": "node ./scripts/createSlice/index.js",
-    "remove:feature": "ts-node scripts/remove-feature/remove-feature.ts --feature --state",
+    "remove-feature": "ts-node scripts/remove-feature/remove-feature.ts --",
     "postinstall": "rm -rf ./node_modules/.cache"
   },
   "keywords": [],

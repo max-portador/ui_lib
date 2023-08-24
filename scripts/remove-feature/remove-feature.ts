@@ -8,8 +8,9 @@ import {
     replaceToggleComponent,
 } from './replaceToggleComponent';
 
-const removedFeatureName = process.argv[2]; // example isCounterEnabled
-const featureState = process.argv[3]; // on/off
+const args = process.argv.slice(-2);
+const removedFeatureName = args[0]; // example isCounterEnabled
+const featureState = args[1]; // on/off
 
 if (!removedFeatureName) {
     throw new Error('Add feature name');
@@ -32,7 +33,6 @@ files.forEach((sourceFile) => {
         }
 
         if (isToggleComponent(node)) {
-            console.log(removedFeatureName, featureState);
             replaceToggleComponent(node, removedFeatureName, featureState);
         }
     });
