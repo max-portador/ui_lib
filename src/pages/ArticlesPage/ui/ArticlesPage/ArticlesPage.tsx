@@ -5,6 +5,7 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { ArticlePageGreeting } from '@/features/articlePageGreeting';
 import { Page } from '@/widgets/Page';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { ArticlesPageFilter } from '../ArticlesPageFilters/ArticlesPageFilter';
@@ -37,6 +38,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
             >
                 <ArticlesPageFilter />
                 <ArticleInfiniteList className={cls.list} />
+                <ArticlePageGreeting />
             </Page>
         </DynamicModuleLoader>
     );

@@ -55,6 +55,7 @@ module.exports = {
         'no-undef': 'off',
         'no-param-reassign': 'off',
         'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
+        'react/no-unstable-nested-components': 1,
         'import/no-import-module-exports': [
             'error',
             {

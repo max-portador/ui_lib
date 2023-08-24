@@ -1,5 +1,6 @@
 import React, { FC, memo } from 'react';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleDetails } from '@/entities/Article';
 import {
@@ -10,13 +11,14 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Page } from '@/widgets/Page';
 import { ArticleRating } from '@/features/articleRating';
 import { VStack } from '@/shared/ui/Stack';
+import { Card } from '@/shared/ui/Card';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { ArticleRecommendationsList } from '@/features/articleRecomendationsList';
 import { articleDetailsPageReducer } from '../model/slices';
 import { fetchArticleRecommendations } from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleDetailsComments } from './ArticleDetailsComments/ArticleDetailsComments';
-import { getFeatureFlag } from '@/shared/lib/fetures';
+import { toggleFeatures } from '@/shared/lib/fetures';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -25,10 +27,9 @@ interface ArticleDetailsPageProps {
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     const { className } = props;
-
+    const { t } = useTranslation();
     let { id } = useParams<{ id: string }>();
     const dispatch = useAppDispatch();
-    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
 
     useInitialEffect(() => {
         dispatch(fetchArticleRecommendations());
@@ -42,6 +43,13 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
         articlesDetailsPage: articleDetailsPageReducer,
     };
 
+    // eslint-disable-next-line i18next/no-literal-string
+    const rating = toggleFeatures({
+        name: 'isArticleRatingEnabled',
+        on: () => <ArticleRating articleId={id} />,
+        off: () => <Card>{t('Оценка скоро появится!')}</Card>,
+    });
+
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page
@@ -50,7 +58,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
                 <VStack gap={16} max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+                    {rating}
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id!} />
                 </VStack>
