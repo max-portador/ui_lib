@@ -1,4 +1,4 @@
-import { memo, useMemo, useState } from 'react';
+import { memo, type ReactNode, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ThemeSwitcher } from '@/shared/ui/ThemeSwitcher';
@@ -7,11 +7,72 @@ import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 import { VStack } from '@/shared/ui/Stack';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
+import { ToggleFeatures } from '@/shared/lib/features';
 import cls from './Sidebar.module.scss';
+import { AppLogo } from '@/shared/ui/AppLogo';
 
 interface SidebarProps {
     className?: string;
 }
+
+interface DeprecatedSidebarProps {
+    className?: string;
+    onClick: () => void;
+    collapsed: boolean;
+    itemsList: ReactNode[];
+}
+
+const DeprecatedSidebar = (props: DeprecatedSidebarProps) => {
+    const { className, collapsed, onClick, itemsList } = props;
+    return (
+        <aside
+            data-testid="sidebar"
+            className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [
+                className,
+            ])}
+        >
+            <Button
+                data-testid="sidebar-toggle"
+                onClick={onClick}
+                className={cls.collapseBtn}
+                theme={ButtonTheme.BACKGROUND_INVERTED}
+                isSquare
+                size={ButtonSize.L}
+            >
+                {collapsed ? '<' : '>'}
+            </Button>
+            <VStack role="navigation" gap={8} className={cls.items}>
+                {itemsList}
+            </VStack>
+            <div className={cls.switchers}>
+                <ThemeSwitcher />
+                <LangSwitcher short={collapsed} className={cls.lang} />
+            </div>
+        </aside>
+    );
+};
+
+const SidebarRedesigned = (
+    props: Omit<DeprecatedSidebarProps, 'onClick' | 'itemsList'>,
+) => {
+    const { className, collapsed } = props;
+    return (
+        <aside
+            data-testid="sidebar"
+            className={classNames(
+                cls.SidebarRedesigned,
+                { [cls.collapsed]: collapsed },
+                [className],
+            )}
+        >
+            <AppLogo className={cls.appLogo} />
+            <div className={cls.switchers}>
+                <ThemeSwitcher />
+                <LangSwitcher short={collapsed} className={cls.lang} />
+            </div>
+        </aside>
+    );
+};
 
 const Sidebar = memo(({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
@@ -34,31 +95,23 @@ const Sidebar = memo(({ className }: SidebarProps) => {
     );
 
     return (
-        <aside
-            data-testid="sidebar"
-            className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [
-                className,
-            ])}
-        >
-            <Button
-                data-testid="sidebar-toggle"
-                onClick={onToggle}
-                className={cls.collapseBtn}
-                theme={ButtonTheme.BACKGROUND_INVERTED}
-                isSquare
-                size={ButtonSize.L}
-            >
-                {collapsed ? '<' : '>'}
-            </Button>
-            <VStack role="navigation" gap={8} className={cls.items}>
-                {itemsList}
-            </VStack>
-            <div className={cls.switchers}>
-                <ThemeSwitcher />
-                <LangSwitcher short={collapsed} className={cls.lang} />
-            </div>
-        </aside>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <SidebarRedesigned
+                    className={className}
+                    collapsed={collapsed}
+                />
+            }
+            off={
+                <DeprecatedSidebar
+                    className={className}
+                    onClick={onToggle}
+                    collapsed={collapsed}
+                    itemsList={itemsList}
+                />
+            }
+        />
     );
 });
-
 export { Sidebar };

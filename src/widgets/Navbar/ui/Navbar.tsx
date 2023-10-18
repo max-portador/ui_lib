@@ -12,10 +12,53 @@ import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { HStack } from '@/shared/ui/Stack';
 import cls from './Navbar.module.scss';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface NavbarProps {
     className?: string;
 }
+
+interface FaetureNavbarProps {
+    className?: string;
+}
+
+const DeprecatedNavbar = (props: FaetureNavbarProps) => {
+    const { className } = props;
+    const { t } = useTranslation();
+
+    return (
+        <header className={classNames(cls.navbar, {}, [className])}>
+            <Text
+                className={cls.appName}
+                title={t('Ulbi TV App')}
+                theme={TextTheme.INVERTED}
+            />
+            <AppLink
+                to={getRouteArticleCreate()}
+                theme={AppLinkTheme.SECONDARY}
+            >
+                {t('Создать статью')}
+            </AppLink>
+            <HStack gap={16} className={cls.actions}>
+                <NotificationButton key="notification-btn" />
+                <AvatarDropdown key="avatar-dropdown" />
+            </HStack>
+        </header>
+    );
+};
+
+const NavbarRedesigned = (props: FaetureNavbarProps) => {
+    const { className } = props;
+
+    return (
+        <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
+            <HStack gap={16} className={cls.actions}>
+                <NotificationButton key="notification-btn" />
+                <AvatarDropdown key="avatar-dropdown" />
+            </HStack>
+        </header>
+    );
+};
 
 const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
@@ -32,23 +75,11 @@ const Navbar = memo(({ className }: NavbarProps) => {
 
     if (authData) {
         return (
-            <header className={classNames(cls.navbar, {}, [className])}>
-                <Text
-                    className={cls.appName}
-                    title={t('Ulbi TV App')}
-                    theme={TextTheme.INVERTED}
-                />
-                <AppLink
-                    to={getRouteArticleCreate()}
-                    theme={AppLinkTheme.SECONDARY}
-                >
-                    {t('Создать статью')}
-                </AppLink>
-                <HStack gap={16} className={cls.actions}>
-                    <NotificationButton key="notification-btn" />
-                    <AvatarDropdown key="avatar-dropdown" />
-                </HStack>
-            </header>
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={<NavbarRedesigned className={className} />}
+                off={<DeprecatedNavbar className={className} />}
+            />
         );
     }
 

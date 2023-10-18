@@ -30,6 +30,8 @@ module.exports = {
     ],
     rules: {
         'unused-imports/no-unused-imports': 'error',
+        'alpha-value-notation': 'off',
+        'color-function-notation': 'off',
         'react/jsx-filename-extension': [
             2,
             { extensions: ['.js', '.jsx', '.tsx'] },
