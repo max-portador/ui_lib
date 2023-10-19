@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { getUserAuthData } from '@/entities/User';
+import { getUserAuthData } from '../getUserAuthData/getUserAuthData';
 import { buildSelector } from '@/shared/lib/store';
-import type { JsonSettings } from '@/entities/User/model/types/jsonSettings';
+import type { JsonSettings } from '../../types/jsonSettings';
 
 const defaultJsonSettings: JsonSettings = {};
 

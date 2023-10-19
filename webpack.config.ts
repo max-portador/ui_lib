@@ -17,7 +17,7 @@ function getApiUrl(mode: BuildMode, apiUrl?: string) {
         return '/api';
     }
 
-    return '/http://localhost:8001';
+    return 'http://localhost:8001';
 }
 
 export default (env: BuildEnv) => {
