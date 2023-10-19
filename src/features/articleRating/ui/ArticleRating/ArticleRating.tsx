@@ -7,7 +7,7 @@ import {
     useGetArticleRating,
     useRateArticle,
 } from '@/features/articleRating/api/articleRatingApi';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Skeleton } from '@/shared/ui/depricated/Skeleton';
 
 export interface ArticleRatingProps {
     className?: string;

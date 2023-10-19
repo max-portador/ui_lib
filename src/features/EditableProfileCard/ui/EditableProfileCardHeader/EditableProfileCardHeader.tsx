@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/depricated/Text';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/depricated/Button';
 import { getUserAuthData } from '@/entities/User';
-import { HStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/depricated/Stack';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 
 interface EditableProfileCardHeaderProps {

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/depricated/Button';
 import { useCounterActions } from '../model/slice/counterSLice';
 import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/depricated/Stack';
 
 export const Counter = () => {
     const counterValue = useCounterValue();

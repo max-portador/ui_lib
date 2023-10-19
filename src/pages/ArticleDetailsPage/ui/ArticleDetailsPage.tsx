@@ -10,7 +10,7 @@ import {
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Page } from '@/widgets/Page';
 import { ArticleRating } from '@/features/articleRating';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/depricated/Stack';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { ArticleRecommendationsList } from '@/features/articleRecomendationsList';
 import { articleDetailsPageReducer } from '../model/slices';
@@ -19,7 +19,7 @@ import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader/ArticleDeta
 import { ArticleDetailsComments } from './ArticleDetailsComments/ArticleDetailsComments';
 import cls from './ArticleDetailsPage.module.scss';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Card } from '@/shared/ui/Card';
+import { Card } from '@/shared/ui/depricated/Card';
 
 interface ArticleDetailsPageProps {
     className?: string;

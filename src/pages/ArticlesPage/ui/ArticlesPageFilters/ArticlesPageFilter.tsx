@@ -9,8 +9,8 @@ import {
     ArticleView,
 } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Input } from '@/shared/ui/Input';
-import { Card } from '@/shared/ui/Card';
+import { Input } from '@/shared/ui/depricated/Input';
+import { Card } from '@/shared/ui/depricated/Card';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { SortOrder } from '@/shared/types/sort';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
