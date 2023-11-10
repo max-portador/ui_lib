@@ -9,70 +9,13 @@ import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { ToggleFeatures } from '@/shared/lib/features';
 import cls from './Sidebar.module.scss';
-import { AppLogo } from '@/shared/ui/depricated/AppLogo';
+import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 
 interface SidebarProps {
     className?: string;
 }
-
-interface DeprecatedSidebarProps {
-    className?: string;
-    onClick: () => void;
-    collapsed: boolean;
-    itemsList: ReactNode[];
-}
-
-const DeprecatedSidebar = (props: DeprecatedSidebarProps) => {
-    const { className, collapsed, onClick, itemsList } = props;
-    return (
-        <aside
-            data-testid="sidebar"
-            className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [
-                className,
-            ])}
-        >
-            <Button
-                data-testid="sidebar-toggle"
-                onClick={onClick}
-                className={cls.collapseBtn}
-                theme={ButtonTheme.BACKGROUND_INVERTED}
-                isSquare
-                size={ButtonSize.L}
-            >
-                {collapsed ? '<' : '>'}
-            </Button>
-            <VStack role="navigation" gap={8} className={cls.items}>
-                {itemsList}
-            </VStack>
-            <div className={cls.switchers}>
-                <ThemeSwitcher />
-                <LangSwitcher short={collapsed} className={cls.lang} />
-            </div>
-        </aside>
-    );
-};
-
-const SidebarRedesigned = (
-    props: Omit<DeprecatedSidebarProps, 'onClick' | 'itemsList'>,
-) => {
-    const { className, collapsed } = props;
-    return (
-        <aside
-            data-testid="sidebar"
-            className={classNames(
-                cls.SidebarRedesigned,
-                { [cls.collapsed]: collapsed },
-                [className],
-            )}
-        >
-            <AppLogo className={cls.appLogo} />
-            <div className={cls.switchers}>
-                <ThemeSwitcher />
-                <LangSwitcher short={collapsed} className={cls.lang} />
-            </div>
-        </aside>
-    );
-};
 
 const Sidebar = memo(({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
@@ -98,18 +41,61 @@ const Sidebar = memo(({ className }: SidebarProps) => {
         <ToggleFeatures
             feature="isAppRedesigned"
             on={
-                <SidebarRedesigned
-                    className={className}
-                    collapsed={collapsed}
-                />
+                <aside
+                    data-testid="sidebar"
+                    className={classNames(
+                        cls.SidebarRedesigned,
+                        { [cls.collapsedRedesigned]: collapsed },
+                        [className],
+                    )}
+                >
+                    <AppLogo
+                        size={collapsed ? 30 : 56}
+                        className={cls.appLogo}
+                    />
+                    <VStack role="navigation" gap={8} className={cls.items}>
+                        {itemsList}
+                    </VStack>
+                    <Icon
+                        data-testid="sidebar-toggle"
+                        onClick={onToggle}
+                        className={cls.collapseBtn}
+                        clickable
+                        SVG={ArrowIcon}
+                    />
+                    <div className={cls.switchers}>
+                        <ThemeSwitcher />
+                        <LangSwitcher short={collapsed} className={cls.lang} />
+                    </div>
+                </aside>
             }
             off={
-                <DeprecatedSidebar
-                    className={className}
-                    onClick={onToggle}
-                    collapsed={collapsed}
-                    itemsList={itemsList}
-                />
+                <aside
+                    data-testid="sidebar"
+                    className={classNames(
+                        cls.Sidebar,
+                        { [cls.collapsed]: collapsed },
+                        [className],
+                    )}
+                >
+                    <Button
+                        data-testid="sidebar-toggle"
+                        onClick={onToggle}
+                        className={cls.collapsed}
+                        theme={ButtonTheme.BACKGROUND_INVERTED}
+                        isSquare
+                        size={ButtonSize.L}
+                    >
+                        {collapsed ? '<' : '>'}
+                    </Button>
+                    <VStack role="navigation" gap={8} className={cls.items}>
+                        {itemsList}
+                    </VStack>
+                    <div className={cls.switchers}>
+                        <ThemeSwitcher />
+                        <LangSwitcher short={collapsed} className={cls.lang} />
+                    </div>
+                </aside>
             }
         />
     );

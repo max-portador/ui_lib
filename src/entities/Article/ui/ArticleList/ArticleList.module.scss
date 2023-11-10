@@ -1,25 +1,25 @@
 .SMALL {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-
-  .card {
-    display: inline-flex;
-  }
-
-  .row {
     display: flex;
+    flex-wrap: wrap;
     gap: 30px;
-  }
+
+    .card {
+        display: inline-flex;
+    }
+
+    .row {
+        display: flex;
+        gap: 30px;
+    }
 }
 
 .BIG {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-
-  .card {
     display: flex;
-    height: 800px;
-  }
+    flex-direction: column;
+    gap: 30px;
+
+    .card {
+        display: flex;
+        height: 800px;
+    }
 }

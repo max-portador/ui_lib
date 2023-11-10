@@ -29,7 +29,7 @@ module.exports = {
         'unused-imports',
     ],
     rules: {
-        'unused-imports/no-unused-imports': 'error',
+        'unused-imports/no-unused-imports': 'warn',
         'alpha-value-notation': 'off',
         'color-function-notation': 'off',
         'react/jsx-filename-extension': [
@@ -71,7 +71,14 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['as', 'role', 'data-testid', 'to', 'target'],
+                ignoreAttribute: [
+                    'as',
+                    'role',
+                    'data-testid',
+                    'to',
+                    'target',
+                    'color',
+                ],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 125 }],
