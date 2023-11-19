@@ -5,7 +5,7 @@ import { Modal } from '@/shared/ui/depricated/Modal';
 import { Text } from '@/shared/ui/depricated/Text';
 import { saveJsonSettings, useJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Drawer } from '@/shared/ui/depricated/Drawer';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
 
 export const ArticlePageGreeting = memo(() => {
     const { t } = useTranslation();

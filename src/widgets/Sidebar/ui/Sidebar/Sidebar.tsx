@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { ThemeSwitcher } from '@/shared/ui/depricated/ThemeSwitcher';
 import { LangSwitcher } from '@/shared/ui/depricated/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/depricated/Button';
-import { VStack } from '@/shared/ui/depricated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { ToggleFeatures } from '@/shared/lib/features';

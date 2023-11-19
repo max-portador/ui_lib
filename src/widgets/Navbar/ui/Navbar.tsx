@@ -10,7 +10,7 @@ import { AvatarDropdown } from '@/features/avatarDropDown';
 import { Text, TextTheme } from '@/shared/ui/depricated/Text';
 import { AppLink, AppLinkTheme } from '@/shared/ui/depricated/AppLink';
 import { getRouteArticleCreate } from '@/shared/const/router';
-import { HStack } from '@/shared/ui/depricated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import cls from './Navbar.module.scss';
 import { ToggleFeatures } from '@/shared/lib/features';
 

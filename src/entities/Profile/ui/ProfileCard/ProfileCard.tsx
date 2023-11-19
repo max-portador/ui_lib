@@ -9,7 +9,7 @@ import { Avatar } from '@/shared/ui/depricated/Avatar';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { Country } from '@/entities/Country/model/types/countries';
 import { CountrySelect } from '@/entities/Country';
-import { HStack, VStack } from '@/shared/ui/depricated/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {

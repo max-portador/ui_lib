@@ -7,7 +7,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import { Text, TextTheme } from '@/shared/ui/depricated/Text';
-import { VStack } from '@/shared/ui/depricated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';

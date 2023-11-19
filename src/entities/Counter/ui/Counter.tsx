@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@/shared/ui/depricated/Button';
 import { useCounterActions } from '../model/slice/counterSLice';
 import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
-import { HStack, VStack } from '@/shared/ui/depricated/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 export const Counter = () => {
     const counterValue = useCounterValue();

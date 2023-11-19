@@ -9,7 +9,7 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { HStack } from '@/shared/ui/depricated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import {
     getAddCommentFormError,
     getAddCommentFormText,

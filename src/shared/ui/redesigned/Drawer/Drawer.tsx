@@ -2,7 +2,7 @@ import React, { memo, PropsWithChildren, useCallback, useEffect } from 'react';
 import type { Mods } from '@/shared/lib/classNames/classNames';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Portal } from '../Portal';
-import { Overlay } from '@/shared/ui/depricated/Overlay';
+import { Overlay } from '@/shared/ui/redesigned/Overlay';
 import { useModal } from '@/shared/lib/hooks/useModal';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import {
@@ -20,10 +20,6 @@ interface DrawerProps extends PropsWithChildren {
 
 const height = window.innerHeight - 100;
 
-/**
- * Устарел, используем новый
- * @deprecated
- */
 const DrawerContent = memo((props: DrawerProps) => {
     const { Spring, Gesture } = useAnimationLibs();
     const { a, config, useSpring } = Spring;

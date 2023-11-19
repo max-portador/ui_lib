@@ -5,7 +5,7 @@ import { Text } from '@/shared/ui/depricated/Text';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/depricated/Button';
 import { getUserAuthData } from '@/entities/User';
-import { HStack } from '@/shared/ui/depricated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 
 interface EditableProfileCardHeaderProps {

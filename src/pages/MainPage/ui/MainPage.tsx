@@ -4,6 +4,7 @@ import { RatingCard } from '@/entities/RatingCard';
 import { Counter } from '@/entities/Counter';
 import { useUserAuthData } from '@/entities/User';
 import { getFeatureFlag } from '@/shared/lib/features';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 const MainPage = () => {
     const { t } = useTranslation();
@@ -13,7 +14,7 @@ const MainPage = () => {
     const isCounterEnabled = getFeatureFlag('isCounterEnabled');
     return (
         <Page data-testid="MainPage">
-            {t('Главная страница')}
+           <Text variant='accent' size='l' title={t('Главная страница')}/>{}
             {isArticleRatingEnabled && (
                 <RatingCard
                     title="Как вам статья?"

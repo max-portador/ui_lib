@@ -3,10 +3,6 @@ import { Flex, FlexProps } from '../Flex/Flex';
 
 type VStackProps = Omit<FlexProps, 'direction'>;
 
-/**
- * Устарел, используем новый
- * @deprecated
- */
 const VStack = (props: PropsWithChildren<VStackProps>) => {
     const { align = 'start', children } = props;
 
