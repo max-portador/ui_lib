@@ -37,7 +37,7 @@ export const ListBox = memo((props: ListBoxProps) => {
         direction = 'bottom right',
     } = props;
 
-    const optionsClasses = [mapDirectionClass[direction]];
+    const optionsClasses = [mapDirectionClass[direction], popupCls.menu];
 
     return (
         <HStack gap={4}>

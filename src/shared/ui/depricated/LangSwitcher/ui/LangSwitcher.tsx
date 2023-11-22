@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
-    Button as BtnDepreceted,
+    Button as BtnDeprecated,
     ButtonTheme,
 } from '@/shared/ui/depricated/Button';
 import cls from './LangSwitcher.module.scss';
@@ -20,6 +20,7 @@ interface LangSwitcherProps {
     short?: boolean;
     theme?: LangSwitcherTheme;
 }
+
 const LangSwitcher = memo((props: LangSwitcherProps) => {
     const { className, short, theme = LangSwitcherTheme.SECONDARY } = props;
     const { t, i18n } = useTranslation();
@@ -36,13 +37,13 @@ const LangSwitcher = memo((props: LangSwitcherProps) => {
                 </Button>
             }
             off={
-                <BtnDepreceted
+                <BtnDeprecated
                     className={classNames('', {}, [className, cls[theme]])}
                     theme={ButtonTheme.CLEAR}
                     onClick={toggle}
                 >
                     {short ? t('Короткий язык') : t('Язык')}
-                </BtnDepreceted>
+                </BtnDeprecated>
             }
         />
     );

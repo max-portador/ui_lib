@@ -5,7 +5,6 @@ import ThemeIconDeprecated from '@/shared/assets/icons/theme-light.svg';
 import ThemeIcon from '@/shared/assets/icons/theme.svg';
 import { Button as ButtonDeprecated } from '@/shared/ui/depricated/Button';
 import { Icon as IconDeprecated } from '@/shared/ui/depricated/Icon';
-import { Button } from '@/shared/ui/redesigned/Button';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { saveJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
@@ -14,8 +13,9 @@ import { ToggleFeatures } from '@/shared/lib/features';
 interface ThemeSwitcherProps {
     className?: string;
 }
+
 const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
-    const { theme, toggleTheme } = useTheme();
+    const { toggleTheme } = useTheme();
     const dispatch = useAppDispatch();
 
     const onToggleHandler = useCallback(() => {

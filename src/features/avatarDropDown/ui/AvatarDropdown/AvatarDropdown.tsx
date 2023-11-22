@@ -40,11 +40,11 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     const items = [
         ...(isAdminPanelAvailable
             ? [
-                {
-                    content: t('Админка'),
-                    href: getRouteAdminPanel(),
-                },
-            ]
+                  {
+                      content: t('Админка'),
+                      href: getRouteAdminPanel(),
+                  },
+              ]
             : []),
         {
             content: t('Профиль'),
@@ -57,21 +57,30 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     ];
 
     return (
-        <ToggleFeatures feature={'isAppRedesigned'} on={<Dropdown
-            className={className}
-            trigger={
-                <Avatar size={40} src={authData.avatar} />
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <Dropdown
+                    className={className}
+                    trigger={<Avatar size={40} src={authData.avatar} />}
+                    direction="bottom left"
+                    items={items}
+                />
             }
-            direction='bottom left'
-            items={items}
-        />} off={<DropDownDepreceted
-            className={className}
-            trigger={
-                <AvatarDeprecated size={30} src={authData.avatar} fallbackInverted />
+            off={
+                <DropDownDepreceted
+                    className={className}
+                    trigger={
+                        <AvatarDeprecated
+                            size={30}
+                            src={authData.avatar}
+                            fallbackInverted
+                        />
+                    }
+                    direction="bottom left"
+                    items={items}
+                />
             }
-            direction='bottom left'
-            items={items}
-        />}
         />
     );
 });

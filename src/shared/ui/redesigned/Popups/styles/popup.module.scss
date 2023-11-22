@@ -2,9 +2,14 @@
     position: relative;
 }
 
+.menu {
+    border-radius: 18px;
+    border: 1px solid var(--accent-redesigned);
+    overflow: hidden;
+}
+
 .active {
-    background-color: var(--inverted-bg-color);
-    color: var(--inverted-primary-color);
+    background-color: var(--light-bg-redesigned) !important;
 }
 
 .trigger {
@@ -13,7 +18,6 @@
     margin: 0;
     padding: 0;
     border: none;
-    color: var(--primary-color);
     cursor: pointer;
 }
 

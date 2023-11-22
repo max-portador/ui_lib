@@ -1,4 +1,4 @@
-import { memo, type ReactNode, useMemo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ThemeSwitcher } from '@/shared/ui/depricated/ThemeSwitcher';

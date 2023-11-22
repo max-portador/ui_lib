@@ -24,7 +24,7 @@ interface DropdownProps {
 const Dropdown = memo((props: DropdownProps) => {
     const { className, items, trigger, direction = 'bottom right' } = props;
 
-    const menuClasses = [mapDirectionClass[direction]];
+    const menuClasses = [mapDirectionClass[direction], popupCls.menu];
 
     return (
         <Menu as="div" className={classNames(popupCls.popup, {}, [className])}>

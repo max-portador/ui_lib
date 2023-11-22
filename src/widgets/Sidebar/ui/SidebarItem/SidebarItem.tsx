@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import {
-    AppLink as AppLinkDepricated,
+    AppLink as AppLinkDeprecated,
     AppLinkTheme,
 } from '@/shared/ui/depricated/AppLink';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
@@ -45,7 +45,7 @@ const SidebarItem: FC<SidebarItemProps> = ({
                 </AppLink>
             }
             off={
-                <AppLinkDepricated
+                <AppLinkDeprecated
                     theme={AppLinkTheme.SECONDARY}
                     className={classNames(cls.item, {
                         [cls.collapsed]: collapsed,
@@ -54,7 +54,7 @@ const SidebarItem: FC<SidebarItemProps> = ({
                 >
                     <item.Icon className={cls.icon} />
                     <span className={cls.link}>{t(item.text)}</span>
-                </AppLinkDepricated>
+                </AppLinkDeprecated>
             }
         />
     );

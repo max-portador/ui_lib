@@ -27,14 +27,25 @@ project.addSourceFilesAtPaths('src/**/*.tsx');
 const files = project.getSourceFiles();
 
 files.forEach((sourceFile) => {
+    // eslint-disable-next-line consistent-return
     sourceFile.forEachDescendant((node) => {
         if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
-            replaceToggleFunction(node, removedFeatureName, featureState);
+            return replaceToggleFunction(
+                node,
+                removedFeatureName,
+                featureState,
+            );
         }
 
         if (isToggleComponent(node)) {
-            replaceToggleComponent(node, removedFeatureName, featureState);
+            return replaceToggleComponent(
+                node,
+                removedFeatureName,
+                featureState,
+            );
         }
+
+
     });
 });
 
