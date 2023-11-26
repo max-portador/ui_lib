@@ -5,16 +5,12 @@ import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesPage } from './fetchNextArticlesPage';
 
 import { StateSchema } from '@/app/providers/StoreProvider';
-import {
-    ArticleSortFields,
-    ArticleType,
-    ArticleView,
-} from '@/entities/Article';
+import { ArticleSortFields, ArticleType } from '@/entities/Article';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 const thunkState: DeepPartial<StateSchema> = {
     articlesPage: {
-        view: ArticleView.SMALL,
+        view: 'SMALL',
         page: 2,
         ids: [],
         entities: {},

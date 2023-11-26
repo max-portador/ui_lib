@@ -40,3 +40,5 @@ export interface Article {
     type: ArticleType[];
     blocks: ArticleBlock[];
 }
+
+export type ArticleView = 'BIG' | 'SMALL';

@@ -1,29 +1,13 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ArticleViewSelector } from '@/features/ArticleViewSelector';
-import {
-    ArticleSortFields,
-    ArticleType,
-    ArticleView,
-} from '@/entities/Article';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Input } from '@/shared/ui/depricated/Input';
 import { Card } from '@/shared/ui/depricated/Card';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
-import { SortOrder } from '@/shared/types/sort';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
-import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
-import { useArticlePageActions } from '../../model/slice/articlePageSlice';
-import {
-    getArticlesPageSearch,
-    getArticlesPageSort,
-    getArticlesPageType,
-    getArticlesPageView,
-    useArticlesPageOrder,
-} from '../../model/selectors/articlePageSelectors/articlePageSelectors';
+import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { useArticlesFilters } from '../../lib/hooks/useArticlesFilters';
 import cls from './ArticlesPageFilter.module.scss';
 
 interface ArticlesPageFilterProps {
@@ -32,66 +16,17 @@ interface ArticlesPageFilterProps {
 
 const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
     const { className } = props;
-    const { setView, setPage, setOrder, setSort, setSearch, setType } =
-        useArticlePageActions();
     const { t } = useTranslation();
-    const dispatch = useAppDispatch();
-    const view = useSelector(getArticlesPageView);
-    const sort = useSelector(getArticlesPageSort);
-    const order = useArticlesPageOrder();
-    const search = useSelector(getArticlesPageSearch);
-    const typeTab = useSelector(getArticlesPageType);
-
-    const fetchData = useCallback(() => {
-        dispatch(fetchArticlesList({ replace: true }));
-    }, [dispatch]);
-
-    const debouncedFetchData = useDebounce(fetchData);
-
-    const onChangeView = useCallback(
-        (view: ArticleView) => {
-            setView(view);
-            setPage(1);
-            fetchData();
-        },
-        [setView, setPage, fetchData],
-    );
-
-    const onChangeOrder = useCallback(
-        (order: SortOrder) => {
-            setOrder(order);
-            setPage(1);
-            fetchData();
-        },
-        [setOrder, setPage, fetchData],
-    );
-
-    const onChangeSort = useCallback(
-        (sortField: ArticleSortFields) => {
-            setSort(sortField);
-            setPage(1);
-            fetchData();
-        },
-        [setSort, setPage, fetchData],
-    );
-
-    const onChangeSearch = useCallback(
-        (newSearch: string) => {
-            setSearch(newSearch);
-            setPage(1);
-            debouncedFetchData();
-        },
-        [setSearch, setPage, debouncedFetchData],
-    );
-
-    const onChangeTab = useCallback(
-        (value: ArticleType) => {
-            setType(value);
-            setPage(1);
-            fetchData();
-        },
-        [setType, setPage, fetchData],
-    );
+    const {
+        sort,
+        order,
+        search,
+        typeTab,
+        onChangeOrder,
+        onChangeSort,
+        onChangeSearch,
+        onChangeTab,
+    } = useArticlesFilters();
 
     return (
         <div className={classNames(cls.ArticlesPageFilter, {}, [className])}>
@@ -102,7 +37,11 @@ const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
                     onChangeOrder={onChangeOrder}
                     onChangeSort={onChangeSort}
                 />
-                <ArticleViewSelector view={view} onViewClick={onChangeView} />
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={<div />}
+                    off={<ViewSelectorContainer />}
+                />
             </div>
             <Card className={cls.search}>
                 <Input

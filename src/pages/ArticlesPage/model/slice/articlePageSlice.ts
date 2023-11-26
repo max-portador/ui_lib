@@ -29,7 +29,7 @@ export const articlePageSlice = buildSlice({
         error: undefined,
         ids: [],
         entities: {},
-        view: ArticleView.SMALL,
+        view: 'SMALL',
         page: 1,
         hasMore: true,
         _inited: false,
@@ -52,7 +52,7 @@ export const articlePageSlice = buildSlice({
                 ARTICLES_VIEW_LOCALSTORAGE_KEY,
             ) as ArticleView;
             state.view = view;
-            state.limit = view === ArticleView.BIG ? 4 : 8;
+            state.limit = view === 'BIG' ? 4 : 8;
             state._inited = true;
         },
         setPage: (state, action: PayloadAction<number>) => {

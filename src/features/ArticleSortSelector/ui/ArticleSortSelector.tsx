@@ -6,6 +6,10 @@ import { Select } from '@/shared/ui/depricated/Select';
 import { SortOrder } from '@/shared/types/sort';
 import { ArticleSortFields } from '@/entities/Article';
 import cls from './ArticleSortSelector.module.scss';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ArticleSortSelectorProps {
     className?: string;
@@ -52,23 +56,58 @@ const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     );
 
     return (
-        <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
-            <Select<ArticleSortFields>
-                label={t('Сортировать по')}
-                options={sortFieldOptions}
-                value={sort}
-                onChange={onChangeSort}
-                data-testId="ArticleListSelector.sort"
-            />
-            <Select<SortOrder>
-                label={t('по')}
-                options={orderOptions}
-                value={order}
-                onChange={onChangeOrder}
-                className={cls.order}
-                data-testId="ArticleListSelector.order"
-            />
-        </div>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <VStack
+                    className={classNames(
+                        cls.ArticleSortSelectorRedesigned,
+                        {},
+                        [className],
+                    )}
+                    gap={8}
+                >
+                    <Text text={t('Сортировать по')} />
+                    <ListBox<ArticleSortFields>
+                        defaultValue={ArticleSortFields.CREATED}
+                        items={sortFieldOptions}
+                        value={sort}
+                        onChange={onChangeSort}
+                        data-testId="ArticleListSelector.sort"
+                    />
+                    <ListBox<SortOrder>
+                        items={orderOptions}
+                        value={order}
+                        onChange={onChangeOrder}
+                        className={cls.order}
+                        data-testId="ArticleListSelector.order"
+                    />
+                </VStack>
+            }
+            off={
+                <div
+                    className={classNames(cls.ArticleSortSelector, {}, [
+                        className,
+                    ])}
+                >
+                    <Select<ArticleSortFields>
+                        label={t('Сортировать по')}
+                        options={sortFieldOptions}
+                        value={sort}
+                        onChange={onChangeSort}
+                        data-testId="ArticleListSelector.sort"
+                    />
+                    <Select<SortOrder>
+                        label={t('по')}
+                        options={orderOptions}
+                        value={order}
+                        onChange={onChangeOrder}
+                        className={cls.order}
+                        data-testId="ArticleListSelector.order"
+                    />
+                </div>
+            }
+        />
     );
 });
 

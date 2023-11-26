@@ -10,7 +10,6 @@ import { initArticlesPage } from '../../model/services/initArticlesPage/initArti
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,
-    getArticlesPageView,
 } from '../../model/selectors/articlePageSelectors/articlePageSelectors';
 import { getArticles } from '../../model/slice/articlePageSlice';
 
@@ -25,9 +24,9 @@ const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlesPageIsLoading);
-    const view = useSelector(getArticlesPageView);
     const error = useSelector(getArticlesPageError);
     const [searchParams] = useSearchParams();
+    const view = searchParams.get('view') === 'BIG' ? 'BIG' : 'SMALL';
 
     useInitialEffect(() => {
         dispatch(initArticlesPage(searchParams));

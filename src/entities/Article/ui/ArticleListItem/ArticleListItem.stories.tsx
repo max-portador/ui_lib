@@ -3,7 +3,6 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import '@/app/styles/index.scss';
 
 import { article } from '@/app/examples/article';
-import { ArticleView } from '../../model/consts/consts';
 import { ArticleListItem } from './ArticleListItem';
 
 export default {
@@ -22,9 +21,9 @@ const Template: ComponentStory<typeof ArticleListItem> = (args) => (
 
 export const Small = Template.bind({});
 Small.args = {
-    view: ArticleView.SMALL,
+    view: 'SMALL',
 };
 export const Big = Template.bind({});
 Big.args = {
-    view: ArticleView.BIG,
+    view: 'BIG',
 };

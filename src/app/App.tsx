@@ -33,7 +33,7 @@ function App() {
                             header={<Navbar />}
                             content={<AppRouter />}
                             sidebar={<Sidebar />}
-                            toolbar={<div>ASASASADADDASAF</div>}
+                            toolbar={<div>T</div>}
                         />
                     </Suspense>
                 </div>

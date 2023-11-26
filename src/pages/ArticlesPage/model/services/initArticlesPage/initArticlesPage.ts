@@ -20,6 +20,8 @@ export const initArticlesPage = createAsyncThunk<
         const orderFromUrl = searchParams.get('order') as SortOrder;
         const sortFromUrl = searchParams.get('sort') as ArticleSortFields;
         const searchFromUrl = searchParams.get('search');
+        const viewFromUrl =
+            searchParams.get('view') === 'BIG' ? 'BIG' : 'SMALL';
 
         if (orderFromUrl) {
             dispatch(articlePageActions.setOrder(orderFromUrl));
@@ -29,6 +31,10 @@ export const initArticlesPage = createAsyncThunk<
         }
         if (searchFromUrl) {
             dispatch(articlePageActions.setSearch(searchFromUrl));
+        }
+
+        if (viewFromUrl) {
+            dispatch(articlePageActions.setView(viewFromUrl));
         }
 
         dispatch(articlePageActions.initState());

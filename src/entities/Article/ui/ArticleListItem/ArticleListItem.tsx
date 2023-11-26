@@ -9,9 +9,13 @@ import { Card } from '@/shared/ui/depricated/Card';
 import { useHover } from '@/shared/lib/hooks/useHover';
 import { Avatar } from '@/shared/ui/depricated/Avatar';
 import { Button, ButtonTheme } from '@/shared/ui/depricated/Button';
-import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
+import { ArticleBlockType } from '../../model/consts/consts';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { Article, ArticleTextBlock } from '../../model/types/article';
+import {
+    Article,
+    ArticleTextBlock,
+    ArticleView,
+} from '../../model/types/article';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { Skeleton } from '@/shared/ui/depricated/Skeleton';
@@ -41,7 +45,7 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
         </>
     );
 
-    if (view === ArticleView.BIG) {
+    if (view === 'BIG') {
         const textBlock = article.blocks.find(
             (block) => block.type === ArticleBlockType.TEXT,
         ) as ArticleTextBlock;

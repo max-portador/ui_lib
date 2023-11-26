@@ -44,8 +44,6 @@ files.forEach((sourceFile) => {
                 featureState,
             );
         }
-
-
     });
 });
 

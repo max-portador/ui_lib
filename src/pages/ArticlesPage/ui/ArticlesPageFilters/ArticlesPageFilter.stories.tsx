@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import '@/app/styles/index.scss';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { ArticleSortFields, ArticleView } from '@/entities/Article';
+import { ArticleSortFields } from '@/entities/Article';
 import { ArticlesPageFilter } from './ArticlesPageFilter';
 import { article, article2 } from '@/app/examples/article';
 
@@ -28,7 +28,7 @@ Normal.decorators = [
             ids: [],
             entities: {},
             isLoading: false,
-            view: ArticleView.SMALL,
+            view: 'SMALL',
             page: 1,
             hasMore: true,
             _inited: false,

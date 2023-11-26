@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import '@/app/styles/index.scss';
 import { article, article2 } from '@/app/examples/article';
-import { ArticleView } from '../../model/consts/consts';
 import { ArticleList } from './ArticleList';
 
 const articles = [article, article2];
@@ -26,7 +25,7 @@ Normal.args = {
 
 export const Big = Template.bind({});
 Big.args = {
-    view: ArticleView.BIG,
+    view: 'BIG',
     articles,
 };
 
@@ -37,6 +36,6 @@ Loading.args = {
 
 export const BigLoading = Template.bind({});
 BigLoading.args = {
-    view: ArticleView.BIG,
+    view: 'BIG',
     isLoading: true,
 };

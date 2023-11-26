@@ -1,4 +1,4 @@
-import React, { Fragment, memo, ReactNode } from 'react';
+import React, { Fragment, ReactNode } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 import { Button } from '../../../Button';
 import { classNames } from '../../../../../lib/classNames/classNames';
@@ -8,24 +8,24 @@ import { mapDirectionClass } from '../../styles/consts';
 import popupCls from '../../styles/popup.module.scss';
 import cls from './ListBox.module.scss';
 
-export interface ListBoxItem {
-    value: string;
+export interface ListBoxItem<T extends string> {
+    value: T;
     content?: ReactNode;
     disabled?: boolean;
 }
 
-interface ListBoxProps {
+interface ListBoxProps<T extends string> {
     className?: string;
-    onChange: <T extends string>(val: T) => void;
-    items?: ListBoxItem[];
-    value?: string;
+    onChange: (val: T) => void;
+    items?: ListBoxItem<T>[];
+    value?: T;
     label?: string;
     defaultValue?: string;
     readonly?: boolean;
     direction?: DropDownDirection;
 }
 
-export const ListBox = memo((props: ListBoxProps) => {
+export function ListBox<T extends string>(props: ListBoxProps<T>) {
     const {
         className,
         label,
@@ -39,6 +39,12 @@ export const ListBox = memo((props: ListBoxProps) => {
 
     const optionsClasses = [mapDirectionClass[direction], popupCls.menu];
 
+    const currentLabel =
+        items?.find((item) => item.value === value)?.content ?? value;
+    const defaultLabel =
+        items?.find((item) => item.value === defaultValue)?.content ??
+        defaultValue;
+
     return (
         <HStack gap={4}>
             {label && <span className={cls.label}>{`${label}>`}</span>}
@@ -50,8 +56,12 @@ export const ListBox = memo((props: ListBoxProps) => {
                 disabled={readonly}
             >
                 <HListbox.Button as={Fragment}>
-                    <Button disabled={readonly} className={popupCls.trigger}>
-                        {value ?? defaultValue}
+                    <Button
+                        variant="filled"
+                        disabled={readonly}
+                        className={popupCls.trigger}
+                    >
+                        {currentLabel ?? defaultLabel}
                     </Button>
                 </HListbox.Button>
                 <HListbox.Options
@@ -69,6 +79,7 @@ export const ListBox = memo((props: ListBoxProps) => {
                                     className={classNames(cls.item, {
                                         [popupCls.active]: active,
                                         [cls.disabled]: item.disabled,
+                                        [cls.selected]: selected,
                                     })}
                                 >
                                     {item.content ?? item.value}
@@ -81,4 +92,4 @@ export const ListBox = memo((props: ListBoxProps) => {
             </HListbox>
         </HStack>
     );
-});
+}

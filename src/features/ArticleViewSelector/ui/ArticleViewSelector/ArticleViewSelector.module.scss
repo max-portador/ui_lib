@@ -1,8 +1,14 @@
+.ArticleViewSelectorRedesigned {
+    .nonSelected {
+        color: var(--light-bg-redesigned);
+    }
+}
+
 .ArticleViewSelector {
     display: flex;
     gap: 6px;
-}
 
-.nonSelected {
-    fill: var(--secondary-color);
+    .nonSelected {
+        fill: var(--secondary-color);
+    }
 }
