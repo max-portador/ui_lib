@@ -1,9 +1,11 @@
 import React, { Fragment, ReactNode } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 import { Button } from '../../../Button';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 import { classNames } from '../../../../../lib/classNames/classNames';
 import { DropDownDirection } from '../../../../../types/ui';
 import { HStack } from '../../../../redesigned/Stack';
+import ArrowIcon from '@/shared/assets/icons/carretDown.svg';
 import { mapDirectionClass } from '../../styles/consts';
 import popupCls from '../../styles/popup.module.scss';
 import cls from './ListBox.module.scss';
@@ -59,7 +61,8 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
                     <Button
                         variant="filled"
                         disabled={readonly}
-                        className={popupCls.trigger}
+                        className={classNames(cls.button, {}, [popupCls.trigger])}
+                        addonRight={<Icon SVG={ArrowIcon}/>}
                     >
                         {currentLabel ?? defaultLabel}
                     </Button>

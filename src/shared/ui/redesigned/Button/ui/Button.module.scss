@@ -2,9 +2,17 @@
     cursor: pointer;
     color: var(--text-redesigned);
     padding: 6px 15px;
+    display: flex;
+    align-items: center;
+    height: 32px;
 
     &:hover {
         color: var(--accent-redesigned);
+
+        .addonLeft svg,
+        .addonRight svg {
+            color: var(--accent-redesigned);
+        }
     }
 }
 
@@ -19,7 +27,6 @@
     background: var(--light-bg-redesigned) !important;
     border: none;
     outline: none;
-    padding: 8px 16px !important;
     border-radius: 34px;
 }
 
@@ -60,4 +67,22 @@
 
 .fullWidth {
     width: 100%;
+}
+
+.addonLeft,
+.addonRight {
+    display: flex;
+}
+
+.addonLeft {
+    padding-right: 8px;
+}
+
+.addonRight {
+    padding-left: 8px;
+}
+
+.addonLeft svg,
+.addonRight svg {
+    color: var(--hint-redesigned);
 }

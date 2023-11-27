@@ -1,54 +1,49 @@
 .inputWrapper {
     display: flex;
-}
-
-.placeholder {
-    margin-right: 5px;
-}
-
-.input {
-    background: transparent;
-    font-family: var(--font-family-main);
-    border: none;
-    outline: none;
+    align-items: center;
+    border-radius: 48px;
+    padding: 8px 16px;
+    border: 2px solid var(--icon-redesigned);
+    height: 38px;
     width: 100%;
-    color: transparent;
-    text-shadow: 0 0 0 var(--primary-color);
+}
 
-    &:focus {
-        outline: none;
+.focus {
+    border: 2px solid var(--accent-redesigned);
+
+    .addonLeft svg,
+    .addonRight svg {
+        color: var(--accent-redesigned);
     }
 }
 
-.caretWrapper {
-    flex-grow: 1;
-    position: relative;
-}
+.input {
+    border: none;
+    outline: none;
+    width: 100%;
+    color: var(--text-redesigned);
+    font-family: var(--font-family-main);
+    text-shadow: 0 0 0 var(--primary-color);
+    background: none;
 
-.caret {
-    height: 3px;
-    width: 9px;
-    background: var(--primary-color);
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    animation: blink 0.7s infinite;
+    &::placeholder {
+        color: var(--hint-redesigned);
+    }
 }
 
 .readonly {
     opacity: 0.7;
 }
 
-@keyframes blink {
-    0% {
-        opacity: 0;
-    }
+.addonLeft,
+.addonRight {
+    display: flex;
+}
 
-    50% {
-        opacity: 0.01;
-    }
+.addonLeft {
+    padding-right: 8px;
+}
 
-    100% {
-        opacity: 1;
-    }
+.addonRight {
+    padding-left: 8px;
 }

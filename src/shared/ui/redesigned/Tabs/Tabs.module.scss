@@ -5,8 +5,18 @@
 
 .tab {
     cursor: pointer;
+    color: var(--text-redesigned);
 }
 
 .selected {
     padding: 8px 16px;
+    background: var(--light-bg-redesigned);
+}
+
+.withAddonLeft {
+    padding-left: 8px;
+}
+
+.withAddonRight {
+    padding-right: 8px;
 }

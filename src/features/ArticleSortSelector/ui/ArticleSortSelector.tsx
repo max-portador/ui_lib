@@ -5,11 +5,11 @@ import type { SelectOption } from '@/shared/ui/depricated/Select';
 import { Select } from '@/shared/ui/depricated/Select';
 import { SortOrder } from '@/shared/types/sort';
 import { ArticleSortFields } from '@/entities/Article';
-import cls from './ArticleSortSelector.module.scss';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 import { Text } from '@/shared/ui/redesigned/Text';
+import cls from './ArticleSortSelector.module.scss';
 
 interface ArticleSortSelectorProps {
     className?: string;
