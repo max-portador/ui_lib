@@ -1,11 +1,14 @@
 import React, {
     InputHTMLAttributes,
-    memo, ReactNode,
+    memo,
+    ReactNode,
     useEffect,
     useRef,
     useState,
 } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { HStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<
@@ -13,20 +16,25 @@ type HTMLInputProps = Omit<
     'value' | 'onChange' | 'readonly'
 >;
 
-interface InputProps extends HTMLInputProps {
+type InputSize = 's' | 'm' | 'l';
+
+interface InputProps extends Omit<HTMLInputProps, 'size'> {
     className?: string;
     value?: string | number;
+    label?: string;
     onChange?: (value: string) => void;
     autofocus?: boolean;
     readonly?: boolean;
     addonLeft?: ReactNode;
-    addonRight?: ReactNode
+    addonRight?: ReactNode;
+    size?: InputSize;
 }
 
 const InputRaw = memo((props: InputProps) => {
     const {
         className,
         value = '',
+        label,
         onChange,
         type = 'text',
         placeholder,
@@ -34,12 +42,12 @@ const InputRaw = memo((props: InputProps) => {
         readonly,
         addonLeft,
         addonRight,
+        size = 'm',
         ...otherProps
     } = props;
 
     const ref = useRef<HTMLInputElement>(null);
     const [isFocused, setIsFocused] = useState(false);
-
 
     useEffect(() => {
         if (autofocus) {
@@ -64,27 +72,38 @@ const InputRaw = memo((props: InputProps) => {
         [cls.readonly]: readonly,
         [cls.focus]: isFocused,
         [cls.withAddonLeft]: Boolean(addonLeft),
-        [cls.withAddonRight]: Boolean(addonRight)
+        [cls.withAddonRight]: Boolean(addonRight),
     };
 
-    return (
-        <div className={classNames(cls.inputWrapper, mods, [className])}>
+    const input = (
+        <div className={ classNames(cls.inputWrapper, mods, [className, cls[size]])}>
             <div className={cls.addonLeft}>{addonLeft}</div>
-                <input
-                    ref={ref}
-                    className={cls.input}
-                    type={type}
-                    value={value}
-                    onChange={onChangeHandler}
-                    onFocus={onFocusHandler}
-                    onBlur={onBlurHandler}
-                    readOnly={readonly}
-                    placeholder={placeholder}
-                    {...otherProps}
-                />
+            <input
+                ref={ref}
+                className={cls.input}
+                type={type}
+                value={value}
+                onChange={onChangeHandler}
+                onFocus={onFocusHandler}
+                onBlur={onBlurHandler}
+                readOnly={readonly}
+                placeholder={placeholder}
+                {...otherProps}
+            />
             <div className={cls.addonRight}>{addonRight}</div>
         </div>
     );
+
+    if (label) {
+        return (
+            <HStack max gap={8} >
+                <Text text={label} />
+                {input}
+            </HStack>
+        );
+    }
+
+    return input;
 });
 
 const Input = memo(InputRaw);

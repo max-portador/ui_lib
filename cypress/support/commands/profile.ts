@@ -1,7 +1,7 @@
 export const updateProfile = (username: string, password: string) => {
     cy.getByTestId('EditableProfileCardHeader.EditButton').click();
-    cy.getByTestId('ProfileCard.firstname').clear().type(username);
-    cy.getByTestId('ProfileCard.lastname').clear().type(password);
+    cy.getByTestId('ProfileCardDeprecated.firstname').clear().type(username);
+    cy.getByTestId('ProfileCardDeprecated.lastname').clear().type(password);
     cy.getByTestId('EditableProfileCardHeader.SaveButton').click();
 };
 

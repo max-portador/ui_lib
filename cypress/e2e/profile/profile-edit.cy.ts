@@ -15,7 +15,7 @@ describe('Пользователь заходит на страницу поль
         cy.resetProfile(profileId);
     });
     it('И профиль успешно загружается', () => {
-        cy.get(selectByTestId('ProfileCard.firstname')).should(
+        cy.get(selectByTestId('ProfileCardDeprecated.firstname')).should(
             'have.value',
             'test',
         );
@@ -24,8 +24,11 @@ describe('Пользователь заходит на страницу поль
         const newName = 'noble';
         const newLastName = 'lastname';
         cy.updateProfile(newName, newLastName);
-        cy.getByTestId('ProfileCard.firstname').should('have.value', newName);
-        cy.getByTestId('ProfileCard.lastname').should(
+        cy.getByTestId('ProfileCardDeprecated.firstname').should(
+            'have.value',
+            newName,
+        );
+        cy.getByTestId('ProfileCardDeprecated.lastname').should(
             'have.value',
             newLastName,
         );

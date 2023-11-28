@@ -46,6 +46,7 @@ const ArticlesFilters = memo((props: ArticleFiltersProps) => {
             <VStack gap={32}>
                 <Input
                     value={search}
+                    size='s'
                     onChange={onChangeSearch}
                     placeholder={t('Поиск')}
                     data-testId="ArticleListSearch"

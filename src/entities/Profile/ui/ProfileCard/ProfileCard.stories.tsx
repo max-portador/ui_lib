@@ -6,7 +6,7 @@ import AvatarImg from '@/shared/assets/tests/avatar.jpeg';
 import { ProfileCard } from './ProfileCard';
 
 export default {
-    title: 'entities/ProfileCard',
+    title: 'entities/ProfileCardDeprecated',
     component: ProfileCard,
     argTypes: {
         backgroundColor: { control: 'color' },
