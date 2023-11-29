@@ -27,6 +27,8 @@ const AppImage = memo((props: AppImageProps) => {
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
 
+    console.log(src, isLoading);
+
     useLayoutEffect(() => {
         const img = new Image();
         img.src = src ?? '';

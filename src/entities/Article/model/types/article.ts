@@ -1,3 +1,4 @@
+import { HTMLAttributeAnchorTarget } from 'react';
 import { ArticleBlockType, ArticleType } from '../consts/consts';
 // eslint-disable-next-line portador/layer-imports
 import { User } from '@/entities/User';
@@ -42,3 +43,11 @@ export interface Article {
 }
 
 export type ArticleView = 'BIG' | 'SMALL';
+
+export interface ArticleListProps {
+    className?: string;
+    articles: Article[];
+    isLoading: boolean;
+    view?: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
+}
