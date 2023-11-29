@@ -14,12 +14,12 @@
 }
 
 .BIG {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 30px;
 
     .card {
         display: flex;
-        height: 800px;
     }
 }

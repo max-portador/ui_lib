@@ -1,12 +1,13 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './ArticleListRedesigned.module.scss';
 import { ArticleView } from '@/entities/Article';
 import { ArticleListItemSkeleton } from '../../ArticleListItem/ArticleListItemSkeleton/ArticleListItemSkeleton';
 import { ArticleListProps } from '../../../model/types/article';
-import { Text, TextSize } from '@/shared/ui/depricated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { ArticleListItem } from '../../ArticleListItem/ArticleListItem';
+import { HStack } from '@/shared/ui/redesigned/Stack';
+import cls from './ArticleListRedesigned.module.scss';
 
 const getSkeletones = (view: ArticleView) =>
     new Array(view === 'SMALL' ? 9 : 3)
@@ -33,14 +34,16 @@ const ArticleListRedesigned = memo((props: ArticleListProps) => {
                     cls[view],
                 ])}
             >
-                <Text size={TextSize.L} title={t('Статьи не найдены')} />
+                <Text size="l" title={t('Статьи не найдены')} />
             </div>
         );
     }
 
     return (
         // @ts-ignore
-        <div
+        <HStack
+            wrap="wrap"
+            gap={16}
             className={classNames(cls.ArticleList, {}, [className, cls[view]])}
             data-testId="ArticleList"
         >
@@ -55,7 +58,7 @@ const ArticleListRedesigned = memo((props: ArticleListProps) => {
             ))}
 
             {isLoading && getSkeletones(view)}
-        </div>
+        </HStack>
     );
 });
 

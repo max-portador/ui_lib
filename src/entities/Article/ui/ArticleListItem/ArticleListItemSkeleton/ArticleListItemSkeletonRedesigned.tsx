@@ -4,6 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import cls from '../redesigned/ArticleListItem.module.scss';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleListItemSkeletonRedesignedProps {
     className?: string;
@@ -54,17 +55,16 @@ const ArticleListItemSkeletonRedesigned = memo(
                 ])}
             >
                 <Card className={cls.card}>
-                    <div className={cls.imageWrapper}>
-                        <Skeleton
-                            width={200}
-                            height={200}
-                            className={cls.img}
-                        />
-                    </div>
-                    <div className={cls.infoWrapper}>
-                        <Skeleton width={130} height={16} />
-                    </div>
-                    <Skeleton width={150} height={16} className={cls.title} />
+                    <VStack className={cls.img}>
+                        <Skeleton width="100%" height={200} />
+                    </VStack>
+                    <VStack gap={8} className={cls.info} max>
+                        <Skeleton height={24} className={cls.title} />
+                        <VStack gap={8} className={cls.footer} max>
+                            <Skeleton height={24} />
+                            <Skeleton height={24} />
+                        </VStack>
+                    </VStack>
                 </Card>
             </div>
         );
