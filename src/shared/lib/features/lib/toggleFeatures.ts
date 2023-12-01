@@ -1,5 +1,5 @@
 import { FeatureFlags } from '@/shared/types/featureFlags';
-import { getFeatureFlag } from '@/shared/lib/features/setGetFetures';
+import { getFeatureFlag } from '@/shared/lib/features/lib/setGetFetures';
 
 interface ToggleFeaturesOptions<T> {
     name: keyof FeatureFlags;
