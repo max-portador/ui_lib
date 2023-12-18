@@ -7,3 +7,4 @@ db
 *.html
 *.css
 *.scss
+src/app/examples

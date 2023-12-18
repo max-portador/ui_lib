@@ -18,12 +18,6 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "Запускаю prettier..."
-npm run prettier
-if [ $? -ne 0 ]; then
-    echo "Ошибка при выполнении prettier..."
-    exit 1
-fi
 
 echo "Запускаю проверку TypeScript..."
 npm run lint:ts
@@ -33,5 +27,11 @@ echo "Запускаю lint:scss..."
 npm run lint:scss:fix
 check_status "lint:css" "lint:scss:fix" "lint:css"
 
+echo "Запускаю prettier..."
+npm run prettier
+if [ $? -ne 0 ]; then
+    echo "Ошибка при выполнении prettier..."
+    exit 1
+fi
 
 echo "Все проверки успешно выполнены!"

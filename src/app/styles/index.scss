@@ -11,6 +11,7 @@ body {
 
 .app {
     background: var(--bg-color);
+    min-height: 100vh;
 }
 
 .app_redesigned {
@@ -18,12 +19,6 @@ body {
     min-height: 100vh;
     font: var(--font-m);
     color: var(--text-redesigned);
-}
-
-.app,
-.app_drawer,
-.app_modal {
-    min-height: 100vh;
 }
 
 .content-page {

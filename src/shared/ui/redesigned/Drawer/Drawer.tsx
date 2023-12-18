@@ -10,6 +10,7 @@ import {
     useAnimationLibs,
 } from '@/shared/lib/components/AnimationProvider';
 import cls from './Drawer.module.scss';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface DrawerProps extends PropsWithChildren {
     className?: string;
@@ -94,12 +95,17 @@ const DrawerContent = memo((props: DrawerProps) => {
     };
 
     return (
-        <Portal>
+        <Portal element={document.getElementById('app') ?? document.body}>
             <div
                 className={classNames(cls.Drawer, mods, [
                     className,
                     theme,
                     'app_drawer',
+                    toggleFeatures({
+                        name: 'isAppRedesigned',
+                        on: () => cls.drawerNew,
+                        off: () => cls.drawerOld,
+                    }),
                 ])}
             >
                 <Overlay onClick={close} />
