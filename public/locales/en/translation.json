@@ -53,5 +53,8 @@
   "Спасибо за оценку!": "Thanks for rating",
   "Оценка скоро появится!": "The rating will appear soon!",
   "Добро пожаловать на страницу статей": "Welcome to the Articles page!",
-  "Здесь вы можете просматривать статьи на различные темы": "Here you can view articles on various topics"
+  "Здесь вы можете просматривать статьи на различные темы": "Here you can view articles on various topics",
+  "{{count}} просмотров_zero": "0 views",
+  "{{count}} просмотров_one": "1 view",
+  "{{count}} просмотров_other": "{{count}} views"
 }

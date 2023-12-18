@@ -8,6 +8,7 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader';
 import { Text, TextAlign, TextSize } from '@/shared/ui/depricated/Text';
 import { Skeleton } from '@/shared/ui/depricated/Skeleton';
+import { Skeleton as SkeletonRe } from '@/shared/ui/redesigned/Skeleton';
 import { Avatar } from '@/shared/ui/depricated/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
@@ -27,6 +28,7 @@ import {
     getArticleDetailsError,
     getArticleDetailsIsLoading,
 } from '../../model/selectors/articleDetails';
+import { ToggleFeatures } from '@/shared/lib/features';
 import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
@@ -88,26 +90,71 @@ const ArticleDetails: FC<ArticleDetailsProps> = memo(
 
         if (isLoading) {
             content = (
-                <div>
-                    <Skeleton
-                        className={cls.avatar}
-                        width={200}
-                        height={200}
-                        border="50%"
-                    />
-                    <Skeleton className={cls.title} width={300} height={32} />
-                    <Skeleton className={cls.title} width={600} height={24} />
-                    <Skeleton
-                        className={cls.skeleton}
-                        width="100%"
-                        height={200}
-                    />
-                    <Skeleton
-                        className={cls.skeleton}
-                        width="100%"
-                        height={200}
-                    />
-                </div>
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={
+                        <VStack max gap={8}>
+                            <HStack max justify="center">
+                                <SkeletonRe
+                                    className={cls.avatar}
+                                    width={200}
+                                    height={200}
+                                    border="50%"
+                                />
+                            </HStack>
+                            <SkeletonRe
+                                className={cls.title}
+                                width={300}
+                                height={32}
+                            />
+                            <SkeletonRe
+                                className={cls.title}
+                                width={600}
+                                height={24}
+                            />
+                            <SkeletonRe
+                                className={cls.skeleton}
+                                width="100%"
+                                height={200}
+                            />
+                            <SkeletonRe
+                                className={cls.skeleton}
+                                width="100%"
+                                height={200}
+                            />
+                        </VStack>
+                    }
+                    off={
+                        <div>
+                            <Skeleton
+                                className={cls.avatar}
+                                width={200}
+                                height={200}
+                                border="50%"
+                            />
+                            <Skeleton
+                                className={cls.title}
+                                width={300}
+                                height={32}
+                            />
+                            <Skeleton
+                                className={cls.title}
+                                width={600}
+                                height={24}
+                            />
+                            <Skeleton
+                                className={cls.skeleton}
+                                width="100%"
+                                height={200}
+                            />
+                            <Skeleton
+                                className={cls.skeleton}
+                                width="100%"
+                                height={200}
+                            />
+                        </div>
+                    }
+                />
             );
         } else if (error) {
             content = (
