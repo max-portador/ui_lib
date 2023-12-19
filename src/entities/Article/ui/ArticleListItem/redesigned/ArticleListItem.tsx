@@ -97,9 +97,9 @@ const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
             {...bindHover}
             data-testId="ArticleListItem"
         >
-            <Card className={cls.card} border="round">
+            <Card className={cls.card} border="round" padding="0">
                 <AppImage
-                    fallback={<Skeleton width={200} height={200} />}
+                    fallback={<Skeleton width="100%" height={200} />}
                     src={article.img}
                     alt={article.title}
                     className={cls.img}
@@ -112,7 +112,11 @@ const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
                             {views}
                         </HStack>
                         <HStack gap={4}>
-                            <Avatar size={32} src={article.user.avatar} />
+                            <Avatar
+                                size={32}
+                                src={article.user.avatar}
+                                className={cls.avatar}
+                            />
                             <Text text={article.user.username} bold />
                         </HStack>
                     </VStack>

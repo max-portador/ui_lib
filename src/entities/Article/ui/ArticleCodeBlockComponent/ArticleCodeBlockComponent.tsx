@@ -1,8 +1,10 @@
 import React, { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleCodeBlock } from '@/entities/Article/model/types/article';
-import { Code } from '@/shared/ui/depricated/Code';
+import { Code as CodeDeprecated } from '@/shared/ui/depricated/Code';
+import { Code } from '@/shared/ui/redesigned/Code';
 import cls from './ArticleCodeBlockComponent.module.scss';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface ArticleCodeBlockComponentProps {
     className?: string;
@@ -18,7 +20,11 @@ const ArticleCodeBlockComponent = memo(
                     className,
                 ])}
             >
-                <Code text={block.code} />
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={<Code text={block.code} />}
+                    off={<CodeDeprecated text={block.code} />}
+                />
             </div>
         );
     },
