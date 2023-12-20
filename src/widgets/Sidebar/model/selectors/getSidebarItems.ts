@@ -9,12 +9,14 @@ import ProfileIconDeprecated from '@/shared/assets/icons/profile-icon.svg';
 import MainIcon from '@/shared/assets/icons/home.svg';
 import ArticlesIcon from '@/shared/assets/icons/article.svg';
 import AboutIcon from '@/shared/assets/icons/Info.svg';
+import SettingsIcon from '@/shared/assets/icons/plate-24-24.svg';
 import ProfileIcon from '@/shared/assets/icons/avatar.svg';
 import {
     getRouteAbout,
     getRouteArticles,
     getRouteMain,
     getRouteProfile,
+    getRouteSettings,
 } from '@/shared/const/router';
 import { SidebarItemType } from '../../model/types/sidebar';
 import { toggleFeatures } from '@/shared/lib/features';
@@ -38,6 +40,11 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
                 off: () => AboutIconDeprecated,
             }),
             text: 'О сайте',
+        },
+        {
+            path: getRouteSettings(),
+            Icon: SettingsIcon,
+            text: 'Настройки',
         },
     ];
 

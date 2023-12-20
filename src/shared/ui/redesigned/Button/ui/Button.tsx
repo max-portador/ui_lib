@@ -10,6 +10,7 @@ import cls from './Button.module.scss';
 export type ButtonSize = 'm' | 'l' | 'xl';
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled';
+export type ButtonColor = 'normal' | 'success' | 'error';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
@@ -17,6 +18,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
      * Тема кнопки. Отвечает за визуал (в рамке, без стилей, противоположный теме приложения цвет и тд)
      */
     variant?: ButtonVariant;
+    /**
+     * Цвет кнопки.
+     */
+    color?: ButtonColor;
     /**
      * Флаг, делающий кнопку квадратной
      */
@@ -38,7 +43,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
      */
     fullWidth?: boolean;
     addonLeft?: ReactNode;
-    addonRight?: ReactNode
+    addonRight?: ReactNode;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
@@ -52,6 +57,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
         size = 'm',
         addonLeft,
         addonRight,
+        color = 'normal',
         ...otherProps
     } = props;
 
@@ -60,7 +66,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
         [cls.disabled]: disabled,
         [cls.fullWidth]: fullWidth,
         [cls.withAddonLeft]: Boolean(addonLeft),
-        [cls.withAddonRight]: Boolean(addonRight)
+        [cls.withAddonRight]: Boolean(addonRight),
     };
 
     return (
@@ -70,6 +76,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
                 className,
                 cls[variant],
                 cls[size],
+                cls[color],
             ])}
             disabled={disabled}
             {...otherProps}

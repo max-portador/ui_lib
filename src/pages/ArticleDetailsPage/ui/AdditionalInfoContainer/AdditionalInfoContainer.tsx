@@ -21,7 +21,7 @@ const AdditionalInfoContainer = memo((props: AdditionalInfoContainerProps) => {
 
     if (isLoading) {
         return (
-            <Card padding="24" border="round" className={cls.card}>
+            <Card padding="24" border="light-round" className={cls.card}>
                 <ArticleAdditionalSkeletons className={className} />
             </Card>
         );
@@ -33,7 +33,7 @@ const AdditionalInfoContainer = memo((props: AdditionalInfoContainerProps) => {
     const { user, createdAt, views } = article;
 
     return (
-        <Card padding="24" border="round" className={cls.card}>
+        <Card padding="24" border="light-round" className={cls.card}>
             <ArticleAdditionalInfo
                 author={user}
                 createdAt={createdAt}

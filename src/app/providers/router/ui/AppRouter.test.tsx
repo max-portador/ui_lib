@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import {
     getRouteAbout,
@@ -29,8 +29,11 @@ describe('app/router/AppRouter', () => {
         componentRender(<AppRouter />, {
             route: getRouteProfile('1'),
         });
-        const page = await screen.findByTestId('MainPage');
-        expect(page).toBeInTheDocument();
+
+        await waitFor(async () => {
+            const page = await screen.findByTestId('MainPage');
+            expect(page).toBeInTheDocument();
+        });
     });
 
     test('Доступ к закрытой странице', async () => {

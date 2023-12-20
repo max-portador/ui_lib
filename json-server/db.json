@@ -1029,7 +1029,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_purple_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlePageWasOpened": true
@@ -1086,8 +1086,8 @@
       "first": "jghwer",
       "lastname": "asfewr",
       "age": "46",
-      "currency": "RUB",
-      "country": "Russia",
+      "currency": "EUR",
+      "country": "Kazakhstan",
       "city": "Moscow",
       "username": "admin213",
       "avatar": "https://complaneta.ru/wp-content/uploads/2022/02/unnamed.jpg",

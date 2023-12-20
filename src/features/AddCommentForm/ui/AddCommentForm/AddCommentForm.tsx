@@ -54,7 +54,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
             <ToggleFeatures
                 feature="isAppRedesigned"
                 on={
-                    <Card padding="24" border="round" max>
+                    <Card padding="24" border="light-round" max>
                         <HStack
                             max
                             gap={16}

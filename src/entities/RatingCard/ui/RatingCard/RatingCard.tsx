@@ -3,21 +3,21 @@ import { useTranslation } from 'react-i18next';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text as TextDeprecated } from '@/shared/ui/depricated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { Input as InputDeprecated } from '@/shared/ui/depricated/Input';
 import { StarRating } from '@/shared/ui/depricated/StarRating';
 import { Modal } from '@/shared/ui/redesigned/Modal';
-import { Input as InputDeprecated } from '@/shared/ui/depricated/Input';
+import { Card as CardDeprecated } from '@/shared/ui/depricated/Card';
+import { Card } from '@/shared/ui/redesigned/Card';
 import {
     Button as ButtonDeprecated,
     ButtonSize,
     ButtonTheme,
 } from '@/shared/ui/depricated/Button';
+import { Button } from '@/shared/ui/redesigned/Button';
 import { Drawer } from '@/shared/ui/redesigned/Drawer';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Text } from '@/shared/ui/redesigned/Text';
-import { Input } from '@/shared/ui/redesigned/Input';
-import { Button } from '@/shared/ui/redesigned/Button';
-import { Card as CardDeprecated } from '@/shared/ui/depricated/Card';
-import { Card } from '@/shared/ui/redesigned/Card';
 
 interface RatingCardProps {
     className?: string;
@@ -210,7 +210,7 @@ const RatingCard = memo((props: RatingCardProps) => {
                 <Card
                     className={className}
                     padding="24"
-                    border="round"
+                    border="light-round"
                     max
                     data-testid="RatingCard"
                 >

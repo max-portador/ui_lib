@@ -28,16 +28,49 @@
     border: none;
     outline: none;
     border-radius: 34px;
+
+    &.success,
+    &.error {
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &.success {
+        background-color: var(--save-redesigned) !important;
+    }
+
+    &.error {
+        background-color: var(--cancel-redesigned) !important;
+    }
 }
 
 .outline {
     background: none;
-    border: 2px solid var(--icon-redesigned);
     outline: none;
     border-radius: 34px;
 
-    &:hover {
-        border: 2px solid var(--accent-redesigned);
+    &.normal {
+        border: 2px solid var(--icon-redesigned);
+
+        &:hover {
+            border: 2px solid var(--accent-redesigned);
+        }
+    }
+
+    &.success,
+    &.error {
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &.success {
+        border: 2px solid var(--save-redesigned);
+    }
+
+    &.error {
+        border: 2px solid var(--cancel-redesigned);
     }
 }
 

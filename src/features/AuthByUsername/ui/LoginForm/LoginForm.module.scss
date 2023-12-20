@@ -1,6 +1,10 @@
 .loginForm {
     display: flex;
     flex-direction: column;
+}
+
+.loginForm,
+.loginFormRedesigned {
     width: 400px;
 }
 

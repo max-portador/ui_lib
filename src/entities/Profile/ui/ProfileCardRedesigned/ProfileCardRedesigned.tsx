@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Input } from '@/shared/ui/redesigned/Input';
-import { Loader } from '@/shared/ui/depricated/Loader';
 import { CurrencySelect } from '@/entities/Currency';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { CountrySelect } from '@/entities/Country';
@@ -61,6 +60,7 @@ const ProfileCardRedesigned: FC<ProfileCardProps> = (props) => {
         <Card
             padding="24"
             max
+            border="light-round"
             className={classNames(cls.ProfileCardRedesigned, {}, [className])}
         >
             {data?.avatar && (
