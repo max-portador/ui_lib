@@ -1,10 +1,14 @@
 .AddCommentForm {
     margin-top: 20px;
-    border: 1px solid var(--secondary-color);
     border-radius: 5px;
     padding: 20px;
+    border: 1px solid var(--secondary-color);
 }
 
 .input {
     flex-grow: 1;
+}
+
+.button {
+    height: 100%;
 }

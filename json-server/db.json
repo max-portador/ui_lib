@@ -1007,6 +1007,12 @@
       "userId": "4",
       "text": "TEST TEXT",
       "id": "QQnR5kb"
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "text": "                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque dolor eaque magnam placeat quam repellendus ullam voluptate! Accusantium, aspernatur at consequuntur debitis explicabo facilis inventore, magnam modi molestias nostrum officia sed vel voluptas. Amet dicta fugit omnis repellendus voluptatibus. Accusamus aspernatur corporis delectus deserunt et itaque iure labore odio quisquam quod ratione reprehenderit rerum similique tempora, velit vitae voluptate voluptatem.",
+      "id": "YT6hnBw"
     }
   ],
   "users": [
@@ -1023,7 +1029,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_purple_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlePageWasOpened": true

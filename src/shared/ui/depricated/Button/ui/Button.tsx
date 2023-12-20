@@ -25,10 +25,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     disabled?: boolean;
 }
 
-/**
- * Устарел, используем новый
- * @deprecated
- */
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     const {
         className,
@@ -59,4 +55,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
         </button>
     );
 });
+
+/**
+ * Устарел, используем новый
+ * @deprecated
+ */
 export default memo(Button);
