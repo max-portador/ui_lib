@@ -13,7 +13,7 @@ describe('Sidebar tests', () => {
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
         fireEvent.click(toggleBtn);
         expect(screen.getByTestId('sidebar')).toHaveClass(
-            'collapsedRedesigned',
+            'collapsed',
         );
     });
 });

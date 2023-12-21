@@ -4,7 +4,10 @@ import {
     updateFeatureFlagsMutations,
     UpdateFeatureFlagsOptions,
 } from '@/shared/lib/features/api/featuresFlagApi';
-import { getAllFeatureFlag } from '@/shared/lib/features/lib/setGetFetures';
+import {
+    getAllFeatureFlag,
+    setFeatureFlags,
+} from '@/shared/lib/features/lib/setGetFetures';
 
 export const updateFeatureFlags = createAsyncThunk<
     void,
@@ -17,15 +20,18 @@ export const updateFeatureFlags = createAsyncThunk<
 
         const features = getAllFeatureFlag();
 
+        const allFeatures = { ...features, ...newFeatures };
+
         try {
             await dispatch(
                 updateFeatureFlagsMutations({
                     userId,
-                    features: { ...features, ...newFeatures },
+                    features: allFeatures,
                 }),
             );
-
-            window.location.reload();
+            setFeatureFlags(allFeatures);
+            return;
+            // window.location.reload();
         } catch (e) {
             console.log(e);
             rejectWithValue('');
