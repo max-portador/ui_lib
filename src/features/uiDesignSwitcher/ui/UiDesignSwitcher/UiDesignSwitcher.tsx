@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useState } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 import { getFeatureFlag, updateFeatureFlags } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
@@ -8,7 +7,6 @@ import { useUserAuthData } from '@/entities/User';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
-import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 
 interface UiDesignSwitcherProps {
     className?: string;
@@ -23,7 +21,6 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
     const isAppRedesigned = getFeatureFlag('isAppRedesigned');
     const dispatch = useAppDispatch();
     const authData = useUserAuthData();
-    const forceUpdate = useForceUpdate()
     const [isLoading, setIsLoading] = useState(false);
 
     const items: Item[] = [
@@ -49,7 +46,6 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
                 }),
             ).unwrap();
             setIsLoading(false);
-            forceUpdate();
         }
     };
 

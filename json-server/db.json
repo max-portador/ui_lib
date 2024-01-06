@@ -1026,13 +1026,11 @@
       "features": {
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true,
-        "isAppRedesigned": false
+        "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
-        "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false,
-        "isArticlePageWasOpened": true
+        "isArticlePageWasOpened": true,
+        "theme": "app_dark_theme"
       },
       "avatar": "https://myprepod.ru/img/20171105221233259.jpg"
     },
