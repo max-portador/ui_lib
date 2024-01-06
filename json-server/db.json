@@ -1030,7 +1030,7 @@
       },
       "jsonSettings": {
         "isArticlePageWasOpened": true,
-        "theme": "app_dark_theme"
+        "theme": "app_purple_theme"
       },
       "avatar": "https://myprepod.ru/img/20171105221233259.jpg"
     },
@@ -1047,7 +1047,7 @@
       },
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg",
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isArticlePageWasOpened": true
       }
     },

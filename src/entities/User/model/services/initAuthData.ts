@@ -1,5 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
+import {
+    LOCAL_STORAGE_LAST_DESIGN_KEY,
+    USER_LOCALSTORAGE_KEY,
+} from '@/shared/const/localStorage';
 
 import type { ThunkConfig } from '@/app/providers/StoreProvider';
 import type { User } from '../types/user';
@@ -21,6 +24,11 @@ export const initAuthData = createAsyncThunk<User, void, ThunkConfig<string>>(
             if (!user) {
                 return rejectWithValue('no user from server');
             }
+
+            localStorage.setItem(
+                LOCAL_STORAGE_LAST_DESIGN_KEY,
+                user.features?.isAppRedesigned ? 'new' : 'old',
+            );
 
             return user;
         } catch (e) {
