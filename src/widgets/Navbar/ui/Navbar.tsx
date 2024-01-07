@@ -9,60 +9,20 @@ import {
 import { Button } from '@/shared/ui/redesigned/Button';
 import { LoginModal } from '@/features/AuthByUsername';
 import { getUserAuthData } from '@/entities/User';
-import { NotificationButton } from '@/features/notificationButton';
-import { AvatarDropdown } from '@/features/avatarDropDown';
-import { Text, TextTheme } from '@/shared/ui/depricated/Text';
-import { AppLink, AppLinkTheme } from '@/shared/ui/depricated/AppLink';
-import { getRouteArticleCreate } from '@/shared/const/router';
-import { HStack } from '@/shared/ui/redesigned/Stack';
 import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 import cls from './Navbar.module.scss';
+import { DeprecatedNavbar } from '@/widgets/Navbar/ui/DeprecatedNavbar';
+import { NavbarRedesigned } from '@/widgets/Navbar/ui/NavbarRedesigned';
 
 interface NavbarProps {
     className?: string;
 }
 
-interface FaetureNavbarProps {
-    className?: string;
-}
-
-const DeprecatedNavbar = (props: FaetureNavbarProps) => {
-    const { className } = props;
-    const { t } = useTranslation();
-
-    return (
-        <header className={classNames(cls.Navbar, {}, [className])}>
-            <Text
-                className={cls.appName}
-                title={t('Ulbi TV App')}
-                theme={TextTheme.INVERTED}
-            />
-            <AppLink
-                to={getRouteArticleCreate()}
-                theme={AppLinkTheme.SECONDARY}
-            >
-                {t('Создать статью')}
-            </AppLink>
-            <HStack gap={16} className={cls.actions}>
-                <NotificationButton key="notification-btn" />
-                <AvatarDropdown key="avatar-dropdown" />
-            </HStack>
-        </header>
-    );
-};
-
-const NavbarRedesigned = (props: FaetureNavbarProps) => {
-    const { className } = props;
-
-    return (
-        <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
-            <HStack gap={16} className={cls.actions}>
-                <NotificationButton key="notification-btn" />
-                <AvatarDropdown key="avatar-dropdown" />
-            </HStack>
-        </header>
-    );
-};
+const mainClass = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => cls.NavbarRedesigned,
+    off: () => cls.Navbar,
+});
 
 const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
@@ -86,12 +46,6 @@ const Navbar = memo(({ className }: NavbarProps) => {
             />
         );
     }
-
-    const mainClass = toggleFeatures({
-        name: 'isAppRedesigned',
-        on: () => cls.NavbarRedesigned,
-        off: () => cls.Navbar,
-    });
 
     return (
         <header className={classNames(mainClass, {}, [className])}>
