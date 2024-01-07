@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import '@/app/styles/index.scss';
 import { CommentCard } from './CommentCard';
+import { FeatureFlagDecorator } from '@/shared/config/storybook/FeatureFlagDecorator';
 
 const comment = {
     id: '1',
@@ -37,3 +38,18 @@ IsLoading.args = {
     comment,
     isLoading: true,
 };
+
+export const NormalRedesigned = Template.bind({});
+NormalRedesigned.args = {
+    comment,
+};
+NormalRedesigned.decorators = [FeatureFlagDecorator({ isAppRedesigned: true })];
+
+export const IsLoadingRedesigned = Template.bind({});
+IsLoadingRedesigned.args = {
+    comment,
+    isLoading: true,
+};
+IsLoadingRedesigned.decorators = [
+    FeatureFlagDecorator({ isAppRedesigned: true }),
+];

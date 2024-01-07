@@ -5,6 +5,7 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import AvatarImg from '@/shared/assets/tests/avatar.jpeg';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { EditableProfileCard } from './EditableProfileCard';
 
@@ -66,6 +67,13 @@ Normal.args = {};
 
 Normal.decorators = [StoreDecorator(initialState)];
 
+export const NormalRedesigned = Template.bind({});
+NormalRedesigned.args = {};
+
+NormalRedesigned.decorators = [
+    StoreDecorator(initialState),
+    NewDesignDecorator,
+];
 export const CantEdit = Template.bind({});
 CantEdit.args = {};
 
