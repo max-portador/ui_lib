@@ -5,18 +5,18 @@ function getAttributeNodeByName(jsxAttributes: JsxAttribute[], name: string) {
     return jsxAttributes.find((node) => node.getName() === name);
 }
 
-function getFunctionTextByFeatureState(
-    attributes: JsxAttribute[],
-    propertyName: string,
-): string {
-    const attribute = getAttributeNodeByName(attributes, propertyName);
-    return (
-        attribute
-            ?.getFirstDescendantByKind(SyntaxKind.JsxExpression)
-            ?.getExpression()
-            ?.getText() ?? ''
-    );
-}
+const getReplacedComponent = (attribute?: JsxAttribute) => {
+    const value = attribute
+        ?.getFirstDescendantByKind(SyntaxKind.JsxExpression)
+        ?.getExpression()
+        ?.getText();
+
+    if (value?.startsWith('(')) {
+        return value.slice(1, -1);
+    }
+
+    return value;
+};
 
 export function isToggleComponent(node: Node) {
     const identifier = node.getFirstDescendantByKind(SyntaxKind.Identifier);
@@ -29,7 +29,8 @@ export const replaceToggleComponent = (
     featureState: string,
 ) => {
     const attributes = node.getDescendantsOfKind(SyntaxKind.JsxAttribute);
-
+    const onAttribute = getAttributeNodeByName(attributes, 'on');
+    const offAttribute = getAttributeNodeByName(attributes, 'off');
     const featureAttribute = getAttributeNodeByName(attributes, 'feature');
 
     const featureName = featureAttribute
@@ -41,7 +42,14 @@ export const replaceToggleComponent = (
         return;
     }
 
-    node.replaceWithText(
-        getFunctionTextByFeatureState(attributes, featureState),
-    );
+    const offValue = getReplacedComponent(offAttribute);
+    const onValue = getReplacedComponent(onAttribute);
+
+    if (featureState === 'on' && onValue) {
+        node.replaceWithText(onValue);
+    }
+
+    if (featureState === 'off' && offValue) {
+        node.replaceWithText(offValue);
+    }
 };
