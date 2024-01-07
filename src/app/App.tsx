@@ -11,11 +11,14 @@ import { AppRouter } from '@/app/providers/router';
 import { MainLayout } from '@/shared/layouts/MainLayout/MainLayout';
 import { PageLoader } from '@/widgets/PageLoader';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
+import { useAppToolbar } from '@/app/lib/useAppToolbar';
 
 function App() {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
+    const toolbar = useAppToolbar();
+
     useEffect(() => {
         if (!inited) {
             dispatch(initAuthData());
@@ -52,7 +55,7 @@ function App() {
                             header={<Navbar />}
                             content={<AppRouter />}
                             sidebar={<Sidebar />}
-                            toolbar={<div>T</div>}
+                            toolbar={toolbar}
                         />
                     </Suspense>
                 </div>
